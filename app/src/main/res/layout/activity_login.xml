@@ -6,4 +6,97 @@
     android:layout_height="match_parent"
     tools:context=".LoginActivity">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/login_hello_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:textSize="30dp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:layout_marginTop="50dp"
+            android:text="환영합니다" />
+
+        <TextView
+            android:id="@+id/login_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="40dp"
+            android:textStyle="bold"
+            android:textColor="#2B2DEF"
+            android:layout_marginTop="200dp"
+            android:text="SIGN IN" />
+
+        <TextView
+            android:id="@+id/login_id_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ID"
+            android:textColor="@color/black" />
+
+        <EditText
+            android:id="@+id/login_id_edit"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:layout_gravity="center"
+            android:background="@drawable/edittext_background" />
+
+        <TextView
+            android:id="@+id/login_pwd_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:text="PASSWORD" />
+
+        <EditText
+            android:id="@+id/login_pwd_edit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:background="@drawable/edittext_background" />
+
+        <Button
+            android:id="@+id/login_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#3B4CF6"
+            android:textSize="15dp"
+            android:text="SIGN IN" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+
+            <TextView
+                android:id="@+id/have_no_ID_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="right"
+                android:text="아이디가 없으신가요?" />
+
+            <Button
+                android:id="@+id/signup_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="SIGN UP"
+                android:gravity="left"
+                android:textColor="@color/black"
+                android:background="transparent"
+                />
+        </LinearLayout>
+
+
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
