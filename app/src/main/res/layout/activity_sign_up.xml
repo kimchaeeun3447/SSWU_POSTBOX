@@ -7,6 +7,139 @@
     android:layout_height="match_parent"
     tools:context=".SignUpActivity">
 
+  <FrameLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent">
 
+    <ImageView
+        android:id="@+id/signup_background_image"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scaleType="fitXY"
+        android:layout_gravity="bottom"
+        android:src="@drawable/login_background" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+      <TextView
+          android:id="@+id/signup_hello_text"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_gravity="right"
+          android:layout_marginTop="50dp"
+          android:layout_marginRight="20dp"
+          android:text="환영합니다"
+          android:textColor="@color/black"
+          android:textSize="30dp"
+          android:textStyle="bold" />
+
+      <TextView
+          android:id="@+id/signup_text"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginLeft="30dp"
+          android:layout_marginTop="115dp"
+          android:text="SIGN UP"
+          android:textColor="#2B2DEF"
+          android:textSize="40dp"
+          android:textStyle="bold" />
+
+      <TextView
+          android:id="@+id/signup_id_text"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginLeft="30dp"
+          android:layout_marginTop="10dp"
+          android:text="ID"
+          android:textColor="@color/black" />
+
+      <EditText
+          android:id="@+id/signup_id_edit"
+          android:layout_width="350dp"
+          android:layout_height="wrap_content"
+          android:layout_gravity="center"
+          android:background="@drawable/edittext_background"
+          android:ems="10"
+          android:inputType="textPersonName" />
+
+      <TextView
+          android:id="@+id/signup_pwd_text"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginLeft="30dp"
+          android:layout_marginTop="10dp"
+          android:text="PASSWORD"
+          android:textColor="@color/black" />
+
+      <EditText
+          android:id="@+id/signup_pwd_edit"
+          android:layout_width="350dp"
+          android:layout_height="wrap_content"
+          android:layout_gravity="center"
+          android:background="@drawable/edittext_background"
+          android:ems="10"
+          android:inputType="textPersonName" />
+
+      <TextView
+          android:id="@+id/signup_major_text"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginLeft="30dp"
+          android:layout_marginTop="10dp"
+          android:text="MAJOR"
+          android:textColor="@color/black" />
+
+      <EditText
+          android:id="@+id/signup_major_edit"
+          android:layout_width="350dp"
+          android:layout_height="wrap_content"
+          android:layout_gravity="center"
+          android:background="@drawable/edittext_background"
+          android:ems="10"
+          android:inputType="textPersonName" />
+
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="10dp"
+          android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/info_agree_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_gravity="center"
+            android:textSize="15dp"
+            android:text="개인정보 수집 동의"
+            android:textColor="@color/black" />
+
+        <CheckBox
+            android:id="@+id/info_agree_checkBox"
+            android:layout_width="32dp"
+            android:layout_height="match_parent"
+            android:gravity="center" />
+
+      </LinearLayout>
+
+
+      <Button
+          android:id="@+id/signup_check_btn"
+          android:layout_width="350dp"
+          android:layout_height="wrap_content"
+          android:layout_gravity="center"
+          android:layout_marginTop="20dp"
+          android:background="#3B4CF6"
+          android:elevation="10dp"
+          android:text="SIGN UP"
+          android:textSize="15dp" />
+
+    </LinearLayout>
+
+
+  </FrameLayout>
 
   </androidx.constraintlayout.widget.ConstraintLayout>
