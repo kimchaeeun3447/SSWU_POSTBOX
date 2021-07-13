@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".NotificationListActivity">
+
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <!--알림창  페이지 title-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp">
+
+                <ImageButton
+                    android:id="@+id/notification_list_back_btn"
+                    android:layout_width="45dp"
+                    android:layout_height="24dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@android:color/transparent"
+                    android:gravity="start"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/back_btn"
+                    app:layout_constrainedWidth="true"
+                    app:layout_constraintEnd_toStartOf="@+id/notification_list_title"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    app:layout_constraintHorizontal_weight="1"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <TextView
+                    android:id="@+id/notification_list_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="알림창"
+                    android:textColor="@color/black"
+                    android:textSize="30dp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/keyword_setting_back_btn" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="370dp"
+                android:layout_height="1dp"
+                android:background="#707070"
+                android:layout_gravity="center"
+                android:layout_marginBottom="10dp"
+                ></View>
+
+
+            <!--알림창 목록 예시 65-181 (아직)-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:id="@+id/notification_list_example_button1"
+                    android:layout_width="20dp"
+                    android:layout_height="19dp"
+                    android:gravity="center"
+                    android:layout_marginLeft="27dp"
+                    android:layout_marginTop="3dp"
+                    android:background="@android:color/transparent"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/alarm_check_btn" />
+
+                <!--알림창 키워드, 제목 불러오기 예시-->
+                <TextView
+                    android:id="@+id/notification_list_example_title1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="6dp"
+                    android:layout_marginBottom="6dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_weight="0.7"
+                    android:gravity="start"
+                    android:text="[키워드] (글 제목)성신장학 어쩌구저쩌구... 공지사항이 올라왔습니다."
+                    android:textColor="@color/black"
+                    android:textSize="12dp" />
+
+            </LinearLayout>
+            <View
+                android:layout_width="370dp"
+                android:layout_height="1dp"
+                android:background="#4A707070"
+                android:layout_gravity="center"
+                android:layout_marginBottom="10dp"
+                ></View>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:id="@+id/notification_list_example_button2"
+                    android:layout_width="20dp"
+                    android:layout_height="19dp"
+                    android:gravity="center"
+                    android:layout_marginLeft="27dp"
+                    android:layout_marginTop="3dp"
+                    android:background="@android:color/transparent"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/alarm_check_btn" />
+
+                <!--알림창 키워드, 제목 불러오기 예시-->
+                <TextView
+                    android:id="@+id/notification_list_example_title2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="6dp"
+                    android:layout_marginBottom="6dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_weight="0.7"
+                    android:gravity="start"
+                    android:text="[키워드] (글 제목)성신장학 어쩌구저쩌구... 공지사항이 올라왔습니다."
+                    android:textColor="@color/black"
+                    android:textSize="12dp" />
+
+            </LinearLayout>
+            <View
+                android:layout_width="370dp"
+                android:layout_height="1dp"
+                android:background="#4A707070"
+                android:layout_gravity="center"
+                android:layout_marginBottom="10dp"
+                ></View>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:id="@+id/notification_list_example_button3"
+                    android:layout_width="20dp"
+                    android:layout_height="19dp"
+                    android:gravity="center"
+                    android:layout_marginLeft="27dp"
+                    android:layout_marginTop="3dp"
+                    android:background="@android:color/transparent"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/alarm_check_btn" />
+
+                <!--알림창 키워드, 제목 불러오기 예시-->
+                <TextView
+                    android:id="@+id/notification_list_example_title3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="6dp"
+                    android:layout_marginBottom="6dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_weight="0.7"
+                    android:gravity="start"
+                    android:text="[키워드] (글 제목)성신장학 어쩌구저쩌구... 공지사항이 올라왔습니다."
+                    android:textColor="@color/black"
+                    android:textSize="12dp" />
+
+            </LinearLayout>
+            <View
+                android:layout_width="370dp"
+                android:layout_height="1dp"
+                android:background="#4A707070"
+                android:layout_gravity="center"
+                android:layout_marginBottom="10dp"
+                ></View>
+
+
+            <!--수룡이 로고-->
+            <ImageView
+                android:layout_width="46dp"
+                android:layout_height="45dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:src="@drawable/small_suryoung_logo"
+                android:contentDescription="@string/small_suryong">
+            </ImageView>
+
+
+        </LinearLayout>
+
+
+
+    </FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

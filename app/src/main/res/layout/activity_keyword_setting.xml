@@ -1,0 +1,357 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".KeywordSettingActivity">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+        <!--키워드 설정 페이지 title-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp">
+
+                <ImageButton
+                    android:id="@+id/keyword_setting_back_btn"
+                    android:layout_width="45dp"
+                    android:layout_height="24dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@android:color/transparent"
+                    android:gravity="start"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/back_btn"
+                    app:layout_constrainedWidth="true"
+                    app:layout_constraintEnd_toStartOf="@id/keyword_setting_title"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    app:layout_constraintHorizontal_weight="1"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:contentDescription="@string/back_btn"/>
+
+                <TextView
+                    android:id="@+id/keyword_setting_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="키워드 설정"
+                    android:textColor="@color/black"
+                    android:textSize="30dp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/keyword_setting_back_btn" />
+
+            </LinearLayout>
+
+
+            <View
+                android:layout_width="370dp"
+                android:layout_height="1dp"
+                android:background="#707070"
+                android:layout_gravity="center"
+                ></View>
+
+        <!--키워드 검색하기-->
+            <TextView
+                android:id="@+id/keyword_searching_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="10dp"
+                android:layout_weight="0"
+                android:gravity="start"
+                android:text="키워드 검색하기"
+                android:textColor="@color/black"
+                android:textSize="15dp" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/keyword_searching"
+                    android:layout_width="300dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="start"
+                    android:layout_marginLeft="20dp"
+                    android:background="@drawable/keyword_search"
+                    android:ems="10"
+                    android:inputType="text"
+                    android:text="찾고싶은 키워드를 입력하세요"
+                    android:textSize="10dp"
+                    android:paddingLeft="13dp"
+                    android:paddingRight="13dp"/>
+
+                <Button
+                    android:id="@+id/keyword_searching_btn"
+                    android:layout_width="58dp"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="5dp"
+                    android:background="@drawable/click_btn"
+                    android:text="검색"
+                    android:textColor="@color/white"
+                    android:textSize="9dp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+        <!--나의 키워드 목록(아직)-->
+            <TextView
+                android:id="@+id/my_keyword_list_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="20dp"
+                android:layout_weight="0"
+                android:gravity="start"
+                android:text="나의 키워드 목록"
+                android:textColor="@color/black"
+                android:textSize="15dp" />
+
+            <!--목록 예시로만 구현 122-257 (리스트뷰 x)-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/keyword_list_example1"
+                    android:layout_width="100dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginRight="13dp"
+                    android:background="@drawable/keyword_search"
+                    android:elevation="3dp"
+                    android:inputType="text"
+                    android:text="키워드"
+                    android:textAlignment="center"
+                    android:textSize="10dp" />
+                <EditText
+                    android:id="@+id/keyword_list_example2"
+                    android:layout_width="100dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="13dp"
+                    android:background="@drawable/keyword_search"
+                    android:elevation="3dp"
+                    android:inputType="text"
+                    android:text="키워드"
+                    android:textAlignment="center"
+                    android:textSize="10dp" />
+                <EditText
+                    android:id="@+id/keyword_list_example3"
+                    android:layout_width="100dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="13dp"
+                    android:background="@drawable/keyword_search"
+                    android:elevation="3dp"
+                    android:inputType="text"
+                    android:text="키워드"
+                    android:textAlignment="center"
+                    android:textSize="10dp" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/keyword_list_example4"
+                    android:layout_width="100dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginRight="13dp"
+                    android:background="@drawable/keyword_search"
+                    android:elevation="3dp"
+                    android:inputType="text"
+                    android:text="키워드"
+                    android:textAlignment="center"
+                    android:textSize="10dp" />
+                <EditText
+                    android:id="@+id/keyword_list_example5"
+                    android:layout_width="100dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="13dp"
+                    android:background="@drawable/keyword_search"
+                    android:elevation="3dp"
+                    android:inputType="text"
+                    android:text="키워드"
+                    android:textAlignment="center"
+                    android:textSize="10dp" />
+                <EditText
+                    android:id="@+id/keyword_list_example6"
+                    android:layout_width="100dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="13dp"
+                    android:background="@drawable/keyword_search"
+                    android:elevation="3dp"
+                    android:inputType="text"
+                    android:text="키워드"
+                    android:textAlignment="center"
+                    android:textSize="10dp" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/keyword_list_example7"
+                    android:layout_width="100dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginRight="13dp"
+                    android:background="@drawable/keyword_search"
+                    android:elevation="3dp"
+                    android:inputType="text"
+                    android:text="키워드"
+                    android:textAlignment="center"
+                    android:textSize="10dp" />
+                <EditText
+                    android:id="@+id/keyword_list_example8"
+                    android:layout_width="100dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="13dp"
+                    android:background="@drawable/keyword_search"
+                    android:elevation="3dp"
+                    android:inputType="text"
+                    android:text="키워드"
+                    android:textAlignment="center"
+                    android:textSize="10dp" />
+                <EditText
+                    android:id="@+id/keyword_list_example9"
+                    android:layout_width="100dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="13dp"
+                    android:background="@drawable/keyword_search"
+                    android:elevation="3dp"
+                    android:inputType="text"
+                    android:text="키워드"
+                    android:textAlignment="center"
+                    android:textSize="10dp" />
+            </LinearLayout>
+
+
+
+            <!--키워드 추가하기-->
+                <TextView
+                    android:id="@+id/keyword_adding_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_weight="0"
+                    android:gravity="start"
+                    android:text="키워드 추가하기"
+                    android:textColor="@color/black"
+                    android:textSize="15dp" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <EditText
+                        android:id="@+id/keyword_adding"
+                        android:layout_width="300dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="start"
+                        android:layout_marginLeft="20dp"
+                        android:background="@drawable/keyword_search"
+                        android:ems="10"
+                        android:inputType="text"
+                        android:text="추가하고 싶은 키워드를 입력하세요"
+                        android:textSize="10dp"
+                        android:paddingLeft="13dp"/>
+
+                    <Button
+                        android:id="@+id/keyword_adding_btn"
+                        android:layout_width="58dp"
+                        android:layout_height="30dp"
+                        android:layout_marginLeft="5dp"
+                        android:background="@drawable/click_btn"
+                        android:text="추가"
+                        android:textColor="@color/white"
+                        android:textSize="9dp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+            <!--키워드 삭제하기-->
+            <TextView
+                android:id="@+id/keyword_delete_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="20dp"
+                android:layout_weight="0"
+                android:gravity="start"
+                android:text="키워드 삭제하기"
+                android:textColor="@color/black"
+                android:textSize="15dp" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/keyword_delete"
+                    android:layout_width="300dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="start"
+                    android:layout_marginLeft="20dp"
+                    android:background="@drawable/keyword_search"
+                    android:ems="10"
+                    android:inputType="text"
+                    android:text="삭제하고 싶은 키워드를 입력하세요"
+                    android:textSize="10dp"
+                    android:paddingLeft="13dp"/>
+
+                <Button
+                    android:id="@+id/keyword_delete_btn"
+                    android:layout_width="58dp"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="5dp"
+                    android:background="@drawable/click_btn"
+                    android:text="삭제"
+                    android:textColor="@color/white"
+                    android:textSize="9dp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+
+            </LinearLayout>
+        </FrameLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
