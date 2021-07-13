@@ -274,9 +274,9 @@
                     android:background="@drawable/keyword_search"
                     android:ems="10"
                     android:inputType="text"
+                    android:paddingLeft="13dp"
                     android:text="추가하고 싶은 키워드를 입력하세요"
-                    android:textSize="10dp"
-                    android:paddingLeft="13dp"/>
+                    android:textSize="10dp" />
 
                 <Button
                     android:id="@+id/keyword_adding_btn"
