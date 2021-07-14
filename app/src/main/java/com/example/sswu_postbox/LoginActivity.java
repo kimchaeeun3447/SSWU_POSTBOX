@@ -51,6 +51,9 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 login();
+
+                Intent i = new Intent(LoginActivity.this, KeywordSettingActivity.class);
+                startActivity(i);
             }
         });
     }
@@ -79,7 +82,10 @@ public class LoginActivity extends AppCompatActivity {
                             SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
                             SharedPreferences.Editor editor = sharedPreferences.edit();
 
-                            editor.putString("access_token", access_token);
+                            Log.d(TAG, "access_token : " + access_token);
+
+                            editor.putString("access_token", access_token).apply();
+                            Log.d(TAG, "Shared test : " + sharedPreferences.getString("access_token", "null"));
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
