@@ -55,6 +55,9 @@ public class SignUpActivity extends AppCompatActivity {
         signup_json.put("password", password.getText().toString());
         signup_json.put("password2", password.getText().toString());
         signup_json.put("user_major", major.getText().toString());
+        signup_json.put("user_major2", "");
+        signup_json.put("user_major3", "");
+        signup_json.put("user", null);
 
         JSONObject parameter = new JSONObject(signup_json);
 
