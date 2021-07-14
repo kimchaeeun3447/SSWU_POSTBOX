@@ -1,28 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:orientation="vertical" >
 
     <TextView
-        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="29dp"
+        android:text="" />
+
+    <TextView
+        android:id="@+id/for_crystal"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:gravity="center"
+        android:text="수 정 이 를  위 한  학 교  홈 페 이 지  알 림"
+        android:textColor="#000000"
+        android:textSize="9pt" />
+
+    <ImageView
+        android:id="@+id/mailbox"
+        android:layout_width="358dp"
+        android:layout_height="140dp"
+        android:layout_gravity="center"
+        android:src="@drawable/mailbox" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="" />
+
+    <ImageView
+        android:id="@+id/mainimg"
+        android:layout_width="350dp"
+        android:layout_height="370dp"
+        android:layout_gravity="center"
+        android:src="@drawable/mainimg"
+        android:scaleType="centerInside"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="42dp"
+        android:text="" />
+
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:orientation="horizontal"
+        android:layout_gravity="center_horizontal"
+        >
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="31dp"
-        android:text="Button"
-        app:layout_constraintBottom_toBottomOf="@+id/textView"
-        app:layout_constraintStart_toStartOf="@+id/textView" />
+        <Button
+            android:id="@+id/signIn"
+            android:layout_width="160dp"
+            android:layout_height="40dp"
+            android:background="@drawable/main_btn_style"
+            android:textSize="8pt"
+            android:textColor="#FFFFFF"
+            android:text="SIGN IN" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <Button
+            android:id="@+id/signUp"
+            android:layout_width="160dp"
+            android:layout_height="40dp"
+            android:background="@drawable/main_btn_style"
+            android:textSize="8pt"
+            android:layout_marginLeft="20dp"
+            android:textColor="#FFFFFF"
+            android:text="SIGN UP" />
+
+    </LinearLayout>
+
+</LinearLayout>
