@@ -128,15 +128,16 @@
             android:layout_marginLeft="30dp"
             android:text="키워드" />
         <Button
-            android:id="@+id/button8"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:textSize="4pt"
-            android:backgroundTint="#FFFFFF"
+            android:id="@+id/my_keyword_list_plus_btn"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@android:color/transparent"
+            android:gravity="right"
             android:text="+"
-            android:textColor="#3B4CF6"
             android:layout_marginTop="190dp"
-            android:layout_marginLeft="330dp" />
+            android:layout_marginLeft="330dp"
+            android:textColor="#3B4CF6"
+            android:textSize="18dp" />
 
         <LinearLayout
             android:layout_width="match_parent"
