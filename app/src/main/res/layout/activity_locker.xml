@@ -1,0 +1,427 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CheckKeywordPostActivity">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <!--키워드 별 공지확인 페이지 title-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp">
+
+                <ImageButton
+                    android:id="@+id/check_keyword_post_back_btn"
+                    android:layout_width="45dp"
+                    android:layout_height="24dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@android:color/transparent"
+                    android:gravity="start"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/back_btn"
+                    app:layout_constrainedWidth="true"
+                    app:layout_constraintEnd_toStartOf="@+id/heck_keyword_post_title"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    app:layout_constraintHorizontal_weight="1"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <TextView
+                    android:id="@+id/check_keyword_post_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="보관함"
+                    android:textColor="@color/black"
+                    android:textSize="30dp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/keyword_setting_back_btn" />
+
+            </LinearLayout>
+
+
+            <View
+                android:layout_width="370dp"
+                android:layout_height="1dp"
+                android:background="#707070"
+                android:layout_gravity="center"
+                android:layout_marginBottom="10dp"
+                ></View>
+
+            <!--키워드 별 공지확인- 나의 키워드 목록-->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="100dp"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/my_keyword_list_title2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginBottom="5dp"
+                        android:layout_weight="0"
+                        android:gravity="start"
+                        android:text="키워드 검색하기"
+                        android:textColor="@color/black"
+                        android:textSize="15dp" />
+
+                    <TextView
+                        android:id="@+id/my_keyword_list_title3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="확인하고 싶은 키워드를 선택하세요"
+                        android:textSize="10dp" />
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_weight="1" />
+
+
+                    <!--키워드 별 공지확인- + 버튼-->
+                    <Button
+                        android:id="@+id/my_keyword_list_plus_btn"
+                        android:layout_width="50dp"
+                        android:layout_height="wrap_content"
+                        android:background="@android:color/transparent"
+                        android:gravity="right"
+                        android:text="+"
+                        android:textColor="#3B4CF6"
+                        android:textSize="18dp" />
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                <EditText
+                    android:id="@+id/ghg"
+                    android:layout_width="300dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="start"
+                    android:layout_marginLeft="20dp"
+                    android:background="@drawable/keyword_search"
+                    android:ems="10"
+                    android:inputType="text"
+                    android:paddingLeft="13dp"
+                    android:text="추가하고 싶은 키워드를 입력하세요"
+                    android:textSize="10dp" />
+                <Button
+                    android:id="@+id/jhjhj"
+                    android:layout_width="58dp"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="5dp"
+                    android:background="@drawable/click_btn"
+                    android:text="추가"
+                    android:textColor="@color/white"
+                    android:textSize="9dp"
+                    android:textStyle="bold" />
+                </LinearLayout>
+
+
+            </LinearLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginBottom="5dp"
+                android:layout_weight="0"
+                android:gravity="start"
+                android:textColor="@color/black"
+                android:textSize="15dp"
+                android:text="나의 키워드 목록"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/keyword_list_example1"
+                    android:layout_width="100dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginRight="13dp"
+                    android:background="@drawable/keyword_search"
+                    android:elevation="3dp"
+                    android:inputType="text"
+                    android:text="키워드"
+                    android:textAlignment="center"
+                    android:textSize="10dp" />
+                <EditText
+                    android:id="@+id/keyword_list_example2"
+                    android:layout_width="100dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="13dp"
+                    android:background="@drawable/keyword_search"
+                    android:elevation="3dp"
+                    android:inputType="text"
+                    android:text="키워드"
+                    android:textAlignment="center"
+                    android:textSize="10dp" />
+                <EditText
+                    android:id="@+id/keyword_list_example3"
+                    android:layout_width="100dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="13dp"
+                    android:background="@drawable/keyword_search"
+                    android:elevation="3dp"
+                    android:inputType="text"
+                    android:text="키워드"
+                    android:textAlignment="center"
+                    android:textSize="10dp" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/keyword_list_example4"
+                    android:layout_width="100dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginRight="13dp"
+                    android:background="@drawable/keyword_search"
+                    android:elevation="3dp"
+                    android:inputType="text"
+                    android:text="키워드"
+                    android:textAlignment="center"
+                    android:textSize="10dp" />
+                <EditText
+                    android:id="@+id/keyword_list_example5"
+                    android:layout_width="100dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="13dp"
+                    android:background="@drawable/keyword_search"
+                    android:elevation="3dp"
+                    android:inputType="text"
+                    android:text="키워드"
+                    android:textAlignment="center"
+                    android:textSize="10dp" />
+                <EditText
+                    android:id="@+id/keyword_list_example6"
+                    android:layout_width="100dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="13dp"
+                    android:background="@drawable/keyword_search"
+                    android:elevation="3dp"
+                    android:inputType="text"
+                    android:text="키워드"
+                    android:textAlignment="center"
+                    android:textSize="10dp" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/keyword_list_example7"
+                    android:layout_width="100dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginRight="13dp"
+                    android:background="@drawable/keyword_search"
+                    android:elevation="3dp"
+                    android:inputType="text"
+                    android:text="키워드"
+                    android:textAlignment="center"
+                    android:textSize="10dp" />
+                <EditText
+                    android:id="@+id/keyword_list_example8"
+                    android:layout_width="100dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="13dp"
+                    android:background="@drawable/keyword_search"
+                    android:elevation="3dp"
+                    android:inputType="text"
+                    android:text="키워드"
+                    android:textAlignment="center"
+                    android:textSize="10dp" />
+                <EditText
+                    android:id="@+id/keyword_list_example9"
+                    android:layout_width="100dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="13dp"
+                    android:background="@drawable/keyword_search"
+                    android:elevation="3dp"
+                    android:inputType="text"
+                    android:text="키워드"
+                    android:textAlignment="center"
+                    android:textSize="10dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"/>
+
+            <!--공지사항-->
+            <TextView
+                android:id="@+id/announcement_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="20dp"
+                android:layout_weight="0"
+                android:gravity="start"
+                android:text="보관된 공지사항"
+                android:textColor="@color/black"
+                android:textSize="15dp" />
+
+            <!-- 공지사항 리스트뷰 예시 90-236(아직 리스트뷰 x)-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/announcement_example_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginTop="3dp"
+                    android:layout_weight="0.7"
+                    android:gravity="start"
+                    android:text="성신장학 어쩌구저쩌구"
+                    android:textColor="@color/black"
+                    android:textSize="10dp" />
+
+                <TextView
+                    android:id="@+id/announcement_example_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="3dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_weight="0"
+                    android:gravity="right"
+                    android:text="2021.07.02"
+                    android:textColor="@color/black"
+                    android:textSize="10dp" />
+
+                <ImageButton
+                    android:id="@+id/announcement_example_button1"
+                    android:layout_width="20dp"
+                    android:layout_height="19dp"
+                    android:gravity="right"
+                    android:layout_marginLeft="6dp"
+                    android:layout_marginTop="3dp"
+                    android:background="@android:color/transparent"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/save_btn" />
+
+                <ImageButton
+                    android:id="@+id/announcement_example_button2"
+                    android:layout_width="17dp"
+                    android:layout_height="22dp"
+                    android:layout_marginRight="20dp"
+                    android:background="@android:color/transparent"
+                    android:gravity="right"
+                    android:maxWidth="10dp"
+                    android:maxHeight="10dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/share_btn" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/announcement_example2_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginTop="3dp"
+                    android:layout_weight="0.7"
+                    android:gravity="start"
+                    android:text="성신장학 어쩌구저쩌구"
+                    android:textColor="@color/black"
+                    android:textSize="10dp" />
+
+                <TextView
+                    android:id="@+id/announcement_example2_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="3dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_weight="0"
+                    android:gravity="right"
+                    android:text="2021.07.02"
+                    android:textColor="@color/black"
+                    android:textSize="10dp" />
+
+                <ImageButton
+                    android:id="@+id/announcement_example2_button1"
+                    android:layout_width="20dp"
+                    android:layout_height="19dp"
+                    android:gravity="right"
+                    android:layout_marginLeft="6dp"
+                    android:layout_marginTop="3dp"
+                    android:background="@android:color/transparent"
+                    android:maxWidth="10dp"
+                    android:maxHeight="10dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/save_btn" />
+
+                <ImageButton
+                    android:id="@+id/announcement_example2_button2"
+                    android:layout_width="17dp"
+                    android:layout_height="22dp"
+                    android:layout_marginRight="20dp"
+                    android:background="@android:color/transparent"
+                    android:gravity="right"
+                    android:maxWidth="10dp"
+                    android:maxHeight="10dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/share_btn" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </FrameLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
