@@ -18,6 +18,7 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
 import org.json.JSONObject;
@@ -28,8 +29,8 @@ import java.util.Map;
 public class KeywordSettingActivity extends AppCompatActivity {
     String TAG = KeywordSettingActivity.class.getSimpleName();
 
-    EditText keyword_add_text;
-    Button keyword_add_btn;
+    EditText keyword_add_text, keyword_del_text;
+    Button keyword_add_btn, keyword_del_btn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +46,14 @@ public class KeywordSettingActivity extends AppCompatActivity {
             }
         });
 
+
+        keyword_del_btn = findViewById(R.id.keyword_delete_btn);
+        keyword_del_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                keyword_del();
+            }
+        });
     }
 
     void keyword_add() {
@@ -52,8 +61,6 @@ public class KeywordSettingActivity extends AppCompatActivity {
 
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         String token = sharedPreferences.getString("access_token", "null");
-
-        Log.d(TAG, "token : " + token);
 
         HashMap<String, String> keywordAdd_json = new HashMap<>();
         keywordAdd_json.put("keyword", keyword_add_text.getText().toString());
@@ -81,14 +88,52 @@ public class KeywordSettingActivity extends AppCompatActivity {
                 }) {
             @Override
             public Map<String, String> getHeaders() throws AuthFailureError {
-                HashMap<String, String> headers = new HashMap<>();
-                headers.put("Authorization", "Bearer " + token);
-
-                return headers;
+                return give_token(token);
             }
         };
 
         RequestQueue queue = Volley.newRequestQueue(this);
         queue.add(request);
+    }
+
+    void keyword_del() {
+        keyword_del_text = findViewById(R.id.keyword_delete);
+
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        String token = sharedPreferences.getString("access_token", "null");
+
+        String url = "http://3.37.68.242:8000/detail/keywords/?keyword=" + keyword_del_text.getText().toString();
+
+        StringRequest stringRequest = new StringRequest(Request.Method.DELETE,
+                url,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        Toast toast = Toast.makeText(getApplicationContext(), "키워드를 삭제했습니다.", Toast.LENGTH_LONG);
+                        toast.show();
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+
+                    }
+                }) {
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                return give_token(token);
+            }
+        };
+
+
+        RequestQueue queue = Volley.newRequestQueue(this);
+        queue.add(stringRequest);
+    }
+
+    Map<String, String> give_token(String token) {
+        HashMap<String, String> headers = new HashMap<>();
+        headers.put("Authorization", "Bearer " + token);
+
+        return headers;
     }
 }
