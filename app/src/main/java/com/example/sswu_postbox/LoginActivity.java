@@ -51,9 +51,6 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 login();
-
-                Intent i = new Intent(LoginActivity.this, KeywordSettingActivity.class);
-                startActivity(i);
             }
         });
     }
@@ -76,6 +73,10 @@ public class LoginActivity extends AppCompatActivity {
                 new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
+
+                        Intent i = new Intent(LoginActivity.this, KeywordSettingActivity.class);
+                        startActivity(i);
+
                         try {
                             String access_token = response.getString("access");
 
