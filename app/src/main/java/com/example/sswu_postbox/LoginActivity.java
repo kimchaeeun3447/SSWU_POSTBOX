@@ -51,9 +51,6 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 login();
-
-                Intent i = new Intent(LoginActivity.this, KeywordSettingActivity.class);
-                startActivity(i);
             }
         });
     }
@@ -76,6 +73,10 @@ public class LoginActivity extends AppCompatActivity {
                 new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
+
+                        Intent i = new Intent(LoginActivity.this, KeywordSettingActivity.class);
+                        startActivity(i);
+
                         try {
                             String access_token = response.getString("access");
 
@@ -97,6 +98,9 @@ public class LoginActivity extends AppCompatActivity {
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
+                        Toast toast = Toast.makeText(getApplicationContext(), "로그인에 실패했습니다.\n잠시 후 다시 시도해주세요.", Toast.LENGTH_LONG);
+                        toast.show();
+
                         error.printStackTrace();
                         Log.d(TAG, "login fail");
                     }

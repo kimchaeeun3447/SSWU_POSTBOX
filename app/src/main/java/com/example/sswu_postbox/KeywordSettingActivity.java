@@ -156,6 +156,9 @@ public class KeywordSettingActivity extends AppCompatActivity {
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
+                        Toast toast = Toast.makeText(getApplicationContext(), "키워드가 정상적으로 추가되지 않았습니다.\n잠시 후 다시 시도해주세요.", Toast.LENGTH_LONG);
+                        toast.show();
+
                         error.printStackTrace();
                         Log.d(TAG, "keyword add fail " + token);
                     }
@@ -190,7 +193,11 @@ public class KeywordSettingActivity extends AppCompatActivity {
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
+                        Toast toast = Toast.makeText(getApplicationContext(), "키워드가 정상적으로 삭제되지 않았습니다.\n잠시 후 다시 시도해주세요.", Toast.LENGTH_LONG);
+                        toast.show();
 
+                        error.printStackTrace();
+                        Log.d(TAG, "delete keyword fail");
                     }
                 }) {
             @Override
