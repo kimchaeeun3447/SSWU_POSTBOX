@@ -113,6 +113,10 @@ public class KeywordSettingActivity extends AppCompatActivity {
 
                         gridAdapter.user_keyword_list.add(keyword_add_text.getText().toString());
                         gridAdapter.notifyDataSetChanged();
+
+                        Intent i = getIntent();
+                        finish();
+                        startActivity(i);
                     }
                 },
                 new Response.ErrorListener() {
