@@ -18,6 +18,8 @@ import android.widget.TextView;
 
 public class CheckKeywordPostActivity extends AppCompatActivity {
 
+    String[] user_keyword_list = { "A" };
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -61,7 +61,6 @@ public class KeywordSettingActivity extends AppCompatActivity {
         my_keyword_list.setAdapter(gridAdapter);
 
 
-
         keyword_add_btn = findViewById(R.id.keyword_adding_btn);
         keyword_add_btn.setOnClickListener(new View.OnClickListener() {
             @Override
