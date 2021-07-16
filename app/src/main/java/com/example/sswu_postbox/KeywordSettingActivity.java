@@ -41,25 +41,26 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+
 public class KeywordSettingActivity extends AppCompatActivity {
     String TAG = KeywordSettingActivity.class.getSimpleName();
 
     EditText keyword_add_text, keyword_del_text, keyword_search_text;
     Button keyword_add_btn, keyword_del_btn, keyword_search_btn;
 
-    static String[] user_keyword_list = { "A" };
+    GridView my_keyword_list;
+    MyGridAdapter gridAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_keyword_setting);
 
-        keyword_list();
-
-        final GridView my_keyword_list = (GridView)findViewById(R.id.my_keyword_list);
-        MyGridAdapter gridAdapter = new MyGridAdapter(this);
+        my_keyword_list = (GridView)findViewById(R.id.my_keyword_list);
+        gridAdapter = new MyGridAdapter(this);
         my_keyword_list.setAdapter(gridAdapter);
 
+        keyword_list();
 
         keyword_add_btn = findViewById(R.id.keyword_adding_btn);
         keyword_add_btn.setOnClickListener(new View.OnClickListener() {
@@ -87,50 +88,6 @@ public class KeywordSettingActivity extends AppCompatActivity {
         });
     }
 
-    // Gridview Adapter
-    public static class MyGridAdapter extends BaseAdapter{
-        Context context;
-
-        //사용자가 등록한 모든 키워드들을 받아올 변수(임시로 텍스트 넣어둠)
-
-        public MyGridAdapter(Context c){
-            context = c;
-        }
-
-        @Override
-        //보여줄 키워드 개수
-        public int getCount() {
-            return user_keyword_list.length;
-        }
-
-        @Override
-        public Object getItem(int position) {
-            return null;
-        }
-
-        @Override
-        public long getItemId(int position) {
-            return 0;
-        }
-
-        @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR1)
-        @Override
-        // 띄우는 부분
-        public View getView(int position, View convertView, ViewGroup parent) {
-
-            TextView textView = new TextView(context);
-            textView.setLayoutParams(new GridView.LayoutParams(300,100));
-            textView.setTextColor(Color.BLACK);
-            textView.setGravity(Gravity.CENTER);
-            textView.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
-            textView.setTextSize(Dimension.DP, 30);
-            textView.setBackground(ContextCompat.getDrawable(context, R.drawable.keyword_search));
-
-            textView.setText(user_keyword_list[position]);
-
-            return textView;
-        }
-    }
 
     void keyword_add() {
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
@@ -153,6 +110,9 @@ public class KeywordSettingActivity extends AppCompatActivity {
                     public void onResponse(JSONObject response) {
                         Toast toast = Toast.makeText(getApplicationContext(), "키워드 등록에 성공했습니다.", Toast.LENGTH_LONG);
                         toast.show();
+
+                        gridAdapter.user_keyword_list.add(keyword_add_text.getText().toString());
+                        gridAdapter.notifyDataSetChanged();
                     }
                 },
                 new Response.ErrorListener() {
@@ -190,6 +150,10 @@ public class KeywordSettingActivity extends AppCompatActivity {
                     public void onResponse(String response) {
                         Toast toast = Toast.makeText(getApplicationContext(), "키워드를 삭제했습니다.", Toast.LENGTH_LONG);
                         toast.show();
+
+                        Intent intent = getIntent();
+                        finish();
+                        startActivity(intent);
                     }
                 },
                 new Response.ErrorListener() {
@@ -228,17 +192,14 @@ public class KeywordSettingActivity extends AppCompatActivity {
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
-                        ArrayList<String> keyword_list = new ArrayList<>();
-
                         for (int i = 0; i < response.length(); i++) {
                             try {
-                                keyword_list.add(response.getJSONObject(i).getString("keyword"));
+                                gridAdapter.user_keyword_list.add(response.getJSONObject(i).getString("keyword"));
+                                gridAdapter.notifyDataSetChanged();
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             }
                         }
-
-                        user_keyword_list = keyword_list.toArray(new String[keyword_list.size()]);
                     }
                 },
                 new Response.ErrorListener() {
@@ -272,20 +233,22 @@ public class KeywordSettingActivity extends AppCompatActivity {
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
-                        ArrayList<String> keyword_list = new ArrayList<>();
+                        if (response.length() == 0) {
+                            Toast toast = Toast.makeText(getApplicationContext(), "찾으시는 검색 결과가 없습니다.", Toast.LENGTH_LONG);
+                            toast.show();
+                        }
 
                         for(int i = 0; i < response.length(); i++) {
                             try {
+                                ArrayList<String> keyword_list = new ArrayList<>();
+
                                 keyword_list.add(response.getJSONObject(i).getString("keyword"));
+                                gridAdapter.user_keyword_list = keyword_list;
+                                gridAdapter.notifyDataSetChanged();
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             }
                         }
-
-                        user_keyword_list = keyword_list.toArray(new String[keyword_list.size()]);
-                        Intent intent = getIntent();
-                        finish();
-                        startActivity(intent);
                     }
                 },
                 new Response.ErrorListener() {

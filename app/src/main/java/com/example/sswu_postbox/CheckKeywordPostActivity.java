@@ -26,7 +26,7 @@ public class CheckKeywordPostActivity extends AppCompatActivity {
         setContentView(R.layout.activity_check_keyword_post);
 
         final GridView my_keyword_list = (GridView)findViewById(R.id.my_keyword_list2);
-        KeywordSettingActivity.MyGridAdapter gridAdapter = new KeywordSettingActivity.MyGridAdapter(this);
+        MyGridAdapter gridAdapter = new MyGridAdapter(this);
         my_keyword_list.setAdapter(gridAdapter);
     }
 
