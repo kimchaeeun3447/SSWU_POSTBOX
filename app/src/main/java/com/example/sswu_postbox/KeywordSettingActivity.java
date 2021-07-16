@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Build;
@@ -43,21 +44,23 @@ import java.util.Map;
 public class KeywordSettingActivity extends AppCompatActivity {
     String TAG = KeywordSettingActivity.class.getSimpleName();
 
-    EditText keyword_add_text, keyword_del_text;
-    Button keyword_add_btn, keyword_del_btn;
+    EditText keyword_add_text, keyword_del_text, keyword_search_text;
+    Button keyword_add_btn, keyword_del_btn, keyword_search_btn;
 
-    static String[] list;
+    static String[] user_keyword_list = { "A" };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_keyword_setting);
 
+        keyword_list();
+
         final GridView my_keyword_list = (GridView)findViewById(R.id.my_keyword_list);
         MyGridAdapter gridAdapter = new MyGridAdapter(this);
         my_keyword_list.setAdapter(gridAdapter);
 
-        keyword_list();
+
 
         keyword_add_btn = findViewById(R.id.keyword_adding_btn);
         keyword_add_btn.setOnClickListener(new View.OnClickListener() {
@@ -75,6 +78,14 @@ public class KeywordSettingActivity extends AppCompatActivity {
                 keyword_del();
             }
         });
+
+        keyword_search_btn = findViewById(R.id.keyword_searching_btn);
+        keyword_search_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                keyword_search();
+            }
+        });
     }
 
     // Gridview Adapter
@@ -82,7 +93,6 @@ public class KeywordSettingActivity extends AppCompatActivity {
         Context context;
 
         //사용자가 등록한 모든 키워드들을 받아올 변수(임시로 텍스트 넣어둠)
-        static String[] user_keyword_list = { "A" };
 
         public MyGridAdapter(Context c){
             context = c;
@@ -229,13 +239,63 @@ public class KeywordSettingActivity extends AppCompatActivity {
                             }
                         }
 
-                        MyGridAdapter.user_keyword_list = keyword_list.toArray(new String[keyword_list.size()]);
+                        user_keyword_list = keyword_list.toArray(new String[keyword_list.size()]);
                     }
                 },
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         Log.d(TAG, "keyword list get fail");
+                    }
+                }) {
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                return give_token(token);
+            }
+        };
+
+        RequestQueue queue = Volley.newRequestQueue(this);
+        queue.add(request);
+    }
+
+    void keyword_search() {
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        String token = sharedPreferences.getString("access_token", "null");
+
+        keyword_search_text = findViewById(R.id.keyword_searching);
+
+        String keyword = keyword_search_text.getText().toString();
+        String url = "http://3.37.68.242:8000/search/keywords/?keyword=" + keyword;
+
+        JsonArrayRequest request = new JsonArrayRequest(Request.Method.GET,
+                url,
+                null,
+                new Response.Listener<JSONArray>() {
+                    @Override
+                    public void onResponse(JSONArray response) {
+                        ArrayList<String> keyword_list = new ArrayList<>();
+
+                        for(int i = 0; i < response.length(); i++) {
+                            try {
+                                keyword_list.add(response.getJSONObject(i).getString("keyword"));
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+                        }
+
+                        user_keyword_list = keyword_list.toArray(new String[keyword_list.size()]);
+                        Intent intent = getIntent();
+                        finish();
+                        startActivity(intent);
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Toast toast = Toast.makeText(getApplicationContext(), "키워드 검색에 실패했습니다.\n잠시 후 다시 시도해주세요.", Toast.LENGTH_LONG);
+                        toast.show();
+
+                        error.printStackTrace();
                     }
                 }) {
             @Override
