@@ -118,6 +118,8 @@
             android:layout_marginLeft="300dp"
             android:layout_marginTop="100dp"
             android:text="00 건" />
+
+
         <TextView
             android:id="@+id/textView7"
             android:layout_width="wrap_content"
@@ -127,6 +129,7 @@
             android:layout_marginTop="196dp"
             android:layout_marginLeft="30dp"
             android:text="키워드" />
+
         <Button
             android:id="@+id/my_keyword_list_plus_btn"
             android:layout_width="50dp"
@@ -145,14 +148,41 @@
             android:layout_marginTop="300dp"
             android:orientation="vertical">
 
-            <TextView
-                android:layout_width="wrap_content"
+
+            <LinearLayout
+                android:layout_width="430dp"
                 android:layout_height="wrap_content"
-                android:textSize="10pt"
-                android:textColor="#000"
-                android:layout_marginTop="0dp"
-                android:layout_marginLeft="30dp"
-                android:text="공지사항"/>
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_weight="0"
+                    android:gravity="start"
+                    android:text="공지사항"
+                    android:textColor="@color/black"
+                    android:textSize="10pt" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1" />
+
+                <Button
+                    android:id="@+id/check_keyword_post_btn"
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="50dp"
+                    android:background="@android:color/transparent"
+                    android:gravity="right"
+                    android:text="+"
+                    android:textColor="#3B4CF6"
+                    android:textSize="18dp" />
+
+            </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="140dp"
@@ -258,49 +288,57 @@
 
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="10dp" />
+                android:layout_height="2dp" />
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="horizontal"
                 android:layout_marginBottom="0dp">
+
                 <ImageButton
-                    android:id="@+id/button2"
+                    android:id="@+id/notification_btn"
                     android:layout_width="0dp"
-                    android:layout_height="match_parent"
+                    android:layout_height="60dp"
                     android:layout_weight="1"
-                    android:background="@drawable/notification"
                     android:adjustViewBounds="true"
+                    android:background="@android:color/transparent"
                     android:scaleType="fitCenter"
+                    android:src="@drawable/notification"
                     android:text="Button" />
+
                 <ImageButton
-                    android:id="@+id/button9"
+                    android:id="@+id/locker_btn"
                     android:layout_width="0dp"
-                    android:layout_height="match_parent"
-
+                    android:layout_height="60dp"
                     android:layout_weight="1"
+                    android:adjustViewBounds="true"
+                    android:background="@android:color/transparent"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/locker_btn"
+                    android:text="Button" />
 
-
-                    android:layout_gravity="start"
-                    />
                 <ImageButton
-                    android:id="@+id/button14"
+                    android:id="@+id/home_btn"
                     android:layout_width="0dp"
-                    android:layout_height="match_parent"
-
+                    android:layout_height="60dp"
                     android:layout_weight="1"
+                    android:adjustViewBounds="true"
+                    android:background="@android:color/transparent"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/home_btn"
+                    android:text="Button" />
 
-                    android:layout_gravity="start"
-                    />
                 <ImageButton
-                    android:id="@+id/button15"
+                    android:id="@+id/setting_btn"
                     android:layout_width="0dp"
-                    android:layout_height="match_parent"
-
+                    android:layout_height="60dp"
                     android:layout_weight="1"
+                    android:adjustViewBounds="true"
+                    android:background="@android:color/transparent"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/setting_btn"
+                    android:text="Button" />
 
-                    android:layout_gravity="start"
-                    />
             </LinearLayout>
         </LinearLayout>
     </FrameLayout>
