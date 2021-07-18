@@ -10,9 +10,16 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Gravity;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebChromeClient;
+import android.webkit.WebResourceRequest;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.GridView;
@@ -51,7 +58,39 @@ public class CheckKeywordPostActivity extends AppCompatActivity {
             }
         });
 
+
+        // 웹뷰 시험
+        TextView title = findViewById(R.id.announcement_example_title);
+
+        title.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(getApplicationContext(), PostClickActivity.class);
+                startActivity(intent);
+
+                WebView webview = findViewById(R.id.webview);
+                webview.loadUrl("https://www.sungshin.ac.kr/main_kor/11107/subview.do?enc=Zm5jdDF8QEB8JTJGYmJzJTJGbWFpbl9rb3IlMkYzMTgxJTJGMTAzMjc4JTJGYXJ0Y2xWaWV3LmRvJTNG");
+
+                webview.setWebViewClient(new WebViewClient(){
+                    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+                    @Override
+                    public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
+                        view.loadUrl(request.getUrl().toString());
+
+                        return true;
+                    }
+                });
+
+
+
+            }
+        });
     }
+
+
+
+
 
     // Gridview Adapter
     public static class MyGridAdapter extends BaseAdapter {
