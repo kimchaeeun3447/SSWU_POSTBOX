@@ -12,6 +12,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SSWU_POSTBOX"
         android:usesCleartextTraffic="true">
+        <activity android:name=".HomeActivity"></activity>
+        <activity android:name=".LockerActivity" />
         <activity android:name=".NotificationListActivity" />
         <activity android:name=".PostClickActivity" />
         <activity android:name=".CheckKeywordPostActivity" />
