@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
@@ -13,21 +14,43 @@ import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.GridView;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 public class CheckKeywordPostActivity extends AppCompatActivity {
 
-    String[] user_keyword_list = { "A" };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_check_keyword_post);
 
+
         final GridView my_keyword_list = (GridView)findViewById(R.id.my_keyword_list2);
         MyGridAdapter gridAdapter = new MyGridAdapter(this);
         my_keyword_list.setAdapter(gridAdapter);
+
+
+        ImageButton back_btn = (ImageButton)findViewById(R.id.check_keyword_post_back_btn);
+        back_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
+
+        Button add_keyword_btn = (Button)findViewById(R.id.my_keyword_list_plus_btn);
+        add_keyword_btn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), KeywordSettingActivity.class);
+                startActivity(intent);
+            }
+        });
+
     }
 
     // Gridview Adapter

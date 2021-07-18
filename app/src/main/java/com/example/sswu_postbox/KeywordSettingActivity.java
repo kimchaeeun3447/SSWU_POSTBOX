@@ -20,6 +20,7 @@ import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.GridView;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -50,6 +51,7 @@ public class KeywordSettingActivity extends AppCompatActivity {
 
     GridView my_keyword_list;
     MyGridAdapter gridAdapter;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,6 +86,15 @@ public class KeywordSettingActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 keyword_search();
+            }
+        });
+
+        ImageButton back_btn = (ImageButton)findViewById(R.id.keyword_setting_back_btn);
+        back_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+
             }
         });
     }
