@@ -7,9 +7,6 @@
     tools:context=".CheckKeywordPostActivity"
     android:background="#FFFFFF">
 
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -91,7 +88,8 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
                         android:text="확인하고 싶은 키워드를 선택하세요"
-                        android:textSize="10dp" />
+                        android:textSize="10dp"
+                        android:textColor="#C3807E7E"/>
 
                     <View
                         android:layout_width="0dp"
@@ -115,8 +113,10 @@
                         android:ems="10"
                         android:inputType="text"
                         android:paddingLeft="13dp"
-                        android:text="추가하고 싶은 키워드를 입력하세요"
-                        android:textSize="10dp" />
+                        android:hint="추가하고 싶은 키워드를 입력하세요"
+                        android:textColorHint="@color/black"
+                        android:textSize="10dp"
+                        android:textColor="#000000"/>
 
                     <Button
                         android:id="@+id/jhjhj"
@@ -294,7 +294,5 @@
             </LinearLayout>
 
         </LinearLayout>
-
-    </FrameLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
