@@ -74,7 +74,7 @@ public class LoginActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(JSONObject response) {
 
-                        Intent i = new Intent(LoginActivity.this, KeywordSettingActivity.class);
+                        Intent i = new Intent(LoginActivity.this, HomeActivity.class);
                         startActivity(i);
 
                         try {
