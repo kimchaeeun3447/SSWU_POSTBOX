@@ -23,7 +23,7 @@
                 android:layout_marginTop="10dp">
 
                 <ImageButton
-                    android:id="@+id/check_keyword_post_back_btn"
+                    android:id="@+id/locker_back_btn"
                     android:layout_width="45dp"
                     android:layout_height="24dp"
                     android:layout_marginLeft="10dp"
