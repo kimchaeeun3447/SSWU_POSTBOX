@@ -16,13 +16,6 @@ import androidx.core.content.ContextCompat;
 
 import java.util.ArrayList;
 
-/* To. 채은...
-     채은아.. 어뎁터가 다른 클래스 안에 들어가있으면 static으로 선언돼서 좀 코드가 꼬여서 따로 분리했어
-
-    글고 어차피 재사용하기도 하고 찾아보니까 Adapter 파일은 분리하는게 좀 더 좋은듯!
-    오류는 없게 다 고쳐놨어.. 그럼 20000
- */
-
 // Gridview Adapter
 public class MyGridAdapter extends BaseAdapter{
     Context context;

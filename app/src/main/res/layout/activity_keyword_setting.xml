@@ -103,7 +103,7 @@
 
             </LinearLayout>
 
-        <!--나의 키워드 목록(아직)-->
+        <!--나의 키워드 목록-->
             <TextView
                 android:id="@+id/my_keyword_list_title"
                 android:layout_width="wrap_content"
@@ -121,7 +121,7 @@
             <!--나의 키워드 목록-->
             <GridView
                 android:id="@+id/my_keyword_list"
-                android:layout_width="match_parent"
+                android:layout_width="370dp"
                 android:layout_height="283dp"
                 android:layout_marginLeft="20dp"
                 android:horizontalSpacing="5dp"
