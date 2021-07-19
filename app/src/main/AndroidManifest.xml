@@ -12,17 +12,21 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SSWU_POSTBOX"
         android:usesCleartextTraffic="true">
-        <activity android:name=".HomeActivity"></activity>
+        <activity android:name=".SettingActivity"></activity>
+        <activity android:name=".HomeActivity" />
         <activity android:name=".LockerActivity" />
         <activity android:name=".NotificationListActivity" />
         <activity android:name=".PostClickActivity" />
         <activity android:name=".CheckKeywordPostActivity" />
-        <activity android:name=".KeywordSettingActivity"
-            android:windowSoftInputMode="adjustResize"/>
-        <activity android:name=".SignUpActivity"
-            android:windowSoftInputMode="adjustResize"/>
-        <activity android:name=".LoginActivity"
-            android:windowSoftInputMode="adjustResize"/>
+        <activity
+            android:name=".KeywordSettingActivity"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".SignUpActivity"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".LoginActivity"
+            android:windowSoftInputMode="adjustResize" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
