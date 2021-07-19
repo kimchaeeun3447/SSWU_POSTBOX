@@ -119,15 +119,25 @@ public class KeywordSettingActivity extends AppCompatActivity {
                 new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
-                        Toast toast = Toast.makeText(getApplicationContext(), "키워드 등록에 성공했습니다.", Toast.LENGTH_LONG);
-                        toast.show();
+                        try {
+                            if (gridAdapter.user_keyword_list.contains(response.getString("keyword"))) {
+                                Toast toast = Toast.makeText(getApplicationContext(), "중복된 키워드 입니다.", Toast.LENGTH_LONG);
+                                toast.show();
+                            }
+                            else {
+                                Toast toast = Toast.makeText(getApplicationContext(), "키워드 등록에 성공했습니다.", Toast.LENGTH_LONG);
+                                toast.show();
 
-                        gridAdapter.user_keyword_list.add(keyword_add_text.getText().toString());
-                        gridAdapter.notifyDataSetChanged();
+                                gridAdapter.user_keyword_list.add(keyword_add_text.getText().toString());
+                                gridAdapter.notifyDataSetChanged();
 
-                        Intent i = getIntent();
-                        finish();
-                        startActivity(i);
+                                Intent i = getIntent();
+                                finish();
+                                startActivity(i);
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
                     }
                 },
                 new Response.ErrorListener() {
