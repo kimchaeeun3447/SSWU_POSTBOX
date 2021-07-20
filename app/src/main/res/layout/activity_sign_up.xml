@@ -70,6 +70,9 @@
           android:background="@drawable/edittext_background"
           android:ems="10"
           android:inputType="textPersonName"
+          android:hint="아이디를 입력하세요"
+          android:textColorHint="#808080"
+          android:textSize="15dp"
           android:textColor="#000000"/>
 
       <TextView
@@ -88,7 +91,32 @@
           android:layout_gravity="center"
           android:background="@drawable/edittext_background"
           android:ems="10"
-          android:inputType="textPersonName"
+          android:inputType="text"
+          android:hint="8글자 이상을 입력하세요"
+          android:textColorHint="#808080"
+          android:textSize="15dp"
+          android:textColor="#000000"/>
+
+      <TextView
+          android:id="@+id/signup_pwd2_text"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginLeft="30dp"
+          android:layout_marginTop="10dp"
+          android:text="PASSWORD CHECK"
+          android:textColor="@color/black" />
+
+      <EditText
+          android:id="@+id/signup_pwd2_edit"
+          android:layout_width="350dp"
+          android:layout_height="wrap_content"
+          android:layout_gravity="center"
+          android:background="@drawable/edittext_background"
+          android:ems="10"
+          android:inputType="textPassword"
+          android:hint="비밀번호를 다시 입력하세요"
+          android:textColorHint="#808080"
+          android:textSize="15dp"
           android:textColor="#000000"/>
 
       <TextView
@@ -108,6 +136,9 @@
           android:background="@drawable/edittext_background"
           android:ems="10"
           android:inputType="textPersonName"
+          android:hint="전공을 입력하세요"
+          android:textColorHint="#808080"
+          android:textSize="15dp"
           android:textColor="#000000"/>
 
       <LinearLayout
