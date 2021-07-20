@@ -7,9 +7,11 @@ import androidx.core.content.ContextCompat;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.KeyEvent;
@@ -26,8 +28,24 @@ import android.widget.GridView;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+
+import java.util.HashMap;
+import java.util.Map;
+
 public class CheckKeywordPostActivity extends AppCompatActivity {
 
+    GridView my_keyword_list;
+    MyGridAdapter gridAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,10 +53,11 @@ public class CheckKeywordPostActivity extends AppCompatActivity {
         setContentView(R.layout.activity_check_keyword_post);
 
 
-        final GridView my_keyword_list = (GridView)findViewById(R.id.my_keyword_list2);
-        MyGridAdapter gridAdapter = new MyGridAdapter(this);
+        my_keyword_list = (GridView)findViewById(R.id.my_keyword_list2);
+        gridAdapter = new MyGridAdapter(this);
         my_keyword_list.setAdapter(gridAdapter);
 
+        keyword_list();
 
         ImageButton back_btn = (ImageButton)findViewById(R.id.check_keyword_post_back_btn);
         back_btn.setOnClickListener(new View.OnClickListener() {
@@ -88,61 +107,51 @@ public class CheckKeywordPostActivity extends AppCompatActivity {
         });
     }
 
+    void keyword_list() {
+        String TAG = KeywordSettingActivity.class.getSimpleName();
+
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        String token = sharedPreferences.getString("access_token", "null");
+
+        String url = "http://3.37.68.242:8000/detail/keywords/";
 
 
+        JsonArrayRequest request = new JsonArrayRequest(Request.Method.GET,
+                url,
+                null,
+                new Response.Listener<JSONArray>() {
+                    @Override
+                    public void onResponse(JSONArray response) {
+                        for (int i = 0; i < response.length(); i++) {
+                            try {
+                                gridAdapter.user_keyword_list.add(response.getJSONObject(i).getString("keyword"));
+                                gridAdapter.notifyDataSetChanged();
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Log.d(TAG, "keyword list get fail");
+                    }
+                }) {
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                return give_token(token);
+            }
+        };
 
-
-    // Gridview Adapter
-    public static class MyGridAdapter extends BaseAdapter {
-        Context context;
-
-        //사용자가 등록한 모든 키워드들을 받아올 변수(임시로 텍스트 넣어둠)
-        String[] user_keyword_list = {"one", "two", "three",
-                "four", "five","six",
-                "7","8","9",
-                "10","11","12",
-                "13","14","15",
-                "16","17","18"};
-
-
-        public MyGridAdapter(Context c){
-            context = c;
-        }
-
-        @Override
-        //보여줄 키워드 개수
-        public int getCount() {
-            return user_keyword_list.length;
-        }
-
-        @Override
-        public Object getItem(int position) {
-            return null;
-        }
-
-        @Override
-        public long getItemId(int position) {
-            return 0;
-        }
-
-        @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR1)
-        @Override
-        // 띄우는 부분
-        public View getView(int position, View convertView, ViewGroup parent) {
-
-            TextView textView = new TextView(context);
-            textView.setLayoutParams(new GridView.LayoutParams(300,100));
-            textView.setTextColor(Color.BLACK);
-            textView.setGravity(Gravity.CENTER);
-            textView.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
-            textView.setTextSize(Dimension.DP, 30);
-            textView.setBackground(ContextCompat.getDrawable(context, R.drawable.keyword_search));
-
-            textView.setText(user_keyword_list[position]);
-
-            return textView;
-
-        }
+        RequestQueue queue = Volley.newRequestQueue(this);
+        queue.add(request);
     }
 
+    Map<String, String> give_token(String token) {
+        HashMap<String, String> headers = new HashMap<>();
+        headers.put("Authorization", "Bearer " + token);
+
+        return headers;
+    }
 }

@@ -68,9 +68,6 @@ public class KeywordSettingActivity extends AppCompatActivity {
         keyword_add_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                gridAdapter.user_keyword_list.clear();
-                keyword_list();
-
                 keyword_add();
             }
         });
@@ -101,7 +98,6 @@ public class KeywordSettingActivity extends AppCompatActivity {
         });
     }
 
-
     void keyword_add() {
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         String token = sharedPreferences.getString("access_token", "null");
@@ -121,6 +117,9 @@ public class KeywordSettingActivity extends AppCompatActivity {
                 new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
+                        gridAdapter.user_keyword_list.clear();
+                        keyword_list();
+
                         Log.d(TAG, gridAdapter.user_keyword_list.toString());
 
                         try {
