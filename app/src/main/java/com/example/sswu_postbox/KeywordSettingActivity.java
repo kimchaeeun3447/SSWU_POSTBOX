@@ -68,6 +68,9 @@ public class KeywordSettingActivity extends AppCompatActivity {
         keyword_add_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                gridAdapter.user_keyword_list.clear();
+                keyword_list();
+
                 keyword_add();
             }
         });
@@ -94,7 +97,6 @@ public class KeywordSettingActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 finish();
-
             }
         });
     }
@@ -119,21 +121,16 @@ public class KeywordSettingActivity extends AppCompatActivity {
                 new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
+                        Log.d(TAG, gridAdapter.user_keyword_list.toString());
+
                         try {
-                            if (gridAdapter.user_keyword_list.contains(response.getString("keyword"))) {
+                            if (response.getString("keyword").equals("duplicate")) {
                                 Toast toast = Toast.makeText(getApplicationContext(), "중복된 키워드 입니다.", Toast.LENGTH_LONG);
                                 toast.show();
                             }
                             else {
                                 Toast toast = Toast.makeText(getApplicationContext(), "키워드 등록에 성공했습니다.", Toast.LENGTH_LONG);
                                 toast.show();
-
-                                gridAdapter.user_keyword_list.add(keyword_add_text.getText().toString());
-                                gridAdapter.notifyDataSetChanged();
-
-                                Intent i = getIntent();
-                                finish();
-                                startActivity(i);
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -143,7 +140,7 @@ public class KeywordSettingActivity extends AppCompatActivity {
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        Toast toast = Toast.makeText(getApplicationContext(), "키워드가 정상적으로 추가되지 않았습니다.\n잠시 후 다시 시도해주세요.", Toast.LENGTH_LONG);
+                        Toast toast = Toast.makeText(getApplicationContext(), "키워드가 정상적으로 추가되지 않았습니다.\n잠시 후 다시 시도해주세요.", Toast.LENGTH_SHORT);
                         toast.show();
 
                         error.printStackTrace();
@@ -173,12 +170,11 @@ public class KeywordSettingActivity extends AppCompatActivity {
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                        Toast toast = Toast.makeText(getApplicationContext(), "키워드를 삭제했습니다.", Toast.LENGTH_LONG);
-                        toast.show();
+                        gridAdapter.user_keyword_list.clear();
+                        keyword_list();
 
-                        Intent intent = getIntent();
-                        finish();
-                        startActivity(intent);
+                        Toast toast = Toast.makeText(getApplicationContext(), "키워드를 삭제했습니다.", Toast.LENGTH_SHORT);
+                        toast.show();
                     }
                 },
                 new Response.ErrorListener() {
