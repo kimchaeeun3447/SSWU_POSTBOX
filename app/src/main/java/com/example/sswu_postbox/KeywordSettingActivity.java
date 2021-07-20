@@ -250,7 +250,7 @@ public class KeywordSettingActivity extends AppCompatActivity {
         keyword_search_text = findViewById(R.id.keyword_searching);
 
         String keyword = keyword_search_text.getText().toString();
-        String url = "http://3.37.68.242:8000/search/keywords/?keyword=" + keyword;
+        String url = "http://3.37.68.242:8000/detail/keywords/?search=" + keyword;
 
         JsonArrayRequest request = new JsonArrayRequest(Request.Method.GET,
                 url,
@@ -262,18 +262,20 @@ public class KeywordSettingActivity extends AppCompatActivity {
                             Toast toast = Toast.makeText(getApplicationContext(), "찾으시는 검색 결과가 없습니다.", Toast.LENGTH_LONG);
                             toast.show();
                         }
+                        ArrayList<String> keyword_list = new ArrayList<>();
 
                         for(int i = 0; i < response.length(); i++) {
                             try {
-                                ArrayList<String> keyword_list = new ArrayList<>();
-
                                 keyword_list.add(response.getJSONObject(i).getString("keyword"));
-                                gridAdapter.user_keyword_list = keyword_list;
-                                gridAdapter.notifyDataSetChanged();
+
+                                Log.d(TAG, keyword_list.toString());
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             }
                         }
+
+                        gridAdapter.user_keyword_list = keyword_list;
+                        gridAdapter.notifyDataSetChanged();
                     }
                 },
                 new Response.ErrorListener() {
