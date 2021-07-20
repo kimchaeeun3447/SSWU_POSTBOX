@@ -91,7 +91,7 @@
           android:layout_gravity="center"
           android:background="@drawable/edittext_background"
           android:ems="10"
-          android:inputType="text"
+          android:inputType="textPassword"
           android:hint="8글자 이상을 입력하세요"
           android:textColorHint="#808080"
           android:textSize="15dp"
