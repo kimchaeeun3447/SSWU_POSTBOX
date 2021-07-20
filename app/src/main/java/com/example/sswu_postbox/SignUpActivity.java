@@ -25,7 +25,7 @@ public class SignUpActivity extends AppCompatActivity {
 
     String TAG = SignUpActivity.class.getSimpleName();
 
-    EditText id, password, major;
+    EditText id, password, password2, major;
     Button sign_up;
 
     @Override
@@ -48,12 +48,13 @@ public class SignUpActivity extends AppCompatActivity {
 
         id = findViewById(R.id.signup_id_edit);
         password = findViewById(R.id.signup_pwd_edit);
+        password2 = findViewById(R.id.signup_pwd2_edit);
         major = findViewById(R.id.signup_major_edit);
 
         HashMap<String, String> signup_json = new HashMap<>();
         signup_json.put("username", id.getText().toString());
         signup_json.put("password", password.getText().toString());
-        signup_json.put("password2", password.getText().toString());
+        signup_json.put("password2", password2.getText().toString());
         signup_json.put("user_major", major.getText().toString());
         signup_json.put("user_major2", "");
         signup_json.put("user_major3", "");
