@@ -2,6 +2,7 @@ package com.example.sswu_postbox;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.ClipData;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -14,6 +15,7 @@ public class HomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
 
 
         Button plus_keyword_btn = findViewById(R.id.my_keyword_list_plus_btn);
@@ -35,8 +37,8 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
-
-        ImageButton notification_btn = findViewById(R.id.notification_btn);
+/*
+        ImageButton notification_btn = (ImageButton)findViewById(R.id.notification_btn);
         notification_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -46,7 +48,7 @@ public class HomeActivity extends AppCompatActivity {
         });
 
 
-        ImageButton locker_btn = findViewById(R.id.locker_btn);
+        ImageButton locker_btn = (ImageButton)findViewById(R.id.locker_btn);
         locker_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -55,7 +57,7 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
-
+*/
 
 
 
