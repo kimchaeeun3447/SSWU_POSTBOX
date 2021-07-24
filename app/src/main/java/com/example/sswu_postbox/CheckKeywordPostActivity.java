@@ -26,6 +26,7 @@ import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.GridView;
 import android.widget.ImageButton;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.android.volley.AuthFailureError;
@@ -39,6 +40,7 @@ import com.android.volley.toolbox.Volley;
 import org.json.JSONArray;
 import org.json.JSONException;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -46,6 +48,12 @@ public class CheckKeywordPostActivity extends AppCompatActivity {
 
     GridView my_keyword_list;
     MyGridAdapter gridAdapter;
+
+    //listView
+    ListView postList;
+    ArrayList<String> post_keyword = new ArrayList<String>();
+    ArrayList<String> post_title = new ArrayList<String>();
+    ArrayList<String> post_date = new ArrayList<String>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +66,17 @@ public class CheckKeywordPostActivity extends AppCompatActivity {
         my_keyword_list.setAdapter(gridAdapter);
 
         keyword_list();
+
+
+        // listView
+        post_keyword.add("키워드1");
+        post_title.add("제목1");
+        post_date.add("날짜1");
+
+        postList = findViewById(R.id.keyword_post_listView);
+        MyListAdapter myListAdapter = new MyListAdapter(this, post_keyword, post_title, post_date);
+        postList.setAdapter(myListAdapter);
+
 
         ImageButton back_btn = (ImageButton)findViewById(R.id.check_keyword_post_back_btn);
         back_btn.setOnClickListener(new View.OnClickListener() {
@@ -78,7 +97,8 @@ public class CheckKeywordPostActivity extends AppCompatActivity {
         });
 
 
-        // 웹뷰 시험
+
+        /* 웹뷰 시험
         TextView title = findViewById(R.id.announcement_example_title);
 
         title.setOnClickListener(new View.OnClickListener() {
@@ -104,7 +124,8 @@ public class CheckKeywordPostActivity extends AppCompatActivity {
 
 
             }
-        });
+        }); */
+
     }
 
     void keyword_list() {
