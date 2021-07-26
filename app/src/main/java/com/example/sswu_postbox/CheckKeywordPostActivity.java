@@ -39,12 +39,14 @@ import com.android.volley.toolbox.Volley;
 
 import org.json.JSONArray;
 import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
 public class CheckKeywordPostActivity extends AppCompatActivity {
+    String TAG = CheckKeywordPostActivity.class.getSimpleName();
 
     GridView my_keyword_list;
     MyGridAdapter gridAdapter;
@@ -54,6 +56,7 @@ public class CheckKeywordPostActivity extends AppCompatActivity {
     ArrayList<String> post_keyword = new ArrayList<String>();
     ArrayList<String> post_title = new ArrayList<String>();
     ArrayList<String> post_date = new ArrayList<String>();
+    MyListAdapter myListAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,16 +70,17 @@ public class CheckKeywordPostActivity extends AppCompatActivity {
 
         keyword_list();
 
-
         // listView
+
+
+        postList = findViewById(R.id.keyword_post_listView);
+        myListAdapter = new MyListAdapter(this, post_keyword, post_title, post_date);
+        postList.setAdapter(myListAdapter);
+
         post_keyword.add("키워드1");
         post_title.add("제목1");
         post_date.add("날짜1");
-
-        postList = findViewById(R.id.keyword_post_listView);
-        MyListAdapter myListAdapter = new MyListAdapter(this, post_keyword, post_title, post_date);
-        postList.setAdapter(myListAdapter);
-
+        notice_list();
 
         ImageButton back_btn = (ImageButton)findViewById(R.id.check_keyword_post_back_btn);
         back_btn.setOnClickListener(new View.OnClickListener() {
@@ -157,6 +161,51 @@ public class CheckKeywordPostActivity extends AppCompatActivity {
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         Log.d(TAG, "keyword list get fail");
+                    }
+                }) {
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                return give_token(token);
+            }
+        };
+
+        RequestQueue queue = Volley.newRequestQueue(this);
+        queue.add(request);
+    }
+
+    void notice_list() {
+        String TAG = KeywordSettingActivity.class.getSimpleName();
+
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        String token = sharedPreferences.getString("access_token", "null");
+
+        String url = "http://3.37.68.242:8000/userNotice/";
+
+        JsonArrayRequest request = new JsonArrayRequest(Request.Method.GET,
+                url,
+                null,
+                new Response.Listener<JSONArray>() {
+                    @Override
+                    public void onResponse(JSONArray response) {
+                        for (int i = 0; i < response.length(); i++) {
+                            try {
+                                JSONObject notice = response.getJSONObject(i).getJSONObject("notice");
+                                post_keyword.add("keyword");
+                                post_title.add(notice.getString("title"));
+                                post_date.add(notice.getString("date"));
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                        myListAdapter.notifyDataSetChanged();
+                    }
+
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        error.printStackTrace();
+                        Log.d(TAG, "notice user list error");
                     }
                 }) {
             @Override

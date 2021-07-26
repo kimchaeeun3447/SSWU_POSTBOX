@@ -14,10 +14,10 @@ import java.util.ArrayList;
 public class MyListAdapter extends BaseAdapter {
 
     Context context;
-    LayoutInflater layoutInflater = null;
-    ArrayList<String> post_keyword =null;
-    ArrayList<String> post_title = null;
-    ArrayList<String> post_date = null;
+    LayoutInflater layoutInflater;
+    ArrayList<String> post_keyword;
+    ArrayList<String> post_title;
+    ArrayList<String> post_date;
 
 
     public MyListAdapter(Context context, ArrayList<String> post_keyword, ArrayList<String> post_title, ArrayList<String> post_date) {
