@@ -77,9 +77,6 @@ public class CheckKeywordPostActivity extends AppCompatActivity {
         myListAdapter = new MyListAdapter(this, post_keyword, post_title, post_date);
         postList.setAdapter(myListAdapter);
 
-        post_keyword.add("키워드1");
-        post_title.add("제목1");
-        post_date.add("날짜1");
         notice_list();
 
         ImageButton back_btn = (ImageButton)findViewById(R.id.check_keyword_post_back_btn);
