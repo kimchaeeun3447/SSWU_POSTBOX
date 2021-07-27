@@ -15,15 +15,13 @@ public class MyListAdapter extends BaseAdapter {
 
     Context context;
     LayoutInflater layoutInflater;
-    ArrayList<String> post_keyword;
     ArrayList<String> post_title;
     ArrayList<String> post_date;
 
 
-    public MyListAdapter(Context context, ArrayList<String> post_keyword, ArrayList<String> post_title, ArrayList<String> post_date) {
+    public MyListAdapter(Context context, ArrayList<String> post_title, ArrayList<String> post_date) {
         this.context = context;
         this.layoutInflater = LayoutInflater.from(context);
-        this.post_keyword = post_keyword;
         this.post_title = post_title;
         this.post_date = post_date;
     }
@@ -47,9 +45,6 @@ public class MyListAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
 
         View view = layoutInflater.inflate(R.layout.post_listview_layout, null);
-
-        TextView title_keyword = view.findViewById(R.id.title_keyword);
-        title_keyword.setText(post_keyword.get(position));
 
 
         TextView contents_postTitle = view.findViewById(R.id.contents_postTitle);

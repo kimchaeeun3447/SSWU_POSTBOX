@@ -74,7 +74,7 @@ public class CheckKeywordPostActivity extends AppCompatActivity {
 
 
         postList = findViewById(R.id.keyword_post_listView);
-        myListAdapter = new MyListAdapter(this, post_keyword, post_title, post_date);
+        myListAdapter = new MyListAdapter(this, post_title, post_date);
         postList.setAdapter(myListAdapter);
 
         notice_list();
@@ -187,7 +187,6 @@ public class CheckKeywordPostActivity extends AppCompatActivity {
                         for (int i = 0; i < response.length(); i++) {
                             try {
                                 JSONObject notice = response.getJSONObject(i).getJSONObject("notice");
-                                post_keyword.add("keyword");
                                 post_title.add(notice.getString("title"));
                                 post_date.add(notice.getString("date"));
                             } catch (JSONException e) {
