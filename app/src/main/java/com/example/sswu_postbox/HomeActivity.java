@@ -6,13 +6,31 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.ClipData;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ListView;
 import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class HomeActivity extends AppCompatActivity {
 
@@ -20,13 +38,28 @@ public class HomeActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private MyRecyclerAdapter adapter;
 
+
+    //listView
+    ListView postList;
+    ArrayList<String> post_title = new ArrayList<String>();
+    ArrayList<String> post_date = new ArrayList<String>();
+    MyListAdapter myListAdapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-
+        // recyclerView
         home_keyword_list();
+
+
+        // listView
+        postList = findViewById(R.id.home_post_list);
+        myListAdapter = new MyListAdapter(this, post_title, post_date);
+        postList.setAdapter(myListAdapter);
+
+        notice_list();
 
 
         Button plus_keyword_btn = findViewById(R.id.my_keyword_list_plus_btn);
@@ -104,4 +137,56 @@ public class HomeActivity extends AppCompatActivity {
             Toast.makeText(HomeActivity.this, str, Toast.LENGTH_SHORT).show();
         }
     };
+
+
+    void notice_list() {
+        String TAG = HomeActivity.class.getSimpleName();
+
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        String token = sharedPreferences.getString("access_token", "null");
+
+        String url = "http://3.37.68.242:8000/userNotice/";
+
+        JsonArrayRequest request = new JsonArrayRequest(Request.Method.GET,
+                url,
+                null,
+                new Response.Listener<JSONArray>() {
+                    @Override
+                    public void onResponse(JSONArray response) {
+                        for (int i = 0; i < response.length(); i++) {
+                            try {
+                                JSONObject notice = response.getJSONObject(i).getJSONObject("notice");
+                                post_title.add(notice.getString("title"));
+                                post_date.add(notice.getString("date"));
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                        myListAdapter.notifyDataSetChanged();
+                    }
+
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        error.printStackTrace();
+                        Log.d(TAG, "notice user list error");
+                    }
+                }) {
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                return give_token(token);
+            }
+        };
+
+        RequestQueue queue = Volley.newRequestQueue(this);
+        queue.add(request);
+    }
+
+    Map<String, String> give_token(String token) {
+        HashMap<String, String> headers = new HashMap<>();
+        headers.put("Authorization", "Bearer " + token);
+
+        return headers;
+    }
 }

@@ -53,7 +53,6 @@ public class CheckKeywordPostActivity extends AppCompatActivity {
 
     //listView
     ListView postList;
-    ArrayList<String> post_keyword = new ArrayList<String>();
     ArrayList<String> post_title = new ArrayList<String>();
     ArrayList<String> post_date = new ArrayList<String>();
     MyListAdapter myListAdapter;
@@ -70,9 +69,8 @@ public class CheckKeywordPostActivity extends AppCompatActivity {
 
         keyword_list();
 
+
         // listView
-
-
         postList = findViewById(R.id.keyword_post_listView);
         myListAdapter = new MyListAdapter(this, post_title, post_date);
         postList.setAdapter(myListAdapter);
