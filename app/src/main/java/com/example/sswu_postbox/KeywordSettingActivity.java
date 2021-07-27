@@ -1,6 +1,7 @@
 package com.example.sswu_postbox;
 
 import androidx.annotation.Dimension;
+import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
@@ -14,6 +15,7 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.Gravity;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -33,7 +35,9 @@ import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import org.jetbrains.annotations.NotNull;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -51,6 +55,9 @@ public class KeywordSettingActivity extends AppCompatActivity {
 
     GridView my_keyword_list;
     MyGridAdapter gridAdapter;
+
+
+    private BottomNavigationView bottomNavigationView;
 
 
     @Override
@@ -95,6 +102,32 @@ public class KeywordSettingActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 finish();
+            }
+        });
+
+
+        bottomNavigationView = findViewById(R.id.bottomNavigationView);
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull @NotNull MenuItem menuItem) {
+
+                switch (menuItem.getItemId()){
+
+                    case R.id.notification_btn:
+                        setFrag(0);
+                        break;
+                    case R.id.locker_btn:
+                        setFrag(1);
+                        break;
+                    case R.id.home_btn:
+                        setFrag(2);
+                        break;
+                    case R.id.setting_btn:
+                        setFrag(3);
+                        break;
+                }
+
+                return true;
             }
         });
     }
@@ -330,6 +363,29 @@ public class KeywordSettingActivity extends AppCompatActivity {
         headers.put("Authorization", "Bearer " + token);
 
         return headers;
+    }
+
+
+    private void setFrag(int n) {
+
+        switch (n){
+            case 0:
+                Intent notification = new Intent(this, NotificationListActivity.class);
+                startActivity(notification);
+                break;
+            case 1:
+                Intent locker = new Intent(this, LockerActivity.class);
+                startActivity(locker);
+                break;
+            case 2:
+                Intent home = new Intent(this, HomeActivity.class);
+                startActivity(home);
+                break;
+            case 3:
+                Intent setting = new Intent(this, SettingActivity.class);
+                startActivity(setting);
+                break;
+        }
     }
 }
 

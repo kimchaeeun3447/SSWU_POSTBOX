@@ -1,18 +1,22 @@
 package com.example.sswu_postbox;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.ClipData;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
+
 import android.widget.Button;
-import android.widget.ImageButton;
+
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -23,7 +27,9 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import org.jetbrains.annotations.NotNull;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -45,10 +51,18 @@ public class HomeActivity extends AppCompatActivity {
     ArrayList<String> post_date = new ArrayList<String>();
     MyListAdapter myListAdapter;
 
+
+    private BottomNavigationView bottomNavigationView;
+    private FragmentManager fm;
+    private FragmentTransaction ft;
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
 
         // recyclerView
         home_keyword_list();
@@ -102,6 +116,65 @@ public class HomeActivity extends AppCompatActivity {
         });
 
 */
+
+        bottomNavigationView = findViewById(R.id.bottomNavigationView);
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull @NotNull MenuItem menuItem) {
+
+                switch (menuItem.getItemId()){
+
+                    case R.id.notification_btn:
+                        setFrag(0);
+                        break;
+                    case R.id.locker_btn:
+                        setFrag(1);
+                        break;
+                    case R.id.home_btn:
+                        setFrag(2);
+                        break;
+                    case R.id.setting_btn:
+                        setFrag(3);
+                        break;
+                }
+
+                return true;
+            }
+        });
+
+    }
+
+
+    private void setFrag(int n) {
+        fm = getSupportFragmentManager();
+        ft = fm.beginTransaction();
+
+        switch (n){
+            case 0:
+                //ft.replace(R.id.home_frame, frag1);
+                //ft.commit();
+                Intent notification = new Intent(this, NotificationListActivity.class);
+                startActivity(notification);
+                break;
+            case 1:
+                //ft.replace(R.id.home_frame, frag2);
+                //ft.commit();
+                Intent locker = new Intent(this, LockerActivity.class);
+                startActivity(locker);
+                break;
+            case 2:
+                //ft.replace(R.id.home_frame, frag3);
+                //ft.commit();
+                Intent home = new Intent(this, HomeActivity.class);
+                startActivity(home);
+                break;
+            case 3:
+                //ft.replace(R.id.home_frame, frag4);
+                //ft.commit();
+                Intent setting = new Intent(this, SettingActivity.class);
+                startActivity(setting);
+                break;
+        }
     }
 
 
@@ -189,4 +262,6 @@ public class HomeActivity extends AppCompatActivity {
 
         return headers;
     }
+
+
 }

@@ -1,9 +1,12 @@
 package com.example.sswu_postbox;
 
 import androidx.annotation.Dimension;
+import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Context;
 import android.content.Intent;
@@ -15,6 +18,7 @@ import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.KeyEvent;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebChromeClient;
@@ -36,7 +40,9 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import org.jetbrains.annotations.NotNull;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -56,6 +62,12 @@ public class CheckKeywordPostActivity extends AppCompatActivity {
     ArrayList<String> post_title = new ArrayList<String>();
     ArrayList<String> post_date = new ArrayList<String>();
     MyListAdapter myListAdapter;
+
+    private BottomNavigationView bottomNavigationView;
+    private FragmentManager fm;
+    private FragmentTransaction ft;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -124,6 +136,32 @@ public class CheckKeywordPostActivity extends AppCompatActivity {
 
             }
         }); */
+
+
+        bottomNavigationView = findViewById(R.id.bottomNavigationView);
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull @NotNull MenuItem menuItem) {
+
+                switch (menuItem.getItemId()){
+
+                    case R.id.notification_btn:
+                        setFrag(0);
+                        break;
+                    case R.id.locker_btn:
+                        setFrag(1);
+                        break;
+                    case R.id.home_btn:
+                        setFrag(2);
+                        break;
+                    case R.id.setting_btn:
+                        setFrag(3);
+                        break;
+                }
+
+                return true;
+            }
+        });
 
     }
 
@@ -217,5 +255,27 @@ public class CheckKeywordPostActivity extends AppCompatActivity {
         headers.put("Authorization", "Bearer " + token);
 
         return headers;
+    }
+
+    private void setFrag(int n) {
+
+        switch (n){
+            case 0:
+                Intent notification = new Intent(this, NotificationListActivity.class);
+                startActivity(notification);
+                break;
+            case 1:
+                Intent locker = new Intent(this, LockerActivity.class);
+                startActivity(locker);
+                break;
+            case 2:
+                Intent home = new Intent(this, HomeActivity.class);
+                startActivity(home);
+                break;
+            case 3:
+                Intent setting = new Intent(this, SettingActivity.class);
+                startActivity(setting);
+                break;
+        }
     }
 }
