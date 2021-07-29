@@ -18,6 +18,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -51,6 +52,12 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 login();
+
+                FirebaseMessaging.getInstance().subscribeToTopic("test")
+                        .addOnCompleteListener( task -> {
+                            if (task.isComplete()) Log.d(TAG, "구독 성공");
+                            else Log.d(TAG, "구독 실패");
+                        });
             }
         });
     }
