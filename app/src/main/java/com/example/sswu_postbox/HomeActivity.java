@@ -2,8 +2,6 @@ package com.example.sswu_postbox;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -14,9 +12,7 @@ import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
-
 import android.widget.Button;
-
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -39,6 +35,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class HomeActivity extends AppCompatActivity {
+    String TAG = HomeActivity.class.getSimpleName();
+
+    ArrayList<String> major = new ArrayList<String>() {};
+    String user_major, user_major2, user_major3;
 
     //Recyclerview
     private RecyclerView recyclerView;
@@ -46,22 +46,21 @@ public class HomeActivity extends AppCompatActivity {
 
     //listView
     ListView postList;
-    ArrayList<String> post_title = new ArrayList<String>();
-    ArrayList<String> post_date = new ArrayList<String>();
+    ArrayList<String> post_title = new ArrayList<>();
+    ArrayList<String> post_date = new ArrayList<>();
     MyListAdapter myListAdapter;
 
 
     private BottomNavigationView bottomNavigationView;
-    private FragmentManager fm;
-    private FragmentTransaction ft;
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
+
+        // 사용자 전공 가져오기(챈아 밑에서 이 함수 찾아가서 내가 표시해놓은 곳에 url 연결하면 돼)
+        user_major();
 
         // recyclerView
         home_keyword_list();
@@ -140,40 +139,6 @@ public class HomeActivity extends AppCompatActivity {
                 return true;
             }
         });
-
-    }
-
-
-    private void setFrag(int n) {
-        fm = getSupportFragmentManager();
-        ft = fm.beginTransaction();
-
-        switch (n){
-            case 0:
-                //ft.replace(R.id.home_frame, frag1);
-                //ft.commit();
-                Intent notification = new Intent(this, NotificationListActivity.class);
-                startActivity(notification);
-                break;
-            case 1:
-                //ft.replace(R.id.home_frame, frag2);
-                //ft.commit();
-                Intent locker = new Intent(this, LockerActivity.class);
-                startActivity(locker);
-                break;
-            case 2:
-                //ft.replace(R.id.home_frame, frag3);
-                //ft.commit();
-                Intent home = new Intent(this, HomeActivity.class);
-                startActivity(home);
-                break;
-            case 3:
-                //ft.replace(R.id.home_frame, frag4);
-                //ft.commit();
-                Intent setting = new Intent(this, SettingActivity.class);
-                startActivity(setting);
-                break;
-        }
     }
 
 
@@ -212,8 +177,6 @@ public class HomeActivity extends AppCompatActivity {
 
 
     void notice_list() {
-        String TAG = HomeActivity.class.getSimpleName();
-
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         String token = sharedPreferences.getString("access_token", "null");
 
@@ -255,6 +218,50 @@ public class HomeActivity extends AppCompatActivity {
         queue.add(request);
     }
 
+
+    public void user_major() {
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        String token = sharedPreferences.getString("access_token", "null");
+
+        String url = "http://3.37.68.242:8000/detail/user/";
+
+            JsonArrayRequest request = new JsonArrayRequest(Request.Method.GET,
+                    url,
+                    null,
+                    new Response.Listener<JSONArray>() {
+                        @Override
+                        public void onResponse(JSONArray response) {
+                            try {
+                                JSONObject userInfo = response.getJSONObject(0);
+
+                                user_major = userInfo.getString("user_major");
+                                user_major2 = userInfo.getString("user_major2");
+                                user_major3 = userInfo.getString("user_major3");
+
+                                // user_major -> 주전공 , user_major2 -> 복수전공, user_major3 -> 부전공
+                                // 여기부터 학과별 학과 홈페이지 url 연결하기
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    },
+                    new Response.ErrorListener() {
+                        @Override
+                        public void onErrorResponse(VolleyError error) {
+                            error.printStackTrace();
+                            Log.d(TAG, "user major call fail");
+                        }
+                    }) {
+                @Override
+                public Map<String, String> getHeaders() throws AuthFailureError {
+                    return give_token(token);
+                }
+            };
+
+        RequestQueue queue = Volley.newRequestQueue(this);
+        queue.add(request);
+    }
+
     Map<String, String> give_token(String token) {
         HashMap<String, String> headers = new HashMap<>();
         headers.put("Authorization", "Bearer " + token);
@@ -262,5 +269,25 @@ public class HomeActivity extends AppCompatActivity {
         return headers;
     }
 
+    private void setFrag(int n) {
 
+        switch (n){
+            case 0:
+                Intent notification = new Intent(this, NotificationListActivity.class);
+                startActivity(notification);
+                break;
+            case 1:
+                Intent locker = new Intent(this, LockerActivity.class);
+                startActivity(locker);
+                break;
+            case 2:
+                Intent home = new Intent(this, HomeActivity.class);
+                startActivity(home);
+                break;
+            case 3:
+                Intent setting = new Intent(this, SettingActivity.class);
+                startActivity(setting);
+                break;
+        }
+    }
 }
