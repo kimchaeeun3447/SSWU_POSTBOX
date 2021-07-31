@@ -227,6 +227,19 @@ public class KeywordSettingActivity extends AppCompatActivity {
 
                         Toast toast = Toast.makeText(getApplicationContext(), "키워드를 삭제했습니다.", Toast.LENGTH_SHORT);
                         toast.show();
+
+                        try {
+                            String encoding_keyword = URLEncoder.encode(keyword_del_text.getText().toString(), "UTF-8");
+                            Log.d(TAG, "keyword " + encoding_keyword);
+
+                            FirebaseMessaging.getInstance().unsubscribeFromTopic(encoding_keyword)
+                                    .addOnCompleteListener( task -> {
+                                        if (task.isComplete()) Log.d(TAG, "구독 해제 성공");
+                                        else Log.d(TAG, "구독 해제 실패");
+                                    });
+                        } catch (UnsupportedEncodingException e) {
+                            e.printStackTrace();
+                        }
                     }
                 },
                 new Response.ErrorListener() {
