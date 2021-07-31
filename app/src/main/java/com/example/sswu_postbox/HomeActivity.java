@@ -40,7 +40,6 @@ public class HomeActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private MyRecyclerAdapter adapter;
 
-
     //listView
     ListView postList;
     ArrayList<String> post_title = new ArrayList<>();
