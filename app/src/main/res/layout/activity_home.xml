@@ -69,14 +69,23 @@
             android:layout_marginTop="60dp"
             android:text="새로운 공지사항" />
         <TextView
-            android:id="@+id/textView6"
+            android:id="@+id/unread_count"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="12pt"
             android:textColor="#000"
-            android:layout_marginLeft="300dp"
+            android:layout_marginLeft="310dp"
             android:layout_marginTop="100dp"
-            android:text="00 건" />
+            android:text="00" />
+        <TextView
+            android:id="@+id/gun"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12pt"
+            android:textColor="#000"
+            android:layout_marginLeft="350dp"
+            android:layout_marginTop="100dp"
+            android:text="건" />
         <TextView
             android:id="@+id/textView7"
             android:layout_width="wrap_content"
