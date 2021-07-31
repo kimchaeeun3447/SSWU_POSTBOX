@@ -89,6 +89,7 @@ public class KeywordSettingActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 keyword_del();
+                notice_del();
             }
         });
 
@@ -395,6 +396,40 @@ public class KeywordSettingActivity extends AppCompatActivity {
         headers.put("Authorization", "Bearer " + token);
 
         return headers;
+    }
+
+    void notice_del() {
+        keyword_del_text = findViewById(R.id.keyword_delete);
+
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        String token = sharedPreferences.getString("access_token", "null");
+
+        String url = "http://3.37.68.242:8000/destroy/notice/?keyword=" + keyword_del_text.getText().toString();
+
+        JsonObjectRequest request = new JsonObjectRequest(Request.Method.DELETE,
+                url,
+                null,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        Log.d(TAG, "공지사항 삭제 성공");
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        error.printStackTrace();
+                        Log.d(TAG, "공지사항 삭제 실패");
+                    }
+                }) {
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                return give_token(token);
+            }
+        };
+
+        RequestQueue queue = Volley.newRequestQueue(this);
+        queue.add(request);
     }
 
 
