@@ -36,12 +36,15 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 import org.jetbrains.annotations.NotNull;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -164,6 +167,22 @@ public class KeywordSettingActivity extends AppCompatActivity {
                             else {
                                 Toast toast = Toast.makeText(getApplicationContext(), "키워드 등록에 성공했습니다.", Toast.LENGTH_LONG);
                                 toast.show();
+
+                                // 푸쉬 알림을 위한 FCM topic 구독
+                                try {
+                                    String encoding_keyword = URLEncoder.encode(keyword_add_text.getText().toString(), "UTF-8");
+                                    Log.d(TAG, "keyword " + encoding_keyword);
+
+                                    FirebaseMessaging.getInstance().subscribeToTopic(encoding_keyword)
+                                            .addOnCompleteListener( task -> {
+                                                if (task.isComplete()) Log.d(TAG, "구독 성공");
+                                                else Log.d(TAG, "구독 실패");
+                                            });
+                                } catch (UnsupportedEncodingException e) {
+                                    e.printStackTrace();
+                                }
+
+
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();
