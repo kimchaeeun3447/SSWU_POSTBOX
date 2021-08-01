@@ -265,8 +265,6 @@ public class KeywordSettingActivity extends AppCompatActivity {
     }
 
     void keyword_list() {
-        String TAG = KeywordSettingActivity.class.getSimpleName();
-
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         String token = sharedPreferences.getString("access_token", "null");
 

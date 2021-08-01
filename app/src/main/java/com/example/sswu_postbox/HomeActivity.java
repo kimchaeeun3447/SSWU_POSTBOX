@@ -156,18 +156,46 @@ public class HomeActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
 
         ArrayList<String> itemList = new ArrayList<>();
-        itemList.add("키워드1");
-        itemList.add("키워드2");
-        itemList.add("키워드3");
-        itemList.add("키워드4");
-        itemList.add("키워드5");
-        itemList.add("키워드6");
-        itemList.add("키워드7");
-        itemList.add("키워드8");
-        itemList.add("키워드9");
 
         adapter = new MyRecyclerAdapter(this, itemList, onClickItem);
         recyclerView.setAdapter(adapter);
+
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        String token = sharedPreferences.getString("access_token", "null");
+
+        String url = "http://3.37.68.242:8000/detail/keywords/";
+
+
+        JsonArrayRequest request = new JsonArrayRequest(Request.Method.GET,
+                url,
+                null,
+                new Response.Listener<JSONArray>() {
+                    @Override
+                    public void onResponse(JSONArray response) {
+                        for (int i = 0; i < response.length(); i++) {
+                            try {
+                                itemList.add(response.getJSONObject(i).getString("keyword"));
+                                adapter.notifyDataSetChanged();
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Log.d(TAG, "keyword list get fail");
+                    }
+                }) {
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                return give_token(token);
+            }
+        };
+
+        RequestQueue queue = Volley.newRequestQueue(this);
+        queue.add(request);
 
     }
 
