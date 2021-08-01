@@ -61,6 +61,14 @@ public class MyListAdapter extends BaseAdapter {
         TextView contents_postTitle = view.findViewById(R.id.contents_postTitle);
         contents_postTitle.setText(post_title.get(position));
 
+        // 제목 클릭 이벤트
+        contents_postTitle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(context, "제목 클릭", Toast.LENGTH_SHORT).show();
+            }
+        });
+
 
         TextView contents_date = view.findViewById(R.id.contents_date);
         contents_date.setText(post_date.get(position));
@@ -72,29 +80,18 @@ public class MyListAdapter extends BaseAdapter {
         ImageButton post_share_btn = view.findViewById(R.id.post_share_btn);
 
         // 보관함 저장 버튼
-        //테스트
         ImageButton save_post  = (ImageButton) view.findViewById(R.id.save_btn);
         save_post.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               v.setSelected(!v.isSelected());
+                v.setSelected(!v.isSelected());
 
-               if (v.isSelected()){
-                   Toast.makeText(context, "click list body", Toast.LENGTH_SHORT).show();
-               } else {
+                if (v.isSelected()){
+                    Toast.makeText(context, "보관함 저장", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(context, "보관함 저장 취소", Toast.LENGTH_SHORT).show();
+                }
 
-               }
-
-            }
-        });
-
-
-
-        //글 클릭 - url
-        body.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(context, "click list body", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -103,7 +100,7 @@ public class MyListAdapter extends BaseAdapter {
         post_share_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(context, "click list btn2", Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, "share", Toast.LENGTH_SHORT).show();
             }
         });
 
