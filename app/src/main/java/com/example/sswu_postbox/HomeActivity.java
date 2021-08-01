@@ -62,8 +62,8 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        unread_count();
         notice_list_post();
+        unread_count();
 
         // 사용자 전공 가져오기(챈아 밑에서 이 함수 찾아가서 내가 표시해놓은 곳에 url 연결하면 돼)
         user_major();
