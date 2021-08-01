@@ -1,15 +1,25 @@
 package com.example.sswu_postbox;
 
 import android.content.Context;
+import android.content.SharedPreferences;
+import android.media.Image;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.ImageButton;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+
 import java.util.ArrayList;
+
 
 public class MyListAdapter extends BaseAdapter {
 
@@ -17,6 +27,7 @@ public class MyListAdapter extends BaseAdapter {
     LayoutInflater layoutInflater;
     ArrayList<String> post_title;
     ArrayList<String> post_date;
+
 
 
     public MyListAdapter(Context context, ArrayList<String> post_title, ArrayList<String> post_date) {
@@ -57,23 +68,33 @@ public class MyListAdapter extends BaseAdapter {
 
         View body = view.findViewById(R.id.body);
 
-        ImageButton post_save_btn = view.findViewById(R.id.post_save_btn);
+
         ImageButton post_share_btn = view.findViewById(R.id.post_share_btn);
+
+        // 보관함 저장 버튼
+        //테스트
+        ImageButton save_post  = (ImageButton) view.findViewById(R.id.save_btn);
+        save_post.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               v.setSelected(!v.isSelected());
+
+               if (v.isSelected()){
+                   Toast.makeText(context, "click list body", Toast.LENGTH_SHORT).show();
+               } else {
+
+               }
+
+            }
+        });
+
+
 
         //글 클릭 - url
         body.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Toast.makeText(context, "click list body", Toast.LENGTH_SHORT).show();
-            }
-        });
-
-
-        //저장 버튼
-        post_save_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(context, "click list btn1", Toast.LENGTH_SHORT).show();
             }
         });
 

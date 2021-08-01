@@ -3,7 +3,6 @@
     android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-
     <LinearLayout
         android:id="@+id/body"
         android:paddingLeft="8dp"
@@ -47,7 +46,14 @@
         android:layout_height="match_parent"
         android:orientation="horizontal">
 
+
         <ImageButton
+            android:id="@+id/save_btn"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:background="@drawable/save_btn_click_unclink"/>
+
+        <!--ImageButton
             android:id="@+id/post_save_btn"
             android:layout_width="20dp"
             android:layout_height="19dp"
@@ -56,7 +62,7 @@
             android:layout_marginTop="3dp"
             android:background="@android:color/transparent"
             android:scaleType="fitCenter"
-            android:src="@drawable/save_btn" />
+            android:src="@drawable/save_btn" />-->
 
         <ImageButton
             android:id="@+id/post_share_btn"
@@ -69,6 +75,5 @@
             android:maxHeight="10dp"
             android:scaleType="fitCenter"
             android:src="@drawable/share_btn" />
-
     </LinearLayout>
 </LinearLayout>
