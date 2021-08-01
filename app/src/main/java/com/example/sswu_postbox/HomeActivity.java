@@ -63,6 +63,7 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
 
         unread_count();
+        notice_list_post();
 
         // 사용자 전공 가져오기(챈아 밑에서 이 함수 찾아가서 내가 표시해놓은 곳에 url 연결하면 돼)
         user_major();
@@ -207,6 +208,38 @@ public class HomeActivity extends AppCompatActivity {
             Toast.makeText(HomeActivity.this, str, Toast.LENGTH_SHORT).show();
         }
     };
+
+    void notice_list_post() {
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        String token = sharedPreferences.getString("access_token", "null");
+
+        String url = "http://3.37.68.242:8000/userNotice/";
+
+        JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST,
+                url,
+                null,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        Log.d(TAG, "notice list post success");
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        error.printStackTrace();
+                        Log.d(TAG, "notice list post fail");
+                    }
+                }) {
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                return give_token(token);
+            }
+        };
+
+        RequestQueue queue = Volley.newRequestQueue(this);
+        queue.add(request);
+    }
 
 
     void notice_list() {

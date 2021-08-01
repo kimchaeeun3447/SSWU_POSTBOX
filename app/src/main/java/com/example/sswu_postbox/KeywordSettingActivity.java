@@ -79,7 +79,6 @@ public class KeywordSettingActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 keyword_add();
-                notice_list_post();
             }
         });
 
@@ -345,38 +344,6 @@ public class KeywordSettingActivity extends AppCompatActivity {
                         toast.show();
 
                         error.printStackTrace();
-                    }
-                }) {
-            @Override
-            public Map<String, String> getHeaders() throws AuthFailureError {
-                return give_token(token);
-            }
-        };
-
-        RequestQueue queue = Volley.newRequestQueue(this);
-        queue.add(request);
-    }
-
-    void notice_list_post() {
-        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
-        String token = sharedPreferences.getString("access_token", "null");
-
-        String url = "http://3.37.68.242:8000/userNotice/";
-
-        JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST,
-                url,
-                null,
-                new Response.Listener<JSONObject>() {
-                    @Override
-                    public void onResponse(JSONObject response) {
-                        Log.d(TAG, "notice list post success");
-                    }
-                },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        error.printStackTrace();
-                        Log.d(TAG, "notice list post fail");
                     }
                 }) {
             @Override
