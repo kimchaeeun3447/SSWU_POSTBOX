@@ -27,6 +27,19 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
+    // Java 8 사용을 위한 build.gradle 설정
+    android {
+
+        compileOptions {
+            sourceCompatibility JavaVersion.VERSION_1_8
+            targetCompatibility JavaVersion.VERSION_1_8
+        }
+
+        kotlinOptions {
+            jvmTarget = "1.8"
+        }
+    }
 }
 
 dependencies {
@@ -42,4 +55,13 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 
     implementation 'com.android.volley:volley:1.1.1'
+
+    //카카오 SDK 모듈 설정
+    dependencies {
+        implementation "com.kakao.sdk:v2-user-rx:2.5.2" // 카카오 로그인
+        implementation "com.kakao.sdk:v2-talk-rx:2.5.2" // 친구, 메시지(카카오톡)
+        implementation "com.kakao.sdk:v2-story-rx:2.5.2" // 카카오스토리
+        implementation "com.kakao.sdk:v2-link-rx:2.5.2" // 메시지(카카오링크)
+        implementation "com.kakao.sdk:v2-navi:2.5.2" // 카카오내비
+    }
 }
