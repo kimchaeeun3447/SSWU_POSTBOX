@@ -1,20 +1,15 @@
 package com.example.sswu_postbox;
 
-import androidx.annotation.RequiresApi;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.webkit.WebChromeClient;
-import android.webkit.WebResourceRequest;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
-import android.webkit.WebViewClient;
 import android.widget.ImageButton;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class PostClickActivity extends AppCompatActivity {
 
@@ -24,6 +19,7 @@ public class PostClickActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_post_click);
+
 
         Intent intent = getIntent();
         String titleText = intent.getStringExtra("webView_title");
@@ -42,6 +38,22 @@ public class PostClickActivity extends AppCompatActivity {
         webSettings.setJavaScriptEnabled(true);
         webview.setWebChromeClient(new WebChromeClient());
 
+        //공유 기능
+        ImageButton webview_share_btn = findViewById(R.id.webview_share_btn);
+        webview_share_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent Sharing_intent = new Intent(Intent.ACTION_SEND);
+                Sharing_intent.setType("text/plain");
+
+                String Test_Message = "["+titleText+"]" + "  " + url;
+                Sharing_intent.putExtra(Intent.EXTRA_TEXT, Test_Message);
+
+                Intent Sharing =Intent.createChooser(Sharing_intent, "공유하기");
+                startActivity(Sharing);
+            }
+        });
+
 
         ImageButton activity_post_click_close_btn = findViewById(R.id.activity_post_click_close_btn);
         activity_post_click_close_btn.setOnClickListener(new View.OnClickListener() {
@@ -56,3 +68,4 @@ public class PostClickActivity extends AppCompatActivity {
 
 
 }
+

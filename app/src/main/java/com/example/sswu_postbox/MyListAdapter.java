@@ -3,39 +3,24 @@ package com.example.sswu_postbox;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.media.Image;
 import android.preference.PreferenceManager;
-import android.text.BoringLayout;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.webkit.WebChromeClient;
-import android.webkit.WebSettings;
-import android.webkit.WebView;
 import android.widget.BaseAdapter;
-import android.widget.Button;
-import android.widget.CheckBox;
-import android.widget.CompoundButton;
 import android.widget.ImageButton;
-import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 
-import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
@@ -104,7 +89,6 @@ public class MyListAdapter extends BaseAdapter {
         String dateText = contents_date.getText().toString();
 
 
-
         // 제목 클릭 이벤트 ( 웹뷰 )
         contents_postTitle.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -144,11 +128,18 @@ public class MyListAdapter extends BaseAdapter {
         });
 
 
-        //공유 버튼
+        // 공유 버튼
         post_share_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(context, "share", Toast.LENGTH_SHORT).show();
+                Intent Sharing_intent = new Intent(Intent.ACTION_SEND);
+                Sharing_intent.setType("text/plain");
+
+                String Test_Message = "["+titleText+"]" + "  " + url;
+                Sharing_intent.putExtra(Intent.EXTRA_TEXT, Test_Message);
+
+                Intent Sharing =Intent.createChooser(Sharing_intent, "공유하기");
+                context.startActivity(Sharing);
             }
         });
 

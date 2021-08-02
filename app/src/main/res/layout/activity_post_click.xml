@@ -92,7 +92,7 @@
                     android:layout_weight="1" />
 
                 <ImageButton
-                    android:id="@+id/activity_post_click_btn1"
+                    android:id="@+id/webview_save_btn"
                     android:layout_width="30dp"
                     android:layout_height="32dp"
                     android:layout_marginTop="3dp"
@@ -103,7 +103,7 @@
                     android:contentDescription="@string/save_btn"/>
 
                 <ImageButton
-                    android:id="@+id/activity_post_click_btn2"
+                    android:id="@+id/webview_share_btn"
                     android:layout_width="32dp"
                     android:layout_height="32dp"
                     android:background="@android:color/transparent"

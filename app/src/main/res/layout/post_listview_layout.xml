@@ -53,16 +53,6 @@
             android:layout_height="28dp"
             android:background="@drawable/save_btn_click_unclink"/>
 
-        <!--ImageButton
-            android:id="@+id/post_save_btn"
-            android:layout_width="20dp"
-            android:layout_height="19dp"
-            android:gravity="right"
-            android:layout_marginLeft="6dp"
-            android:layout_marginTop="3dp"
-            android:background="@android:color/transparent"
-            android:scaleType="fitCenter"
-            android:src="@drawable/save_btn" />-->
 
         <ImageButton
             android:id="@+id/post_share_btn"
