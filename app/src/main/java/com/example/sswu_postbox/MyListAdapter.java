@@ -1,6 +1,7 @@
 package com.example.sswu_postbox;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.media.Image;
 import android.preference.PreferenceManager;
@@ -9,6 +10,9 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebChromeClient;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -39,6 +43,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 
+
+
 public class MyListAdapter extends BaseAdapter {
     String TAG = MyListAdapter.class.getSimpleName();
 
@@ -48,13 +54,17 @@ public class MyListAdapter extends BaseAdapter {
     ArrayList<String> post_date;
     ArrayList<Boolean> post_saved;
 
+    ArrayList<String> post_url;
+    private String url;
 
-    public MyListAdapter(Context context, ArrayList<String> post_title, ArrayList<String> post_date, ArrayList<Boolean> post_saved) {
+
+    public MyListAdapter(Context context, ArrayList<String> post_title, ArrayList<String> post_date, ArrayList<Boolean> post_saved, ArrayList<String> post_url) {
         this.context = context;
         this.layoutInflater = LayoutInflater.from(context);
         this.post_title = post_title;
         this.post_date = post_date;
         this.post_saved = post_saved;
+        this.post_url = post_url;
     }
 
     @Override
@@ -81,20 +91,36 @@ public class MyListAdapter extends BaseAdapter {
         TextView contents_postTitle = view.findViewById(R.id.contents_postTitle);
         contents_postTitle.setText(post_title.get(position));
 
-        // 제목 클릭 이벤트
-        contents_postTitle.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(context, "제목 클릭", Toast.LENGTH_SHORT).show();
-            }
-        });
-
 
         TextView contents_date = view.findViewById(R.id.contents_date);
         contents_date.setText(post_date.get(position));
 
 
-        View body = view.findViewById(R.id.body);
+        //url 받기 코드 들어 온 후에 사용
+        //url = post_url.get(position);
+        url = "https://www.sungshin.ac.kr/ce/11806/subview.do?enc=Zm5jdDF8QEB8JTJGYmJzJTJGY2UlMkYzNDA5JTJGMTAzMzY0JTJGYXJ0Y2xWaWV3LmRvJTNGcGFnZSUzRDElMjZzcmNoQ29sdW1uJTNEJTI2c3JjaFdyZCUzRCUyNmJic0NsU2VxJTNEJTI2YmJzT3BlbldyZFNlcSUzRCUyNnJnc0JnbmRlU3RyJTNEJTI2cmdzRW5kZGVTdHIlM0QlMjZpc1ZpZXdNaW5lJTNEZmFsc2UlMjZwYXNzd29yZCUzRCUyNg%3D%3D";
+
+        String titleText = contents_postTitle.getText().toString();
+        String dateText = contents_date.getText().toString();
+
+
+
+        // 제목 클릭 이벤트 ( 웹뷰 )
+        contents_postTitle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+                Intent intent = new Intent(context.getApplicationContext(), PostClickActivity.class);
+                intent.putExtra("webView_title", titleText);
+                intent.putExtra("webView_date", dateText);
+                intent.putExtra("url", url);
+                context.startActivity(intent);
+
+
+            }
+        });
+
 
 
         ImageButton post_share_btn = view.findViewById(R.id.post_share_btn);

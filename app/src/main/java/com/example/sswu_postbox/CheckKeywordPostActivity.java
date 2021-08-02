@@ -62,6 +62,10 @@ public class CheckKeywordPostActivity extends AppCompatActivity {
     ArrayList<String> post_title = new ArrayList<>();
     ArrayList<String> post_date = new ArrayList<>();
     ArrayList<Boolean> post_saved = new ArrayList<>();
+
+    // To. 은정 : 은정아 ArrayList<String> post_url에 url 담아주세욥!!
+    ArrayList<String> post_url = new ArrayList<>();
+
     MyListAdapter myListAdapter;
 
     private BottomNavigationView bottomNavigationView;
@@ -85,10 +89,15 @@ public class CheckKeywordPostActivity extends AppCompatActivity {
 
         // listView
         postList = findViewById(R.id.keyword_post_listView);
-        myListAdapter = new MyListAdapter(this, post_title, post_date, post_saved);
+        myListAdapter = new MyListAdapter(this, post_title, post_date, post_saved, post_url);
         postList.setAdapter(myListAdapter);
 
         notice_list();
+
+
+
+
+
 
         ImageButton back_btn = (ImageButton)findViewById(R.id.check_keyword_post_back_btn);
         back_btn.setOnClickListener(new View.OnClickListener() {
@@ -108,35 +117,6 @@ public class CheckKeywordPostActivity extends AppCompatActivity {
             }
         });
 
-
-
-        /* 웹뷰 시험
-        TextView title = findViewById(R.id.announcement_example_title);
-
-        title.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                Intent intent = new Intent(getApplicationContext(), PostClickActivity.class);
-                startActivity(intent);
-
-                WebView webview = findViewById(R.id.webview);
-                webview.loadUrl("https://www.sungshin.ac.kr/main_kor/11107/subview.do?enc=Zm5jdDF8QEB8JTJGYmJzJTJGbWFpbl9rb3IlMkYzMTgxJTJGMTAzMjc4JTJGYXJ0Y2xWaWV3LmRvJTNG");
-
-                webview.setWebViewClient(new WebViewClient(){
-                    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
-                    @Override
-                    public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
-                        view.loadUrl(request.getUrl().toString());
-
-                        return true;
-                    }
-                });
-
-
-
-            }
-        }); */
 
 
         bottomNavigationView = findViewById(R.id.bottomNavigationView);

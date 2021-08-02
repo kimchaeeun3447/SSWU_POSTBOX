@@ -14,13 +14,33 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 public class PostClickActivity extends AppCompatActivity {
+
+    private WebView webview;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_post_click);
+
+        Intent intent = getIntent();
+        String titleText = intent.getStringExtra("webView_title");
+        String dateText = intent.getStringExtra("webView_date");
+        String url = intent.getStringExtra("url");
+
+        //TextView webView_keyword = findViewById(R.id.webview_keyword);
+
+        TextView webView_title = findViewById(R.id.webview_title);
+        webView_title.setText(titleText);
+
+
+        webview = (WebView) findViewById(R.id.webview);
+        webview.loadUrl(url);
+        WebSettings webSettings = webview.getSettings();
+        webSettings.setJavaScriptEnabled(true);
+        webview.setWebChromeClient(new WebChromeClient());
 
 
         ImageButton activity_post_click_close_btn = findViewById(R.id.activity_post_click_close_btn);
@@ -28,20 +48,6 @@ public class PostClickActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 finish();
-            }
-        });
-
-
-        WebView webview = findViewById(R.id.webview);
-        webview.loadUrl("https://www.sungshin.ac.kr/main_kor/11107/subview.do?enc=Zm5jdDF8QEB8JTJGYmJzJTJGbWFpbl9rb3IlMkYzMTgxJTJGMTAzMjc4JTJGYXJ0Y2xWaWV3LmRvJTNG");
-
-        webview.setWebViewClient(new WebViewClient(){
-            @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
-            @Override
-            public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
-                view.loadUrl(request.getUrl().toString());
-
-                return true;
             }
         });
 

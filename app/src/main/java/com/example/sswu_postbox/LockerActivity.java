@@ -44,6 +44,7 @@ public class LockerActivity extends AppCompatActivity {
     ArrayList<String> post_title = new ArrayList<>();
     ArrayList<String> post_date = new ArrayList<>();
     ArrayList<Boolean> post_saved = new ArrayList<>();
+    ArrayList<String> post_url = new ArrayList<>();
     MyListAdapter myListAdapter;
 
     private BottomNavigationView bottomNavigationView;
@@ -60,7 +61,7 @@ public class LockerActivity extends AppCompatActivity {
         keyword_list();
 
         postList = findViewById(R.id.locker_post_listView);
-        myListAdapter = new MyListAdapter(this, post_title, post_date, post_saved);
+        myListAdapter = new MyListAdapter(this, post_title, post_date, post_saved, post_url);
         postList.setAdapter(myListAdapter);
 
         notice_list();
