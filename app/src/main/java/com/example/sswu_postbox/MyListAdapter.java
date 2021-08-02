@@ -3,6 +3,8 @@ package com.example.sswu_postbox;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.media.Image;
+import android.preference.PreferenceManager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,10 +20,23 @@ import android.widget.Toast;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONObject;
+
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 
 public class MyListAdapter extends BaseAdapter {
+    String TAG = MyListAdapter.class.getSimpleName();
 
     Context context;
     LayoutInflater layoutInflater;
@@ -86,10 +101,11 @@ public class MyListAdapter extends BaseAdapter {
             public void onClick(View v) {
                 v.setSelected(!v.isSelected());
 
-                if (v.isSelected()){
-                    Toast.makeText(context, "보관함 저장", Toast.LENGTH_SHORT).show();
-                } else {
-                    Toast.makeText(context, "보관함 저장 취소", Toast.LENGTH_SHORT).show();
+                if (v.isSelected()) {
+                    store_modify(post_title.get(position), v.isSelected());
+                }
+                else{
+                    store_modify(post_title.get(position), v.isSelected());
                 }
 
             }
@@ -106,5 +122,51 @@ public class MyListAdapter extends BaseAdapter {
 
 
         return view;
+    }
+
+    void store_modify(String title, boolean state) {
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context.getApplicationContext());
+        String token = sharedPreferences.getString("access_token", "null");
+
+        String url = "http://3.37.68.242:8000/update/notice/";
+
+        HashMap<String, String> store_json = new HashMap<>();
+        store_json.put("title", title);
+        store_json.put("store", Boolean.toString(state));
+
+        JSONObject parameter = new JSONObject(store_json);
+
+        JsonObjectRequest request = new JsonObjectRequest(Request.Method.PATCH,
+                url,
+                parameter,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        Log.d(TAG, "보관 상태 수정 성공" + title + state);
+                        if (state) Toast.makeText(context, "보관함 저장", Toast.LENGTH_SHORT).show();
+                        else Toast.makeText(context, "보관함 저장 취소", Toast.LENGTH_SHORT).show();
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                error.printStackTrace();
+                Log.d(TAG, "보관 상태 수정 실패");
+            }
+        }) {
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                return give_token(token);
+            }
+        };
+
+        RequestQueue queue = Volley.newRequestQueue(context.getApplicationContext());
+        queue.add(request);
+    }
+
+    Map<String, String> give_token(String token) {
+        HashMap<String, String> headers = new HashMap<>();
+        headers.put("Authorization", "Bearer " + token);
+
+        return headers;
     }
 }
