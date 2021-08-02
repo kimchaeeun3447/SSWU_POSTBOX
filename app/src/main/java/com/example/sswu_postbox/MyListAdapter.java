@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.media.Image;
 import android.preference.PreferenceManager;
+import android.text.BoringLayout;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -25,9 +26,12 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 
+import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
@@ -42,14 +46,15 @@ public class MyListAdapter extends BaseAdapter {
     LayoutInflater layoutInflater;
     ArrayList<String> post_title;
     ArrayList<String> post_date;
+    ArrayList<Boolean> post_saved;
 
 
-
-    public MyListAdapter(Context context, ArrayList<String> post_title, ArrayList<String> post_date) {
+    public MyListAdapter(Context context, ArrayList<String> post_title, ArrayList<String> post_date, ArrayList<Boolean> post_saved) {
         this.context = context;
         this.layoutInflater = LayoutInflater.from(context);
         this.post_title = post_title;
         this.post_date = post_date;
+        this.post_saved = post_saved;
     }
 
     @Override
@@ -95,7 +100,8 @@ public class MyListAdapter extends BaseAdapter {
         ImageButton post_share_btn = view.findViewById(R.id.post_share_btn);
 
         // 보관함 저장 버튼
-        ImageButton save_post  = (ImageButton) view.findViewById(R.id.save_btn);
+        ImageButton save_post = (ImageButton) view.findViewById(R.id.save_btn);
+        save_post.setSelected(post_saved.get(position));
         save_post.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -162,6 +168,45 @@ public class MyListAdapter extends BaseAdapter {
         RequestQueue queue = Volley.newRequestQueue(context.getApplicationContext());
         queue.add(request);
     }
+
+//    void store_state_get(String title) {
+//        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context.getApplicationContext());
+//        String token = sharedPreferences.getString("access_token", "null");
+//
+//        String url = "http://3.37.68.242:8000/userNotice/?search=" + title;
+//
+//        JsonArrayRequest request = new JsonArrayRequest(Request.Method.GET,
+//                url,
+//                null,
+//                new Response.Listener<JSONArray>() {
+//                    @Override
+//                    public void onResponse(JSONArray response) {
+//                        try {
+//                            JSONObject user_notice = response.getJSONObject(0);
+//                            boolean state = user_notice.getBoolean("store");
+//                            save_post.setSelected(state);
+//
+//                            Log.d(TAG, "보관 상태 불러오기 성공" + title + " " + state);
+//                        } catch (JSONException e) {
+//                            e.printStackTrace();
+//                        }
+//                    }
+//                },
+//                new Response.ErrorListener() {
+//                    @Override
+//                    public void onErrorResponse(VolleyError error) {
+//
+//                    }
+//                }) {
+//            @Override
+//            public Map<String, String> getHeaders() throws AuthFailureError {
+//                return give_token(token);
+//            }
+//        };
+//
+//        RequestQueue queue = Volley.newRequestQueue(context.getApplicationContext());
+//        queue.add(request);
+//    }
 
     Map<String, String> give_token(String token) {
         HashMap<String, String> headers = new HashMap<>();

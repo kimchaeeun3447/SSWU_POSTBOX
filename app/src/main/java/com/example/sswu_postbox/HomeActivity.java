@@ -52,6 +52,7 @@ public class HomeActivity extends AppCompatActivity {
     ListView postList;
     ArrayList<String> post_title = new ArrayList<>();
     ArrayList<String> post_date = new ArrayList<>();
+    ArrayList<Boolean> post_saved = new ArrayList<>();
     MyListAdapter myListAdapter;
 
 
@@ -74,7 +75,7 @@ public class HomeActivity extends AppCompatActivity {
 
         // listView
         postList = findViewById(R.id.home_post_list);
-        myListAdapter = new MyListAdapter(this, post_title, post_date);
+        myListAdapter = new MyListAdapter(this, post_title, post_date, post_saved);
         postList.setAdapter(myListAdapter);
 
         notice_list();
@@ -259,6 +260,9 @@ public class HomeActivity extends AppCompatActivity {
                                 JSONObject notice = response.getJSONObject(i).getJSONObject("notice");
                                 post_title.add(notice.getString("title"));
                                 post_date.add(notice.getString("date"));
+
+                                JSONObject user_notice = response.getJSONObject(i);
+                                post_saved.add(user_notice.getBoolean("store"));
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             }
