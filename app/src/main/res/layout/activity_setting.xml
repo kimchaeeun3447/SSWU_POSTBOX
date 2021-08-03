@@ -6,6 +6,119 @@
     android:layout_height="match_parent"
     tools:context=".SettingActivity">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp"
+            tools:ignore="MissingConstraints">
+
+            <ImageButton
+                android:id="@+id/locker_back_btn"
+                android:layout_width="45dp"
+                android:layout_height="24dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="8dp"
+                android:background="@android:color/transparent"
+                android:gravity="start"
+                android:scaleType="fitCenter"
+                android:src="@drawable/back_btn"
+                app:layout_constrainedWidth="true"
+                app:layout_constraintEnd_toStartOf="@+id/heck_keyword_post_title"
+                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintHorizontal_weight="1"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/check_keyword_post_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="보관함"
+                android:textColor="@color/black"
+                android:textSize="30dp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/keyword_setting_back_btn" />
+        </LinearLayout>
+        <View
+            android:layout_width="370dp"
+            android:layout_height="1dp"
+            android:background="#707070"
+            android:layout_gravity="center"
+            android:layout_marginBottom="10dp" ></View>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/userName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:layout_marginLeft="30dp"
+                android:textSize="25dp"
+                android:text="00" />
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:layout_marginLeft="10dp"
+                android:textSize="25dp"
+                android:text="님" />
+        </LinearLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="6dp"
+            android:text="00과"/>
+        <View
+            android:layout_width="370dp"
+            android:layout_height="1dp"
+            android:background="#707070"
+            android:layout_gravity="center"
+            android:layout_marginBottom="10dp" ></View>
+
+        <Button
+            android:id="@+id/button0"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:gravity="left"
+            android:text="키워드 설정" />
+
+        <Switch
+            android:id="@+id/switch1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:text="알림 설정" />
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:gravity="left"
+            android:text="로그아웃" />
+
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:gravity="left"
+            android:text="문의하기" />
+
+    </LinearLayout>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigationView"
@@ -18,4 +131,5 @@
         app:itemTextColor="#000000"
         app:labelVisibilityMode="labeled"
         app:menu="@menu/bottom_navigation_bar" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
