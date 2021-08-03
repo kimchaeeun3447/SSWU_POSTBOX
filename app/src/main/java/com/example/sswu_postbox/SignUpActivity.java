@@ -31,10 +31,10 @@ public class SignUpActivity extends AppCompatActivity {
     EditText id, password, password2;
     Button sign_up;
 
-    private Spinner major;
-    private static ArrayList<String> spinnerList = new ArrayList<String>();
-    private String selectedMajor = null;
-
+    Spinner major;
+    SpinnerAdapter spinnerAdapter;
+    ArrayList<String> spinnerList = new ArrayList<>();
+    String selectedMajor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +43,24 @@ public class SignUpActivity extends AppCompatActivity {
 
         sign_up = findViewById(R.id.signup_check_btn);
 
+        major = findViewById(R.id.signup_major_edit);
+//        spinnerAdapter = new SpinnerAdapter(this, android.R.layout.simple_spinner_dropdown_item, spinnerList);
+//        spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+//        major.setAdapter(spinnerAdapter);
+//        major.setSelection(major.getCount());
+
+//        major.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+//            @Override
+//            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+//                selectedMajor = major.getSelectedItem().toString();
+//                Log.d(TAG, selectedMajor);
+//            }
+//
+//            @Override
+//            public void onNothingSelected(AdapterView<?> parent) {
+//                Toast.makeText(getApplicationContext(), "전공을 선택하세요.", Toast.LENGTH_SHORT).show();
+//            }
+//        });
 
         sign_up.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -58,25 +76,8 @@ public class SignUpActivity extends AppCompatActivity {
         id = findViewById(R.id.signup_id_edit);
         password = findViewById(R.id.signup_pwd_edit);
         password2 = findViewById(R.id.signup_pwd2_edit);
-        major = findViewById(R.id.signup_major_edit);
-
-
-        SpinnerAdapter spinnerAdapter = new SpinnerAdapter(this, android.R.layout.simple_spinner_dropdown_item, spinnerList);
-        spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        major.setAdapter(spinnerAdapter);
-        major.setSelection(major.getCount());
-
-        major.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                selectedMajor = major.getSelectedItem().toString();
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-                Toast.makeText(getApplicationContext(), "전공을 선택하세요.", Toast.LENGTH_SHORT).show();
-            }
-        });
+        selectedMajor = major.getSelectedItem().toString();
+        Log.d(TAG, selectedMajor);
 
         HashMap<String, String> signup_json = new HashMap<>();
         signup_json.put("username", id.getText().toString());
