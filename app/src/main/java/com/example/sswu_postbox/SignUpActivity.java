@@ -1,14 +1,16 @@
 package com.example.sswu_postbox;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -19,14 +21,20 @@ import com.android.volley.toolbox.Volley;
 
 import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class SignUpActivity extends AppCompatActivity {
 
     String TAG = SignUpActivity.class.getSimpleName();
 
-    EditText id, password, password2, major;
+    EditText id, password, password2;
     Button sign_up;
+
+    private Spinner major;
+    private static ArrayList<String> spinnerList = new ArrayList<String>();
+    private String selectedMajor = null;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +42,7 @@ public class SignUpActivity extends AppCompatActivity {
         setContentView(R.layout.activity_sign_up);
 
         sign_up = findViewById(R.id.signup_check_btn);
+
 
         sign_up.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -51,11 +60,29 @@ public class SignUpActivity extends AppCompatActivity {
         password2 = findViewById(R.id.signup_pwd2_edit);
         major = findViewById(R.id.signup_major_edit);
 
+
+        SpinnerAdapter spinnerAdapter = new SpinnerAdapter(this, android.R.layout.simple_spinner_dropdown_item, spinnerList);
+        spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        major.setAdapter(spinnerAdapter);
+        major.setSelection(major.getCount());
+
+        major.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                selectedMajor = major.getSelectedItem().toString();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                Toast.makeText(getApplicationContext(), "전공을 선택하세요.", Toast.LENGTH_SHORT).show();
+            }
+        });
+
         HashMap<String, String> signup_json = new HashMap<>();
         signup_json.put("username", id.getText().toString());
         signup_json.put("password", password.getText().toString());
         signup_json.put("password2", password2.getText().toString());
-        signup_json.put("user_major", major.getText().toString());
+        signup_json.put("user_major", selectedMajor);
         signup_json.put("user_major2", "");
         signup_json.put("user_major3", "");
         signup_json.put("user", null);

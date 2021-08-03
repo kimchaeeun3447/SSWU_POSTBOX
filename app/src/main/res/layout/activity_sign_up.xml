@@ -8,10 +8,11 @@
     tools:context=".SignUpActivity"
     android:background="#FFFFFF">
 
-
   <FrameLayout
       android:layout_width="match_parent"
       android:layout_height="match_parent">
+
+
 
     <ImageView
         android:id="@+id/signup_background_image"
@@ -128,6 +129,12 @@
           android:text="MAJOR"
           android:textColor="@color/black" />
 
+      <Spinner
+          android:id="@+id/signup_major_edit"
+          android:layout_width="300dp"
+          android:layout_height="wrap_content"
+          android:entries="@array/spinner_entries"/>
+      <!--
       <EditText
           android:id="@+id/signup_major_edit"
           android:layout_width="350dp"
@@ -139,7 +146,7 @@
           android:hint="전공을 입력하세요"
           android:textColorHint="#808080"
           android:textSize="15dp"
-          android:textColor="#000000"/>
+          android:textColor="#000000"/> -->
 
       <LinearLayout
           android:layout_width="match_parent"
