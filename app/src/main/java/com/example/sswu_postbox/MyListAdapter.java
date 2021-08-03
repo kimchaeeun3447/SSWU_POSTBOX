@@ -38,9 +38,7 @@ public class MyListAdapter extends BaseAdapter {
     ArrayList<String> post_title;
     ArrayList<String> post_date;
     ArrayList<Boolean> post_saved;
-
     ArrayList<String> post_url;
-    private String url;
 
 
     public MyListAdapter(Context context, ArrayList<String> post_title, ArrayList<String> post_date, ArrayList<Boolean> post_saved, ArrayList<String> post_url) {
@@ -82,8 +80,7 @@ public class MyListAdapter extends BaseAdapter {
 
 
         //url 받기 코드 들어 온 후에 사용
-        //url = post_url.get(position);
-        url = "https://www.sungshin.ac.kr/ce/11806/subview.do?enc=Zm5jdDF8QEB8JTJGYmJzJTJGY2UlMkYzNDA5JTJGMTAzMzY0JTJGYXJ0Y2xWaWV3LmRvJTNGcGFnZSUzRDElMjZzcmNoQ29sdW1uJTNEJTI2c3JjaFdyZCUzRCUyNmJic0NsU2VxJTNEJTI2YmJzT3BlbldyZFNlcSUzRCUyNnJnc0JnbmRlU3RyJTNEJTI2cmdzRW5kZGVTdHIlM0QlMjZpc1ZpZXdNaW5lJTNEZmFsc2UlMjZwYXNzd29yZCUzRCUyNg%3D%3D";
+        String url = post_url.get(position);
 
         String titleText = contents_postTitle.getText().toString();
         String dateText = contents_date.getText().toString();
@@ -100,8 +97,6 @@ public class MyListAdapter extends BaseAdapter {
                 intent.putExtra("webView_date", dateText);
                 intent.putExtra("url", url);
                 context.startActivity(intent);
-
-
             }
         });
 

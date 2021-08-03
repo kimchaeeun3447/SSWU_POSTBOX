@@ -262,6 +262,7 @@ public class HomeActivity extends AppCompatActivity {
                                 JSONObject notice = response.getJSONObject(i).getJSONObject("notice");
                                 post_title.add(notice.getString("title"));
                                 post_date.add(notice.getString("date"));
+                                post_url.add(notice.getString("url"));
 
                                 JSONObject user_notice = response.getJSONObject(i);
                                 post_saved.add(user_notice.getBoolean("store"));
