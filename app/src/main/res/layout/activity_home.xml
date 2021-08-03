@@ -139,9 +139,8 @@
                     android:id="@+id/check_keyword_post_btn"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
-                    android:layout_marginRight="32dp"
+                    android:layout_marginRight="8dp"
                     android:background="@android:color/transparent"
-                    android:gravity="right"
                     android:text="+"
                     android:textColor="#3B4CF6"
                     android:textSize="18dp" />
