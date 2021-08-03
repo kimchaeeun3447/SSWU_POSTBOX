@@ -32,6 +32,7 @@ import android.widget.GridView;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -39,6 +40,7 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -62,11 +64,13 @@ public class CheckKeywordPostActivity extends AppCompatActivity {
     ArrayList<String> post_title = new ArrayList<>();
     ArrayList<String> post_date = new ArrayList<>();
     ArrayList<Boolean> post_saved = new ArrayList<>();
-
-    // To. 은정 : 은정아 ArrayList<String> post_url에 url 담아주세욥!!
     ArrayList<String> post_url = new ArrayList<>();
 
     MyListAdapter myListAdapter;
+    View footer;
+    Button add_notice;
+
+    int total_count = 0;
 
     private BottomNavigationView bottomNavigationView;
     private FragmentManager fm;
@@ -89,15 +93,23 @@ public class CheckKeywordPostActivity extends AppCompatActivity {
 
         // listView
         postList = findViewById(R.id.keyword_post_listView);
+        footer = getLayoutInflater().inflate(R.layout.listview_footer, null, false);
+        postList.addFooterView(footer);
         myListAdapter = new MyListAdapter(this, post_title, post_date, post_saved, post_url);
         postList.setAdapter(myListAdapter);
 
         notice_list();
 
+        add_notice = footer.findViewById(R.id.add);
+        add_notice.setOnClickListener(new View.OnClickListener() {
+            int count = 1;
 
-
-
-
+            @Override
+            public void onClick(View v) {
+                count++;
+                notice_list_add(count);
+            }
+        });
 
         ImageButton back_btn = (ImageButton)findViewById(R.id.check_keyword_post_back_btn);
         back_btn.setOnClickListener(new View.OnClickListener() {
@@ -147,8 +159,6 @@ public class CheckKeywordPostActivity extends AppCompatActivity {
     }
 
     void keyword_list() {
-        String TAG = KeywordSettingActivity.class.getSimpleName();
-
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         String token = sharedPreferences.getString("access_token", "null");
 
@@ -187,42 +197,95 @@ public class CheckKeywordPostActivity extends AppCompatActivity {
         queue.add(request);
     }
 
-    void notice_list() {
-        String TAG = KeywordSettingActivity.class.getSimpleName();
+    void notice_list_add(int count) {
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        String token = sharedPreferences.getString("access_token", "null");
 
+        if (count <= (total_count / 100) + 1) {
+            String url = "http://3.37.68.242:8000/userNotice/?page=" + count;
+
+            JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET,
+                    url,
+                    null,
+                    new Response.Listener<JSONObject>() {
+                        @Override
+                        public void onResponse(JSONObject response) {
+                            try {
+                                JSONArray results = response.getJSONArray("results");
+                                for (int i = 0; i < results.length(); i++) {
+                                    JSONObject notice = results.getJSONObject(i).getJSONObject("notice");
+                                    post_title.add(notice.getString("title"));
+                                    post_date.add(notice.getString("date"));
+                                    post_url.add(notice.getString("url"));
+
+                                    JSONObject user_notice = results.getJSONObject(i);
+                                    post_saved.add(user_notice.getBoolean("store"));
+                                }
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+
+                            myListAdapter.notifyDataSetChanged();
+                        }
+                    },
+                    new Response.ErrorListener() {
+                        @Override
+                        public void onErrorResponse(VolleyError error) {
+                            error.printStackTrace();
+                            Log.d(TAG, "공지사항 " + count + " 페이지 로딩 실패");
+                        }
+                    }) {
+                @Override
+                public Map<String, String> getHeaders() throws AuthFailureError {
+                    return give_token(token);
+                }
+            };
+
+            RequestQueue queue = Volley.newRequestQueue(this);
+            queue.add(request);
+        }
+        else {
+            Toast.makeText(getApplicationContext(), "더 이상 공지사항이 없습니다.", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    void notice_list() {
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         String token = sharedPreferences.getString("access_token", "null");
 
         String url = "http://3.37.68.242:8000/userNotice/";
 
-        JsonArrayRequest request = new JsonArrayRequest(Request.Method.GET,
+        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET,
                 url,
                 null,
-                new Response.Listener<JSONArray>() {
+                new Response.Listener<JSONObject>() {
                     @Override
-                    public void onResponse(JSONArray response) {
-                        for (int i = 0; i < response.length(); i++) {
-                            try {
-                                JSONObject notice = response.getJSONObject(i).getJSONObject("notice");
+                    public void onResponse(JSONObject response) {
+                        try {
+                            total_count = response.getInt("count");
+
+                            JSONArray results = response.getJSONArray("results");
+                            for (int i = 0; i < results.length(); i++) {
+                                JSONObject notice = results.getJSONObject(i).getJSONObject("notice");
                                 post_title.add(notice.getString("title"));
                                 post_date.add(notice.getString("date"));
                                 post_url.add(notice.getString("url"));
 
-                                JSONObject user_notice = response.getJSONObject(i);
+                                JSONObject user_notice = results.getJSONObject(i);
                                 post_saved.add(user_notice.getBoolean("store"));
-                            } catch (JSONException e) {
-                                e.printStackTrace();
                             }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
                         }
+
                         myListAdapter.notifyDataSetChanged();
                     }
-
                 },
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         error.printStackTrace();
-                        Log.d(TAG, "notice user list error");
+                        Log.d(TAG, "공지사항 첫 페이지 로딩 실패");
                     }
                 }) {
             @Override
