@@ -90,7 +90,7 @@ public class MyListAdapter extends BaseAdapter {
         contents_postTitle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                read_modify(post_title.get(position));
 
                 Intent intent = new Intent(context.getApplicationContext(), PostClickActivity.class);
                 intent.putExtra("webView_title", titleText);
@@ -169,6 +169,43 @@ public class MyListAdapter extends BaseAdapter {
             public void onErrorResponse(VolleyError error) {
                 error.printStackTrace();
                 Log.d(TAG, "보관 상태 수정 실패");
+            }
+        }) {
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                return give_token(token);
+            }
+        };
+
+        RequestQueue queue = Volley.newRequestQueue(context.getApplicationContext());
+        queue.add(request);
+    }
+
+    void read_modify(String title) {
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context.getApplicationContext());
+        String token = sharedPreferences.getString("access_token", "null");
+
+        String url = "http://3.37.68.242:8000/update/notice/";
+
+        HashMap<String, String> read_json = new HashMap<>();
+        read_json.put("title", title);
+        read_json.put("read", "true");
+
+        JSONObject parameter = new JSONObject(read_json);
+
+        JsonObjectRequest request = new JsonObjectRequest(Request.Method.PATCH,
+                url,
+                parameter,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        Log.d(TAG, "읽음 상태 수정 성공 " + title + " " + true);
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                error.printStackTrace();
+                Log.d(TAG, "읽음 상태 수정 실패 " + title);
             }
         }) {
             @Override
