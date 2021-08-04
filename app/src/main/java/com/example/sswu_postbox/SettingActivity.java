@@ -3,13 +3,19 @@ package com.example.sswu_postbox;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CompoundButton;
+import android.widget.ImageButton;
+import android.widget.Switch;
+import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.kyleduo.switchbutton.SwitchButton;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -22,10 +28,37 @@ public class SettingActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void goDepartment(View view) {
+        Intent intent = new Intent(getApplicationContext(), DepartModiActivity.class);
+        startActivity(intent);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setting);
+
+        ImageButton locker_back_btn = findViewById(R.id.locker_back_btn);
+        locker_back_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+//
+////        알림 설정
+//        @SuppressLint("WrongViewCast") SwitchButton switchButton = (SwitchButton) findViewById(R.id.notice);
+//        switchButton.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+//            @Override
+//            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+//
+//                if (isChecked) { // 알림 활성화
+//                    Toast.makeText(getApplicationContext(), "알림 활성화", Toast.LENGTH_LONG).show();
+//                } else { // 알림 비활성화
+//                    Toast.makeText(getApplicationContext(), "알림 비활성화", Toast.LENGTH_LONG).show();
+//                }
+//            }
+//        });
 
         Button keyword = (Button) findViewById(R.id.keyword);
         keyword.setOnClickListener(new View.OnClickListener() {
