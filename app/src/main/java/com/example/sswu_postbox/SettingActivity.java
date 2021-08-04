@@ -17,11 +17,15 @@ public class SettingActivity extends AppCompatActivity {
 
     private BottomNavigationView bottomNavigationView;
 
+    public void goQuestion(View view) {
+        Intent intent = new Intent(getApplicationContext(), QuestionActivity.class);
+        startActivity(intent);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setting);
-
 
         Button keyword = (Button) findViewById(R.id.keyword);
         keyword.setOnClickListener(new View.OnClickListener() {
@@ -29,11 +33,6 @@ public class SettingActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), KeywordSettingActivity.class);
-                startActivity(intent);
-            }
-
-            public void goQuestion(View view) {
-                Intent intent = new Intent(getApplicationContext(), QuestionActivity.class);
                 startActivity(intent);
             }
 
