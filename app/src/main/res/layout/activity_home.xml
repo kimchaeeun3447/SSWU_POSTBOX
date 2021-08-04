@@ -182,7 +182,7 @@
                 android:orientation="horizontal">
 
                 <ImageButton
-                    android:id="@+id/button10"
+                    android:id="@+id/portal_shortcut"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:layout_marginRight="50dp"
@@ -191,7 +191,7 @@
                     android:src="@drawable/homeicon" />
 
                 <ImageButton
-                    android:id="@+id/button11"
+                    android:id="@+id/edu_sys_shortcut"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:layout_marginRight="50dp"
@@ -200,7 +200,7 @@
                     android:src="@drawable/homeicon" />
 
                 <ImageButton
-                    android:id="@+id/button12"
+                    android:id="@+id/sungshin_main_shortcut"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:layout_marginRight="50dp"
@@ -209,7 +209,7 @@
                     android:src="@drawable/homeicon" />
 
                 <ImageButton
-                    android:id="@+id/button13"
+                    android:id="@+id/major_shortcut"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:background="@drawable/home_btn_shortcuts"
@@ -231,7 +231,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
                     android:layout_marginRight="25dp"
-                    android:text="성신여대 포탈" />
+                    android:text="성신여대 포탈"
+                    android:textColor="@color/black"/>
 
                 <TextView
                     android:id="@+id/textView10"
@@ -239,21 +240,24 @@
                     android:layout_height="wrap_content"
                     android:layout_marginRight="10dp"
                     android:layout_weight="1"
-                    android:text="교육시스템" />
+                    android:text="교육시스템"
+                    android:textColor="@color/black"/>
 
                 <TextView
                     android:id="@+id/textView11"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="학과 홈페이지" />
+                    android:text="학과 홈페이지"
+                    android:textColor="@color/black"/>
 
                 <TextView
                     android:id="@+id/textView12"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="학교홈페이지" />
+                    android:text="학교홈페이지"
+                    android:textColor="@color/black"/>
             </LinearLayout>
 
         </LinearLayout>
