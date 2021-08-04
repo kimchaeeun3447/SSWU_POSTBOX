@@ -91,33 +91,41 @@
             android:id="@+id/keyword"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:background="@color/white"
+            android:backgroundTint="@color/white"
+            android:textColor="@color/black"
             android:gravity="left"
-            android:text="키워드 설정" />
+            android:text="키워드 설정"
+            android:onClick="onclick"
+            tools:ignore="OnClick" />
 
         <Switch
-            android:id="@+id/question"
+            android:id="@+id/notice"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:gravity="center_vertical"
-            android:layout_marginLeft="15dp"
+            android:layout_marginLeft="17dp"
+            android:layout_marginRight="17dp"
             android:text="알림 설정" />
 
         <Button
             android:id="@+id/logout"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:background="@color/white"
+            android:backgroundTint="@color/white"
+            android:textColor="@color/black"
             android:gravity="left"
             android:text="로그아웃" />
 
         <Button
-            android:id="@+id/button3"
+            android:id="@+id/question"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:background="@color/white"
+            android:backgroundTint="@color/white"
+            android:textColor="@color/black"
             android:gravity="left"
-            android:text="문의하기" />
+            android:text="문의하기"
+            android:onClick="goQuestion"
+            tools:ignore="OnClick" />
 
     </LinearLayout>
 
