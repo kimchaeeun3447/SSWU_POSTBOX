@@ -12,7 +12,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SSWU_POSTBOX"
         android:usesCleartextTraffic="true">
-        <activity android:name=".QuestionActivity"></activity>
+        <activity android:name=".DepartModiActivity"></activity>
+        <activity android:name=".QuestionActivity" />
 
         <meta-data
             android:name="com.google.firebase.messaging.default_notification_channel_id"

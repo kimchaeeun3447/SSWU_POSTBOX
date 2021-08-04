@@ -44,4 +44,5 @@ dependencies {
     implementation 'com.android.volley:volley:1.1.1'
 
     implementation 'androidx.preference:preference:1.1.1'
+    implementation 'com.kyleduo.switchbutton:library:2.0.0'
 }
