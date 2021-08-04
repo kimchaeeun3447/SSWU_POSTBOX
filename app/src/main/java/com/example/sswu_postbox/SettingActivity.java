@@ -31,6 +31,12 @@ public class SettingActivity extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(), KeywordSettingActivity.class);
                 startActivity(intent);
             }
+
+            public void goQuestion(View view) {
+                Intent intent = new Intent(getApplicationContext(), QuestionActivity.class);
+                startActivity(intent);
+            }
+
         });
 
 
