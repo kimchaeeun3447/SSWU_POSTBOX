@@ -91,11 +91,13 @@
                 android:text="00과"/>
             </LinearLayout>
             <ImageButton
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_marginLeft="230dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"
+                android:layout_marginLeft="220dp"
                 android:background="@android:color/transparent"
-                android:src="@drawable/setting"
+                android:src="@drawable/setting_btn2"
                 android:onClick="goDepartment"/>
         </LinearLayout>
 
@@ -124,7 +126,7 @@
             android:layout_height="40dp"
             android:gravity="center_vertical"
             android:layout_marginLeft="17dp"
-            android:layout_marginRight="17dp"
+            android:layout_marginRight="20dp"
             android:text="알림 설정"
             android:thumbTint="@color/crystal_blue" />
 
@@ -148,6 +150,16 @@
             android:text="문의하기"
             android:onClick="goQuestion"
             tools:ignore="OnClick" />
+
+        <!--수룡이 로고-->
+        <ImageView
+            android:layout_width="46dp"
+            android:layout_height="45dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:src="@drawable/small_suryoung_logo"
+            android:contentDescription="@string/small_suryong">
+        </ImageView>
 
     </LinearLayout>
 
