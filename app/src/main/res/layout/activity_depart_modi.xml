@@ -6,4 +6,104 @@
     android:layout_height="match_parent"
     tools:context=".DepartModiActivity">
 
+    <!--알림창  페이지 title-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:paddingTop="10dp"
+        tools:ignore="MissingConstraints">
+
+        <ImageButton
+            android:id="@+id/modi_back_btn"
+            android:layout_width="45dp"
+            android:layout_height="24dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="8dp"
+            android:background="@android:color/transparent"
+            android:gravity="start"
+            android:scaleType="fitCenter"
+            android:src="@drawable/back_btn"
+            app:layout_constrainedWidth="true"
+            app:layout_constraintEnd_toStartOf="@+id/notification_list_title"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/department_modi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="학과 수정"
+            android:textColor="@color/black"
+            android:textSize="30dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/keyword_setting_back_btn" />
+
+    </LinearLayout>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ImageView
+            android:id="@+id/login_background_image"
+            android:layout_width="match_parent"
+            android:layout_height="600dp"
+            android:scaleType="fitXY"
+            android:layout_gravity="bottom"
+            android:src="@drawable/login_background" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+        <TextView
+            android:id="@+id/id1"
+            android:layout_width="wrap_content"
+            android:layout_height= "30dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="180dp"
+            android:text="수정 전"
+            android:textColor="@color/black" />
+        <EditText
+            android:id="@+id/before_modi"
+            android:layout_width="350dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:background="@drawable/edittext_background"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:textColor="#000000"
+            android:enabled="false"
+            android:text="00 과" />
+
+
+        <TextView
+            android:id="@+id/id2"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="20dp"
+            android:text="수정 후"
+            android:textColor="@color/black" />
+        <EditText
+            android:id="@+id/after_modi"
+            android:layout_width="350dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:background="@drawable/edittext_background"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:textColor="#000000" />
+
+            <Button
+                android:id="@+id/button"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:layout_gravity="center"
+                android:backgroundTint="@color/purple_500"
+                android:text="확인" />
+        </LinearLayout>
+    </FrameLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
