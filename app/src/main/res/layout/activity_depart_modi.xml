@@ -66,7 +66,7 @@
                 android:text="수정 전"
                 android:textColor="@color/black" />
             <EditText
-                android:id="@+id/before_modi"
+                android:id="@+id/before_major"
                 android:layout_width="350dp"
                 android:layout_height="50dp"
                 android:layout_gravity="center"
@@ -89,7 +89,7 @@
                 android:textColor="@color/black" />
 
             <Spinner
-                android:id="@+id/after_modi"
+                android:id="@+id/after_major"
                 android:layout_width="350dp"
                 android:layout_height="50dp"
                 android:layout_gravity="center"
@@ -98,7 +98,7 @@
                 android:background="@drawable/spinner_background"/>
 
             <Button
-                android:id="@+id/button"
+                android:id="@+id/modi_button"
                 android:layout_width="350dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"

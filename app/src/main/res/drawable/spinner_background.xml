@@ -12,6 +12,4 @@
         android:width="1dp"
         android:color="#000000"/>
 
-    spinner.prompt = "과를 선택하세요."
-
 </shape>
