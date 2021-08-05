@@ -57,44 +57,45 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
-        <TextView
-            android:id="@+id/id1"
-            android:layout_width="wrap_content"
-            android:layout_height= "30dp"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="180dp"
-            android:text="수정 전"
-            android:textColor="@color/black" />
-        <EditText
-            android:id="@+id/before_modi"
-            android:layout_width="350dp"
-            android:layout_height="50dp"
-            android:layout_gravity="center"
-            android:background="@drawable/edittext_background"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:textColor="#000000"
-            android:enabled="false"
-            android:text="00 과" />
+            <TextView
+                android:id="@+id/id1"
+                android:layout_width="wrap_content"
+                android:layout_height= "30dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="180dp"
+                android:text="수정 전"
+                android:textColor="@color/black" />
+            <EditText
+                android:id="@+id/before_modi"
+                android:layout_width="350dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:background="@drawable/edittext_background"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:textColor="#000000"
+                android:enabled="false"
+                android:paddingLeft="10dp"
+                android:text="00 과" />
 
 
-        <TextView
-            android:id="@+id/id2"
-            android:layout_width="wrap_content"
-            android:layout_height="30dp"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="20dp"
-            android:text="수정 후"
-            android:textColor="@color/black" />
-        <EditText
-            android:id="@+id/after_modi"
-            android:layout_width="350dp"
-            android:layout_height="50dp"
-            android:layout_gravity="center"
-            android:background="@drawable/edittext_background"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:textColor="#000000" />
+            <TextView
+                android:id="@+id/id2"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="20dp"
+                android:text="수정 후"
+                android:textColor="@color/black" />
+
+            <Spinner
+                android:id="@+id/after_modi"
+                android:layout_width="350dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:entries="@array/spinner_entries"
+                android:spinnerMode="dropdown"
+                android:background="@drawable/spinner_background"/>
 
             <Button
                 android:id="@+id/button"
