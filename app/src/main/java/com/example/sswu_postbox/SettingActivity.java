@@ -33,6 +33,17 @@ public class SettingActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    class noticeSwitchListener implements CompoundButton.OnCheckedChangeListener {
+        public void onCheckedChanged (CompoundButton buttonView, boolean isChecked) {
+            if (isChecked) {
+                Toast.makeText(getApplicationContext(), "알림 활성화", Toast.LENGTH_SHORT).show();
+            }
+            else {
+                Toast.makeText(getApplicationContext(), "알림 비활성화", Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,20 +56,6 @@ public class SettingActivity extends AppCompatActivity {
                 finish();
             }
         });
-//
-////        알림 설정
-//        @SuppressLint("WrongViewCast") SwitchButton switchButton = (SwitchButton) findViewById(R.id.notice);
-//        switchButton.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-//            @Override
-//            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-//
-//                if (isChecked) { // 알림 활성화
-//                    Toast.makeText(getApplicationContext(), "알림 활성화", Toast.LENGTH_LONG).show();
-//                } else { // 알림 비활성화
-//                    Toast.makeText(getApplicationContext(), "알림 비활성화", Toast.LENGTH_LONG).show();
-//                }
-//            }
-//        });
 
         Button keyword = (Button) findViewById(R.id.keyword);
         keyword.setOnClickListener(new View.OnClickListener() {
@@ -71,6 +68,8 @@ public class SettingActivity extends AppCompatActivity {
 
         });
 
+        Switch noticeSwitch = findViewById(R.id.notice);
+        noticeSwitch.setOnCheckedChangeListener(new noticeSwitchListener());
 
         bottomNavigationView = findViewById(R.id.bottomNavigationView);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
