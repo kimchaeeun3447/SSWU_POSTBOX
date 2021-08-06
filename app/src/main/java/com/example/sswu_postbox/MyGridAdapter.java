@@ -49,9 +49,7 @@ public class MyGridAdapter extends BaseAdapter{
 
         TextView textView = new TextView(context);
         textView.setTextColor(Color.BLACK);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            textView.setAutoSizeTextTypeUniformWithConfiguration(12, 20, 1, Dimension.DP);
-        }
+        textView.setTextSize(Dimension.DP, 50);
         textView.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
         textView.setBackground(ContextCompat.getDrawable(context, R.drawable.keyword_list));
         textView.setGravity(Gravity.CENTER_VERTICAL | Gravity.CENTER_HORIZONTAL);
