@@ -7,7 +7,6 @@ import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.GridView;
 import android.widget.TextView;
 
 import androidx.annotation.Dimension;
@@ -49,13 +48,13 @@ public class MyGridAdapter extends BaseAdapter{
     public View getView(int position, View convertView, ViewGroup parent) {
 
         TextView textView = new TextView(context);
-        textView.setLayoutParams(new GridView.LayoutParams(300,100));
         textView.setTextColor(Color.BLACK);
-        textView.setGravity(Gravity.CENTER);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            textView.setAutoSizeTextTypeUniformWithConfiguration(12, 20, 1, Dimension.DP);
+        }
         textView.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
-        textView.setTextSize(Dimension.DP, 30);
-        textView.setBackground(ContextCompat.getDrawable(context, R.drawable.keyword_search));
-
+        textView.setBackground(ContextCompat.getDrawable(context, R.drawable.keyword_list));
+        textView.setGravity(Gravity.CENTER_VERTICAL | Gravity.CENTER_HORIZONTAL);
         textView.setText(user_keyword_list.get(position));
 
         return textView;
