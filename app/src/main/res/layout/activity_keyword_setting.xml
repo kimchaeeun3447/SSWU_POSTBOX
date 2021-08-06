@@ -83,9 +83,10 @@
 
     <EditText
         android:id="@+id/keyword_searching"
-        android:layout_width="300dp"
+        android:layout_width="0dp"
         android:layout_height="35dp"
-        android:layout_marginLeft="23dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="5dp"
         android:layout_marginRight="5dp"
@@ -100,6 +101,7 @@
         app:layout_constraintEnd_toStartOf="@+id/keyword_searching_btn"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toLeftOf="@id/keyword_searching_btn"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/keyword_searching_title" />
 
     <Button
@@ -173,9 +175,10 @@
 
     <EditText
         android:id="@+id/keyword_adding"
-        android:layout_width="300dp"
+        android:layout_width="0dp"
         android:layout_height="35dp"
-        android:layout_marginLeft="23dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="5dp"
         android:layout_marginRight="5dp"
@@ -190,6 +193,7 @@
         app:layout_constraintEnd_toStartOf="@id/keyword_adding_btn"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toLeftOf="@id/keyword_searching_btn"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/keyword_adding_title" />
 
     <Button
@@ -226,9 +230,10 @@
 
     <EditText
         android:id="@+id/keyword_delete"
-        android:layout_width="300dp"
+        android:layout_width="0dp"
         android:layout_height="35dp"
-        android:layout_marginLeft="23dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="5dp"
         android:layout_marginRight="5dp"
@@ -243,6 +248,7 @@
         app:layout_constraintEnd_toStartOf="@id/keyword_delete_btn"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toLeftOf="@id/keyword_searching_btn"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/keyword_delete_title" />
 
     <Button
