@@ -44,9 +44,6 @@
         app:layout_constraintTop_toTopOf="@+id/keyword_setting_back_btn"
         app:layout_constraintVertical_bias="0.437" />
 
-    <!--키워드 검색하기-->
-
-
     <View
         android:id="@+id/line1"
         android:layout_width="0dp"
