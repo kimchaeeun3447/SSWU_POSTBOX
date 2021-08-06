@@ -31,22 +31,17 @@
         android:id="@+id/check_keyword_post_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="9dp"
         android:layout_marginLeft="9dp"
-        android:layout_marginEnd="183dp"
-        android:layout_marginRight="183dp"
-        android:text="키워드 설정"
+        android:layout_marginRight="100dp"
+        android:text="키워드 별 공지 확인"
         android:textColor="@color/black"
         android:textSize="30dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/check_keyword_post_back_btn"
-        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintLeft_toRightOf="@+id/check_keyword_post_back_btn"
+        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="@+id/check_keyword_post_back_btn"
         app:layout_constraintVertical_bias="0.437" />
-
-    <!--키워드 검색하기-->
-
 
     <View
         android:id="@+id/line1"
@@ -66,7 +61,6 @@
         app:layout_constraintTop_toBottomOf="@id/check_keyword_post_title" />
 
 
-    <!--키워드 검색하기-->
     <TextView
         android:id="@+id/my_keyword_list_title2"
         android:layout_width="wrap_content"
