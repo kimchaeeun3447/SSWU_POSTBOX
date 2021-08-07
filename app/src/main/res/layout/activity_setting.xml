@@ -101,56 +101,77 @@
                 android:onClick="goDepartment"/>
         </LinearLayout>
 
-
         <View
             android:layout_width="370dp"
             android:layout_height="1dp"
             android:background="#707070"
             android:layout_gravity="center"
-            android:layout_marginBottom="10dp"
             android:layout_marginTop="10dp"/>
 
         <Button
             android:id="@+id/keyword"
             android:layout_width="match_parent"
             android:layout_height="40dp"
+            android:background="#00ff0000"
             android:backgroundTint="@color/white"
             android:textColor="@color/black"
             android:gravity="left"
             android:text="키워드 설정"
             android:onClick="onclick"
             tools:ignore="OnClick" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#3E707070"
+            android:layout_gravity="center" />
 
         <Switch
             android:id="@+id/notice"
             android:layout_width="match_parent"
             android:layout_height="40dp"
+            android:background="#00ff0000"
             android:gravity="center_vertical"
             android:layout_marginLeft="17dp"
             android:layout_marginRight="20dp"
             android:text="알림 설정"
             android:thumbTint="@color/crystal_blue" />
-
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#3E707070"
+            android:layout_gravity="center" />
 
         <Button
             android:id="@+id/logout"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:backgroundTint="@color/white"
+            android:background="#00ff0000"
             android:textColor="@color/black"
             android:gravity="left"
             android:text="로그아웃" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#3E707070"
+            android:layout_gravity="center" />
 
         <Button
             android:id="@+id/question"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:backgroundTint="@color/white"
+            android:background="#00ff0000"
             android:textColor="@color/black"
             android:gravity="left"
             android:text="문의하기"
             android:onClick="goQuestion"
             tools:ignore="OnClick" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#3E707070"
+            android:layout_gravity="center" />
 
         <!--수룡이 로고-->
         <ImageView
