@@ -95,7 +95,7 @@
                 android:layout_height="50dp"
                 android:adjustViewBounds="true"
                 android:scaleType="fitCenter"
-                android:layout_marginLeft="220dp"
+                android:layout_marginLeft="195dp"
                 android:background="@android:color/transparent"
                 android:src="@drawable/setting_btn2"
                 android:onClick="goDepartment"/>
