@@ -7,6 +7,7 @@
         android:id="@+id/add"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="공지사항 더보기" />
+        android:text="공지사항 더보기"
+        android:backgroundTint="@color/crystal_blue"/>
 
 </LinearLayout>
