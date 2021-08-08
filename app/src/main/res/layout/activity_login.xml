@@ -65,14 +65,15 @@
 
                 <EditText
                     android:id="@+id/login_id_edit"
-                    android:layout_width="350dp"
+                    android:layout_width="320sp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:background="@drawable/edittext_background"
                     android:ems="10"
                     android:inputType="textPersonName"
                     android:paddingLeft="5sp"
-                    android:textColor="#000000" />
+                    android:textColor="#000000"
+                    android:textSize="15sp" />
 
                 <TextView
                     android:id="@+id/login_pwd_text"
@@ -85,14 +86,15 @@
 
                 <EditText
                     android:id="@+id/login_pwd_edit"
-                    android:layout_width="350dp"
+                    android:layout_width="320sp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:background="@drawable/edittext_background"
                     android:ems="10"
                     android:inputType="textPassword"
                     android:paddingLeft="5sp"
-                    android:textColor="#000000" />
+                    android:textColor="#000000"
+                    android:textSize="15sp" />
 
                 <Button
                     android:id="@+id/login_btn"

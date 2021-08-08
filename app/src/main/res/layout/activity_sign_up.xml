@@ -64,7 +64,7 @@
 
         <EditText
             android:id="@+id/signup_id_edit"
-            android:layout_width="350dp"
+            android:layout_width="320sp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:background="@drawable/edittext_background"
@@ -87,7 +87,7 @@
 
         <EditText
             android:id="@+id/signup_pwd_edit"
-            android:layout_width="350dp"
+            android:layout_width="320sp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:background="@drawable/edittext_background"
@@ -110,7 +110,7 @@
 
         <EditText
             android:id="@+id/signup_pwd2_edit"
-            android:layout_width="350dp"
+            android:layout_width="320sp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:background="@drawable/edittext_background"
@@ -133,7 +133,7 @@
 
         <Spinner
             android:id="@+id/signup_major_edit"
-            android:layout_width="350dp"
+            android:layout_width="320sp"
             android:layout_height="40dp"
             android:layout_gravity="center"
             android:background="@drawable/spinner_background"

@@ -1,16 +1,19 @@
 package com.example.sswu_postbox;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -36,6 +39,7 @@ public class SignUpActivity extends AppCompatActivity {
     ArrayList<String> spinnerList = new ArrayList<>();
     String selectedMajor;
 
+    @SuppressLint("ClickableViewAccessibility")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,23 +48,6 @@ public class SignUpActivity extends AppCompatActivity {
         sign_up = findViewById(R.id.signup_check_btn);
 
         major = findViewById(R.id.signup_major_edit);
-//        spinnerAdapter = new SpinnerAdapter(this, android.R.layout.simple_spinner_dropdown_item, spinnerList);
-//        spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-//        major.setAdapter(spinnerAdapter);
-//        major.setSelection(major.getCount());
-
-//        major.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-//            @Override
-//            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-//                selectedMajor = major.getSelectedItem().toString();
-//                Log.d(TAG, selectedMajor);
-//            }
-//
-//            @Override
-//            public void onNothingSelected(AdapterView<?> parent) {
-//                Toast.makeText(getApplicationContext(), "전공을 선택하세요.", Toast.LENGTH_SHORT).show();
-//            }
-//        });
 
         sign_up.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -68,6 +55,31 @@ public class SignUpActivity extends AppCompatActivity {
                 sign_up();
             }
         });
+
+        sign_up.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch( View v, MotionEvent event) {
+                if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                    sign_up.setBackgroundColor(Color.TRANSPARENT);
+                    sign_up.setTextColor(Color.WHITE);
+
+                } else if(event.getAction() == MotionEvent.ACTION_UP) {
+                    sign_up.setBackground(ContextCompat.getDrawable(getApplicationContext(), R.color.crystal_blue));
+                    sign_up.setTextColor(Color.BLACK);
+                }
+                return false;
+            }
+        });
+
+        sign_up.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                sign_up.setBackground(ContextCompat.getDrawable(getApplicationContext(), R.color.crystal_blue));
+                sign_up.setTextColor(Color.BLACK);
+                return false;
+            }
+        });
+
     }
 
     void sign_up() {

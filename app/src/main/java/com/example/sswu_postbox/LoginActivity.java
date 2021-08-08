@@ -1,16 +1,20 @@
 package com.example.sswu_postbox;
 
-import androidx.appcompat.app.AppCompatActivity;
-
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -32,6 +36,7 @@ public class LoginActivity extends AppCompatActivity {
     Button go_sign_up, sign_in;
     EditText id, password;
 
+    @SuppressLint("ClickableViewAccessibility")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,6 +65,32 @@ public class LoginActivity extends AppCompatActivity {
                         });
             }
         });
+
+        sign_in.setOnTouchListener(new View.OnTouchListener(){
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                    sign_in.setBackgroundColor(Color.TRANSPARENT);
+                    sign_in.setTextColor(Color.WHITE);
+
+                } else if(event.getAction() == MotionEvent.ACTION_UP) {
+                    sign_in.setBackground(ContextCompat.getDrawable(getApplicationContext(), R.color.crystal_blue));
+                    sign_in.setTextColor(Color.BLACK);
+                }
+
+                return false;
+            }
+        });
+
+        sign_in.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                sign_in.setBackground(ContextCompat.getDrawable(getApplicationContext(), R.color.crystal_blue));
+                sign_in.setTextColor(Color.BLACK);
+                return false;
+            }
+        });
+
     }
 
     void login() {
