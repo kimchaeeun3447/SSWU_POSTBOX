@@ -16,6 +16,7 @@
         android:id="@+id/for_crystal"
         android:layout_width="match_parent"
         android:layout_height="52dp"
+        android:fontFamily="@font/elicedigitalbaseum_regular"
         android:gravity="center"
         android:text="수 정 이 를  위 한  학 교  홈 페 이 지  알 림"
         android:textColor="#000000"

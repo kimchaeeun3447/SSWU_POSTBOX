@@ -22,7 +22,6 @@
         <activity android:name=".SettingActivity" />
         <activity android:name=".HomeActivity" />
         <activity android:name=".LockerActivity" />
-        <activity android:name=".NotificationListActivity" />
         <activity android:name=".PostClickActivity" />
         <activity android:name=".CheckKeywordPostActivity" />
         <activity

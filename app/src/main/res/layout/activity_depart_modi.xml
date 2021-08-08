@@ -35,6 +35,7 @@
             android:id="@+id/department_modi"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/elicedigitalbaseum_bold"
             android:text="학과 수정"
             android:textColor="@color/black"
             android:textSize="30dp"
@@ -53,18 +54,22 @@
             android:scaleType="fitXY"
             android:layout_gravity="bottom"
             android:src="@drawable/login_background" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
+
             <TextView
                 android:id="@+id/id1"
                 android:layout_width="wrap_content"
-                android:layout_height= "30dp"
+                android:layout_height="30dp"
                 android:layout_marginLeft="30dp"
                 android:layout_marginTop="180dp"
+                android:fontFamily="@font/elicedigitalbaseum_regular"
                 android:text="수정 전"
                 android:textColor="@color/black" />
+
             <EditText
                 android:id="@+id/before_major"
                 android:layout_width="350dp"
@@ -72,11 +77,11 @@
                 android:layout_gravity="center"
                 android:background="@drawable/edittext_background"
                 android:ems="10"
-                android:inputType="textPersonName"
-                android:textColor="#000000"
                 android:enabled="false"
+                android:inputType="textPersonName"
                 android:paddingLeft="10dp"
-                android:text="00 과" />
+                android:text="00 과"
+                android:textColor="#000000" />
 
 
             <TextView
@@ -85,6 +90,7 @@
                 android:layout_height="30dp"
                 android:layout_marginLeft="30dp"
                 android:layout_marginTop="20dp"
+                android:fontFamily="@font/elicedigitalbaseum_regular"
                 android:text="수정 후"
                 android:textColor="@color/black" />
 
@@ -93,17 +99,18 @@
                 android:layout_width="350dp"
                 android:layout_height="50dp"
                 android:layout_gravity="center"
+                android:background="@drawable/spinner_background"
                 android:entries="@array/spinner_entries"
-                android:spinnerMode="dropdown"
-                android:background="@drawable/spinner_background"/>
+                android:spinnerMode="dropdown" />
 
             <Button
                 android:id="@+id/modi_button"
                 android:layout_width="350dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
                 android:layout_gravity="center"
+                android:layout_marginTop="30dp"
                 android:backgroundTint="@color/purple_500"
+                android:fontFamily="@font/elicedigitalbaseum_bold"
                 android:text="확인" />
         </LinearLayout>
     </FrameLayout>
