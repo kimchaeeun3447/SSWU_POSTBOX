@@ -57,18 +57,18 @@
 
         <Button
             android:id="@+id/signIn"
-            android:layout_width="180dp"
+            android:layout_width="160sp"
             android:layout_height="50dp"
             android:background="@drawable/main_btn"
+            android:gravity="center_horizontal|center_vertical"
             android:text="SIGN IN"
             android:textColor="#FFFFFF"
             android:textSize="8pt"
-            android:gravity="center_horizontal|center_vertical"
             app:backgroundTint="@color/crystal_blue" />
 
         <Button
             android:id="@+id/signUp"
-            android:layout_width="180dp"
+            android:layout_width="160sp"
             android:layout_height="50dp"
             android:layout_marginLeft="20dp"
             android:background="@drawable/main_btn"

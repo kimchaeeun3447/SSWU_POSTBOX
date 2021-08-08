@@ -181,7 +181,7 @@
 
         <Button
             android:id="@+id/signup_check_btn"
-            android:layout_width="350dp"
+            android:layout_width="320sp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="20dp"
