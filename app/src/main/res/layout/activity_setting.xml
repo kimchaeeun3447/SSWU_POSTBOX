@@ -158,6 +158,7 @@
             android:fontFamily="@font/elicedigitalbaseum_regular"
             android:gravity="center_vertical"
             android:text="알림 설정"
+            android:checked="true"
             android:textColor="@color/black"
             android:thumbTint="@color/crystal_blue" />
 
