@@ -66,30 +66,30 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        sign_in.setOnTouchListener(new View.OnTouchListener(){
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                if (event.getAction() == MotionEvent.ACTION_DOWN) {
-                    sign_in.setBackgroundColor(Color.TRANSPARENT);
-                    sign_in.setTextColor(Color.WHITE);
-
-                } else if(event.getAction() == MotionEvent.ACTION_UP) {
-                    sign_in.setBackground(ContextCompat.getDrawable(getApplicationContext(), R.color.crystal_blue));
-                    sign_in.setTextColor(Color.BLACK);
-                }
-
-                return false;
-            }
-        });
-
-        sign_in.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View v) {
-                sign_in.setBackground(ContextCompat.getDrawable(getApplicationContext(), R.color.crystal_blue));
-                sign_in.setTextColor(Color.BLACK);
-                return false;
-            }
-        });
+//        sign_in.setOnTouchListener(new View.OnTouchListener(){
+//            @Override
+//            public boolean onTouch(View v, MotionEvent event) {
+//                if (event.getAction() == MotionEvent.ACTION_DOWN) {
+//                    sign_in.setBackgroundColor(Color.TRANSPARENT);
+//                    sign_in.setTextColor(Color.WHITE);
+//
+//                } else if(event.getAction() == MotionEvent.ACTION_UP) {
+//                    sign_in.setBackground(ContextCompat.getDrawable(getApplicationContext(), R.color.crystal_blue));
+//                    sign_in.setTextColor(Color.BLACK);
+//                }
+//
+//                return false;
+//            }
+//        });
+//
+//        sign_in.setOnLongClickListener(new View.OnLongClickListener() {
+//            @Override
+//            public boolean onLongClick(View v) {
+//                sign_in.setBackground(ContextCompat.getDrawable(getApplicationContext(), R.color.crystal_blue));
+//                sign_in.setTextColor(Color.BLACK);
+//                return false;
+//            }
+//        });
 
     }
 
