@@ -135,11 +135,13 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="8dp"
+        android:dividerHeight="5dp"
+        android:divider="#ffffff"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/announcement_title"
         app:layout_constraintBottom_toTopOf="@id/bottomNavigationView"
-        tools:ignore="MissingConstraints"></ListView>
+        tools:ignore="MissingConstraints"/>
 
 
     <com.google.android.material.bottomnavigation.BottomNavigationView

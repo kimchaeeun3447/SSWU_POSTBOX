@@ -22,18 +22,16 @@
                 android:id="@+id/contents_postTitle"
                 android:layout_width="218dp"
                 android:layout_height="match_parent"
-                android:text="공지사항 제목불러와주세용"
                 android:textSize="15sp"
-                android:textColor="@color/black"></TextView>
+                android:textColor="@color/black"/>
 
             <TextView
                 android:id="@+id/contents_date"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="right"
-                android:text="2021.07.11"
                 android:textSize="15sp"
-                android:textColor="@color/black"></TextView>
+                android:textColor="@color/black"/>
 
         </LinearLayout>
 

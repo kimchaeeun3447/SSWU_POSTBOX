@@ -25,10 +25,6 @@
         app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <!--키워드 검색하기-->
-
-
     <TextView
         android:id="@+id/locker_title"
         android:layout_width="wrap_content"
@@ -63,133 +59,152 @@
         app:layout_constraintTop_toBottomOf="@id/locker_title" />
 
 
-    <!--키워드 검색하기-->
-    <TextView
-        android:id="@+id/locker_keyword_searching_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="25dp"
-        android:layout_marginLeft="25dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
-        android:text="키워드 검색하기"
-        android:textColor="@color/black"
-        android:textSize="15dp"
-        app:layout_constraintBottom_toTopOf="@+id/ghg"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/line1" />
-
-
-    <EditText
-        android:id="@+id/ghg"
-        android:layout_width="0dp"
-        android:layout_height="35dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="5dp"
-        android:layout_marginRight="5dp"
-        android:background="@drawable/keyword_search"
-        android:hint="찾고싶은 키워드를 입력하세요"
-        android:inputType="text"
-        android:paddingLeft="13dp"
-        android:paddingRight="13dp"
-        android:textColor="#000000"
-        android:textColorHint="@color/black"
-        android:textSize="10dp"
-        app:layout_constraintEnd_toStartOf="@+id/jhjhj"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toLeftOf="@id/jhjhj"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/locker_keyword_searching_title" />
-
-    <Button
-        android:id="@+id/jhjhj"
-        android:layout_width="70dp"
-        android:layout_height="35dp"
-        android:layout_marginLeft="5dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginRight="20dp"
-        android:background="@drawable/click_btn"
-        android:text="검색"
-        android:textColor="@color/white"
-        android:textSize="11dp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintLeft_toRightOf="@id/ghg"
-        app:layout_constraintTop_toTopOf="@id/ghg" />
-
-
-    <TextView
-        android:id="@+id/my_keyword_list_title4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="25dp"
-        android:layout_marginLeft="25dp"
-        android:layout_marginTop="20dp"
-        android:text="나의 키워드 목록"
-        android:textColor="@color/black"
-        android:textSize="15dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/ghg"
-        tools:layout_constraintLeft_toLeftOf="parent" />
-
-    <TextView
-        android:id="@+id/my_keyword_list_title5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="5dp"
-        android:text="확인하고 싶은 키워드를 선택하세요"
-        android:textSize="10dp"
-        app:layout_constraintBaseline_toBaselineOf="@id/my_keyword_list_title4"
-        app:layout_constraintLeft_toRightOf="@id/my_keyword_list_title4"
-        app:layout_constraintTop_toTopOf="@id/my_keyword_list_title4" />
-
-
-    <GridView
-        android:id="@+id/my_keyword_list2"
-        android:layout_width="0dp"
-        android:layout_height="180dp"
-        android:layout_marginStart="25dp"
-        android:layout_marginLeft="25dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="25dp"
-        android:layout_marginRight="25dp"
-        android:horizontalSpacing="5dp"
-        android:numColumns="3"
-        android:verticalSpacing="10dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/my_keyword_list_title4"
-        tools:ignore="MissingConstraints" />
-
-    <!--공지사항-->
-    <TextView
-        android:id="@+id/announcement_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="25dp"
-        android:layout_marginLeft="25dp"
-        android:layout_marginTop="8dp"
-        android:text="보관된 공지사항"
-        android:textColor="@color/black"
-        android:textSize="15dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/my_keyword_list2"
-        tools:layout_constraintLeft_toLeftOf="parent" />
-
-    <ListView
-        android:id="@+id/locker_post_listView"
+    <ScrollView
+        android:id="@+id/scroll"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/announcement_title"
-        app:layout_constraintBottom_toTopOf="@id/bottomNavigationView"
-        tools:ignore="MissingConstraints"/>
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/line1">
 
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <!--키워드 검색하기-->
+            <TextView
+                android:id="@+id/locker_keyword_searching_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:text="키워드 검색하기"
+                android:textColor="@color/black"
+                android:textSize="15dp"
+                app:layout_constraintBottom_toTopOf="@+id/ghg"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <EditText
+                android:id="@+id/ghg"
+                android:layout_width="0dp"
+                android:layout_height="35dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginRight="5dp"
+                android:background="@drawable/keyword_search"
+                android:hint="찾고싶은 키워드를 입력하세요"
+                android:inputType="text"
+                android:paddingLeft="13dp"
+                android:paddingRight="13dp"
+                android:textColor="#000000"
+                android:textColorHint="@color/black"
+                android:textSize="10dp"
+                app:layout_constraintEnd_toStartOf="@+id/jhjhj"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@id/jhjhj"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/locker_keyword_searching_title" />
+
+            <Button
+                android:id="@+id/jhjhj"
+                android:layout_width="70dp"
+                android:layout_height="35dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/click_btn"
+                android:text="검색"
+                android:textColor="@color/white"
+                android:textSize="11dp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintLeft_toRightOf="@id/ghg"
+                app:layout_constraintTop_toTopOf="@id/ghg" />
+
+
+            <TextView
+                android:id="@+id/my_keyword_list_title4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="20dp"
+                android:text="나의 키워드 목록"
+                android:textColor="@color/black"
+                android:textSize="15dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/ghg"
+                tools:layout_constraintLeft_toLeftOf="parent" />
+
+            <TextView
+                android:id="@+id/my_keyword_list_title5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:text="확인하고 싶은 키워드를 선택하세요"
+                android:textSize="10dp"
+                app:layout_constraintBaseline_toBaselineOf="@id/my_keyword_list_title4"
+                app:layout_constraintLeft_toRightOf="@id/my_keyword_list_title4"
+                app:layout_constraintTop_toTopOf="@id/my_keyword_list_title4" />
+
+
+            <GridView
+                android:id="@+id/my_keyword_list2"
+                android:layout_width="0dp"
+                android:layout_height="180dp"
+                android:layout_marginStart="25dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="25dp"
+                android:layout_marginRight="25dp"
+                android:horizontalSpacing="5dp"
+                android:numColumns="3"
+                android:verticalSpacing="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/my_keyword_list_title4"
+                tools:ignore="MissingConstraints" />
+
+            <!--공지사항-->
+            <TextView
+                android:id="@+id/announcement_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="8dp"
+                android:text="보관된 공지사항"
+                android:textColor="@color/black"
+                android:textSize="15dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/my_keyword_list2"
+                tools:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
+                tools:ignore="NotSibling" />
+
+            <ListView
+                android:id="@+id/locker_post_listView"
+                android:layout_width="0dp"
+                android:layout_height="250dp"
+                android:layout_marginTop="8dp"
+                android:dividerHeight="5dp"
+                android:divider="#ffffff"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/announcement_title" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigationView"
