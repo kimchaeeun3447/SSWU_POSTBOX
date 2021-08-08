@@ -1,30 +1,20 @@
 package com.example.sswu_postbox;
 
-import androidx.annotation.Dimension;
-import androidx.annotation.NonNull;
-import androidx.annotation.RequiresApi;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
-
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Color;
-import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.util.Log;
-import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.ImageButton;
-import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -401,10 +391,6 @@ public class KeywordSettingActivity extends AppCompatActivity {
     private void setFrag(int n) {
 
         switch (n){
-            case 0:
-                Intent notification = new Intent(this, NotificationListActivity.class);
-                startActivity(notification);
-                break;
             case 1:
                 Intent locker = new Intent(this, LockerActivity.class);
                 startActivity(locker);

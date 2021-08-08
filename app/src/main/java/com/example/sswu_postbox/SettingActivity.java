@@ -1,9 +1,5 @@
 package com.example.sswu_postbox;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -14,8 +10,10 @@ import android.widget.ImageButton;
 import android.widget.Switch;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.kyleduo.switchbutton.SwitchButton;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -101,10 +99,6 @@ public class SettingActivity extends AppCompatActivity {
     private void setFrag(int n) {
 
         switch (n){
-            case 0:
-                Intent notification = new Intent(this, NotificationListActivity.class);
-                startActivity(notification);
-                break;
             case 1:
                 Intent locker = new Intent(this, LockerActivity.class);
                 startActivity(locker);

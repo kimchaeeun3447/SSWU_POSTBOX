@@ -483,10 +483,7 @@ public class HomeActivity extends AppCompatActivity {
     private void setFrag(int n) {
 
         switch (n){
-            case 0:
-                Intent notification = new Intent(this, NotificationListActivity.class);
-                startActivity(notification);
-                break;
+
             case 1:
                 Intent locker = new Intent(this, LockerActivity.class);
                 startActivity(locker);
