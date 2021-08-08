@@ -273,7 +273,7 @@
                     android:layout_weight="1"
                     android:fontFamily="@font/elicedigitalbaseum_regular"
                     android:gravity="center_horizontal"
-                    android:text="성신여대 포탈"
+                    android:text="성신 포탈"
                     android:textAlignment="center"
                     android:textColor="@color/black"
                     android:textSize="6.5pt" />
@@ -297,7 +297,7 @@
                     android:layout_weight="1"
                     android:fontFamily="@font/elicedigitalbaseum_regular"
                     android:gravity="center_horizontal"
-                    android:text="학과 홈페이지"
+                    android:text="학교 홈페이지"
                     android:textAlignment="center"
                     android:textColor="@color/black"
                     android:textSize="6.5pt" />
@@ -309,7 +309,7 @@
                     android:layout_weight="1"
                     android:fontFamily="@font/elicedigitalbaseum_regular"
                     android:gravity="center_horizontal"
-                    android:text="학교홈페이지"
+                    android:text="학과 홈페이지"
                     android:textAlignment="center"
                     android:textColor="@color/black"
                     android:textSize="6.5pt" />
