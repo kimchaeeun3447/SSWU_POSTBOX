@@ -143,6 +143,7 @@
             android:layout_marginLeft="17dp"
             android:layout_marginRight="20dp"
             android:text="알림 설정"
+            android:checked="true"
             android:textColor="@color/black"
             android:fontFamily="@font/elicedigitalbaseum_regular"
             android:thumbTint="@color/crystal_blue" />
