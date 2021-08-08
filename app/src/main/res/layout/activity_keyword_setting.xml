@@ -65,7 +65,8 @@
         android:id="@+id/scroll"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginBottom="8dp"
+        android:fillViewport="true"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -86,9 +87,9 @@
                 android:layout_marginBottom="8dp"
                 android:fontFamily="@font/elicedigitalbaseum_bold"
                 android:text="키워드 검색하기"
-                app:backgroundTint="@color/crystal_blue"
                 android:textColor="@color/black"
                 android:textSize="15dp"
+                app:backgroundTint="@color/crystal_blue"
                 app:layout_constraintBottom_toTopOf="@+id/keyword_searching"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -150,7 +151,7 @@
             <GridView
                 android:id="@+id/my_keyword_list"
                 android:layout_width="0dp"
-                android:layout_height="200sp"
+                android:layout_height="250sp"
                 android:layout_marginStart="25dp"
                 android:layout_marginLeft="25dp"
                 android:layout_marginTop="8dp"
@@ -188,7 +189,7 @@
                 android:layout_marginEnd="5dp"
                 android:layout_marginRight="5dp"
                 android:background="@drawable/keyword_search"
-                android:hint="찾고싶은 키워드를 입력하세요"
+                android:hint="추가하고싶은 키워드를 입력하세요"
                 android:inputType="text"
                 android:paddingLeft="13dp"
                 android:paddingRight="13dp"
@@ -211,10 +212,10 @@
                 android:background="@drawable/click_btn"
                 android:fontFamily="@font/elicedigitalbaseum_regular"
                 android:text="추가"
-                app:backgroundTint="@color/crystal_blue"
                 android:textColor="@color/white"
                 android:textSize="10dp"
                 android:textStyle="bold"
+                app:backgroundTint="@color/crystal_blue"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintLeft_toRightOf="@id/keyword_adding"
                 app:layout_constraintTop_toTopOf="@id/keyword_adding" />
@@ -242,7 +243,7 @@
                 android:layout_marginEnd="5dp"
                 android:layout_marginRight="5dp"
                 android:background="@drawable/keyword_search"
-                android:hint="찾고싶은 키워드를 입력하세요"
+                android:hint="삭제하고싶은 키워드를 입력하세요"
                 android:inputType="text"
                 android:paddingLeft="13dp"
                 android:paddingRight="13dp"
@@ -276,8 +277,14 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintLeft_toRightOf="@id/keyword_delete"
                 app:layout_constraintTop_toTopOf="@id/keyword_delete" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="300sp"
+                app:layout_constraintTop_toBottomOf="@id/keyword_delete_btn" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
+
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigationView"
         android:layout_width="match_parent"

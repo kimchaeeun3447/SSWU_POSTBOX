@@ -60,15 +60,16 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:layout_gravity="right">
+
                     <TextView
                         android:id="@+id/unread_count"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="12pt"
-                        android:textColor="#000"
-                        android:textStyle="bold"
                         android:fontFamily="@font/elicedigitalbaseum_bold"
-                        android:text="00" />
+                        android:text="00"
+                        android:textColor="@color/crystal_blue"
+                        android:textSize="12pt"
+                        android:textStyle="bold" />
                     <TextView
                         android:id="@+id/gun"
                         android:layout_width="wrap_content"
@@ -110,7 +111,7 @@
                     android:fontFamily="@font/elicedigitalbaseum_bold"
                     android:text="키워드"
                     android:textColor="#000"
-                    android:textSize="10pt" />
+                    android:textSize="20sp" />
                 <Button
                     android:id="@+id/my_keyword_list_plus_btn"
                     android:layout_width="50dp"
@@ -155,7 +156,7 @@
                     android:gravity="start"
                     android:text="공지사항"
                     android:textColor="#000"
-                    android:textSize="10pt" />
+                    android:textSize="20sp" />
 
                 <View
                     android:layout_width="0dp"
@@ -197,11 +198,12 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
-                android:layout_marginLeft="20dp"
+                android:layout_marginStart="18sp"
+                android:layout_marginLeft="18sp"
                 android:fontFamily="@font/elicedigitalbaseum_bold"
                 android:text="바로가기"
                 android:textColor="#000"
-                android:textSize="10pt" />
+                android:textSize="20sp" />
 
             <LinearLayout
                 android:layout_width="350dp"
@@ -276,7 +278,7 @@
                     android:text="성신 포탈"
                     android:textAlignment="center"
                     android:textColor="@color/black"
-                    android:textSize="6.5pt" />
+                    android:textSize="6pt" />
 
                 <TextView
                     android:id="@+id/textView10"
@@ -288,7 +290,7 @@
                     android:text="교육시스템"
                     android:textAlignment="center"
                     android:textColor="@color/black"
-                    android:textSize="6.5pt" />
+                    android:textSize="6pt" />
 
                 <TextView
                     android:id="@+id/textView11"
@@ -300,7 +302,7 @@
                     android:text="학교 홈페이지"
                     android:textAlignment="center"
                     android:textColor="@color/black"
-                    android:textSize="6.5pt" />
+                    android:textSize="6pt" />
 
                 <TextView
                     android:id="@+id/textView12"
@@ -312,7 +314,7 @@
                     android:text="학과 홈페이지"
                     android:textAlignment="center"
                     android:textColor="@color/black"
-                    android:textSize="6.5pt" />
+                    android:textSize="6pt" />
 
                 <TextView
                     android:layout_width="wrap_content"
