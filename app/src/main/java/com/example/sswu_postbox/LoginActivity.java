@@ -66,6 +66,7 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+
         sign_in.setOnTouchListener(new View.OnTouchListener(){
             @Override
             public boolean onTouch(View v, MotionEvent event) {

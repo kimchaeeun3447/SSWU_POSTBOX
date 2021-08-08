@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/notification_btn"
+        android:id="@+id/all_posts_btn"
         android:icon="@drawable/notification_btn"
         app:showAsAction="always"
         android:enabled="true"

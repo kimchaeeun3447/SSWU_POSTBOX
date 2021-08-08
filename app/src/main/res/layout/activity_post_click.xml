@@ -7,119 +7,108 @@
     tools:context=".PostClickActivity"
     android:background="#FFFFFF">
 
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
-            <!--키워드 별 공지확인 페이지 title-->
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="33dp"
-                android:layout_marginTop="20dp"
-                android:orientation="horizontal">
 
 
-                <!--키워드 띄우기-->
-                <TextView
-                    android:id="@+id/webview_keyword"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/black"
-                    android:textSize="20dp"
-                    android:textStyle="bold" />
+    <!--글 제목 띄우기-->
+    <TextView
+        android:id="@+id/webview_title"
+        android:layout_width="300sp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="20sp"
+        android:layout_marginRight="10dp"
+        android:fontFamily="@font/elicedigitalbaseum_bold"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintRight_toLeftOf="@id/activity_post_click_close_btn"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_constraintHorizontal_chainStyle="packed" />
 
+    <ImageButton
+        android:id="@+id/activity_post_click_close_btn"
+        android:layout_width="30dp"
+        android:layout_height="25dp"
+        android:layout_marginRight="20dp"
+        android:background="@android:color/transparent"
+        android:contentDescription="@string/close_btn"
+        android:gravity="right"
+        android:scaleType="fitCenter"
+        android:src="@drawable/close_btn"
+        app:layout_constraintBottom_toBottomOf="@id/webview_title"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintStart_toEndOf="@id/webview_title"
+        app:layout_constraintTop_toTopOf="@id/webview_title" />
 
-                <!--글 제목 띄우기-->
-                <TextView
-                    android:id="@+id/webview_title"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/black"
-                    android:textSize="11dp"
-                    android:textStyle="bold" />
-
-                <View
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    android:layout_weight="1" />
-
-                <ImageButton
-                    android:id="@+id/activity_post_click_close_btn"
-                    android:layout_width="30dp"
-                    android:layout_height="25dp"
-                    android:layout_marginRight="20dp"
-                    android:background="@android:color/transparent"
-                    android:gravity="right"
-                    android:scaleType="fitCenter"
-                    android:src="@drawable/close_btn"
-                    android:contentDescription="@string/close_btn"/>
-
-            </LinearLayout>
-
-            <View
-                android:layout_width="370dp"
-                android:layout_height="1dp"
-                android:layout_gravity="center"
-                android:layout_marginBottom="15dp"
-                android:background="#707070">
-            </View>
+    <View
+        android:id="@+id/line"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_gravity="center"
+        android:layout_marginStart="25dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginRight="25dp"
+        android:background="#707070"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/webview_title"></View>
 
 
 
             <!-- 홈페이지 글 띄우기 예시(아직)-->
 
-            <WebView
-                android:id="@+id/webview"
-                android:layout_width="match_parent"
-                android:layout_height="570dp"
-                android:layout_gravity="center" />
+    <WebView
+        android:id="@+id/webview"
+        android:layout_width="match_parent"
+        android:layout_height="550sp"
+        android:layout_gravity="center"
+        android:layout_marginTop="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/line" />
 
-            <LinearLayout
-                android:layout_width="373dp"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="10dp">
+    <LinearLayout
+        android:layout_width="373dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/webview">
 
 
-                <View
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    android:layout_weight="1" />
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
 
-                <ImageButton
-                    android:id="@+id/webview_save_btn"
-                    android:layout_width="30dp"
-                    android:layout_height="32dp"
-                    android:layout_marginTop="3dp"
-                    android:background="@android:color/transparent"
-                    android:gravity="right"
-                    android:scaleType="fitCenter"
-                    android:src="@drawable/save_btn"
-                    android:contentDescription="@string/save_btn"/>
+        <ImageButton
+            android:id="@+id/webview_save_btn"
+            android:layout_width="30dp"
+            android:layout_height="32dp"
+            android:layout_marginTop="3dp"
+            android:background="@android:color/transparent"
+            android:contentDescription="@string/save_btn"
+            android:gravity="right"
+            android:scaleType="fitCenter"
+            android:src="@drawable/save_btn" />
 
-                <ImageButton
-                    android:id="@+id/webview_share_btn"
-                    android:layout_width="32dp"
-                    android:layout_height="32dp"
-                    android:background="@android:color/transparent"
-                    android:gravity="end"
-                    android:scaleType="fitCenter"
-                    android:src="@drawable/share_btn"
-                    android:contentDescription="@string/share_btn"/>
+        <ImageButton
+            android:id="@+id/webview_share_btn"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@android:color/transparent"
+            android:contentDescription="@string/share_btn"
+            android:gravity="end"
+            android:scaleType="fitCenter"
+            android:src="@drawable/share_btn" />
 
-            </LinearLayout>
+    </LinearLayout>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="left"
-                android:text="   "></TextView>
-        </LinearLayout>
-
-    </FrameLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

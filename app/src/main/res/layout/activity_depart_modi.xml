@@ -14,6 +14,7 @@
         android:paddingTop="10dp"
         tools:ignore="MissingConstraints">
 
+
         <ImageButton
             android:id="@+id/modi_back_btn"
             android:layout_width="45dp"
@@ -25,7 +26,7 @@
             android:scaleType="fitCenter"
             android:src="@drawable/back_btn"
             app:layout_constrainedWidth="true"
-            app:layout_constraintEnd_toStartOf="@+id/notification_list_title"
+            app:layout_constraintEnd_toStartOf="@+id/department_modi"
             app:layout_constraintHorizontal_bias="0"
             app:layout_constraintHorizontal_chainStyle="packed"
             app:layout_constraintHorizontal_weight="1"
@@ -40,8 +41,7 @@
             android:textColor="@color/black"
             android:textSize="30dp"
             android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/keyword_setting_back_btn" />
+            app:layout_constraintStart_toEndOf="@id/modi_back_btn" />
 
     </LinearLayout>
     <FrameLayout
@@ -66,7 +66,7 @@
                 android:layout_height="30dp"
                 android:layout_marginLeft="30dp"
                 android:layout_marginTop="180dp"
-                android:fontFamily="@font/elicedigitalbaseum_regular"
+                android:fontFamily="@font/elicedigitalbaseum_bold"
                 android:text="수정 전"
                 android:textColor="@color/black" />
 
@@ -78,6 +78,7 @@
                 android:background="@drawable/edittext_background"
                 android:ems="10"
                 android:enabled="false"
+                android:fontFamily="@font/elicedigitalbaseum_regular"
                 android:inputType="textPersonName"
                 android:paddingLeft="10dp"
                 android:text="00 과"
@@ -90,7 +91,7 @@
                 android:layout_height="30dp"
                 android:layout_marginLeft="30dp"
                 android:layout_marginTop="20dp"
-                android:fontFamily="@font/elicedigitalbaseum_regular"
+                android:fontFamily="@font/elicedigitalbaseum_bold"
                 android:text="수정 후"
                 android:textColor="@color/black" />
 
@@ -109,9 +110,12 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="30dp"
+                android:background="@color/crystal_blue"
                 android:backgroundTint="@color/purple_500"
                 android:fontFamily="@font/elicedigitalbaseum_bold"
-                android:text="확인" />
+                android:text="확인"
+                app:backgroundTint="@color/crystal_blue"
+                tools:fontFamily="@font/elicedigitalbaseum_bold" />
         </LinearLayout>
     </FrameLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

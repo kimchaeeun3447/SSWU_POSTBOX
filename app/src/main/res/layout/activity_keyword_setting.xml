@@ -86,6 +86,7 @@
                 android:layout_marginBottom="8dp"
                 android:fontFamily="@font/elicedigitalbaseum_bold"
                 android:text="키워드 검색하기"
+                app:backgroundTint="@color/crystal_blue"
                 android:textColor="@color/black"
                 android:textSize="15dp"
                 app:layout_constraintBottom_toTopOf="@+id/keyword_searching"
@@ -128,6 +129,7 @@
                 android:textColor="@color/white"
                 android:textSize="11dp"
                 android:textStyle="bold"
+                app:backgroundTint="@color/crystal_blue"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintLeft_toRightOf="@id/keyword_searching"
                 app:layout_constraintTop_toTopOf="@id/keyword_searching" />
@@ -208,7 +210,8 @@
                 android:layout_marginRight="20dp"
                 android:background="@drawable/click_btn"
                 android:fontFamily="@font/elicedigitalbaseum_regular"
-                android:text="검색"
+                android:text="추가"
+                app:backgroundTint="@color/crystal_blue"
                 android:textColor="@color/white"
                 android:textSize="10dp"
                 android:textStyle="bold"
@@ -253,7 +256,8 @@
                 app:layout_constraintRight_toLeftOf="@id/keyword_delete_btn"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/keyword_delete_title"
-                app:layout_constraintVertical_bias="0.0" />
+                app:layout_constraintVertical_bias="0.0"
+                tools:ignore="NotSibling" />
 
             <Button
                 android:id="@+id/keyword_delete_btn"
@@ -264,10 +268,11 @@
                 android:layout_marginRight="20dp"
                 android:background="@drawable/click_btn"
                 android:fontFamily="@font/elicedigitalbaseum_regular"
-                android:text="검색"
+                android:text="삭제"
                 android:textColor="@color/white"
                 android:textSize="10dp"
                 android:textStyle="bold"
+                app:backgroundTint="@color/crystal_blue"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintLeft_toRightOf="@id/keyword_delete"
                 app:layout_constraintTop_toTopOf="@id/keyword_delete" />

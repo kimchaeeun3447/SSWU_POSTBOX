@@ -81,7 +81,7 @@ public class LockerActivity extends AppCompatActivity {
 
                 switch (menuItem.getItemId()){
 
-                    case R.id.notification_btn:
+                    case R.id.all_posts_btn:
                         setFrag(0);
                         break;
                     case R.id.locker_btn:
@@ -198,6 +198,10 @@ public class LockerActivity extends AppCompatActivity {
     private void setFrag(int n) {
 
         switch (n){
+            case 0:
+                Intent AllPosts = new Intent(this, CheckKeywordPostActivity.class);
+                startActivity(AllPosts);
+                break;
             case 1:
                 Intent locker = new Intent(this, LockerActivity.class);
                 startActivity(locker);

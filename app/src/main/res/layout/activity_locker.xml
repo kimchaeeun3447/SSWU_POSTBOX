@@ -127,6 +127,7 @@
                 android:textColor="@color/white"
                 android:textSize="11dp"
                 android:textStyle="bold"
+                app:backgroundTint="@color/crystal_blue"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintLeft_toRightOf="@id/ghg"
                 app:layout_constraintTop_toTopOf="@id/ghg" />

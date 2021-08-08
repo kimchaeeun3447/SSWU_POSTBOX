@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".QuestionActivity">
+    tools:context=".QuestionActivity"
+    android:background="#ffffff">
 
 
     <LinearLayout
@@ -62,59 +63,68 @@
                 android:scaleType="fitXY"
                 android:layout_gravity="bottom"
                 android:src="@drawable/login_background" />
+
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_width="308dp"
+                android:layout_height="343dp"
+                android:layout_gravity="center_horizontal|center_vertical"
                 android:layout_marginTop="30dp"
-                android:layout_marginLeft="20dp"
                 android:orientation="vertical">
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/elicedigitalbaseum_regular"
                     android:text="이은정"
+                    android:textColor="@color/black"
                     android:textSize="9pt"
-                    android:textStyle="bold"
-                    android:textColor="@color/black"/>
+                    android:textStyle="bold" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="dldmswjd322@naver.com"
                     android:fontFamily="@font/elicedigitalbaseum_regular"
+                    android:text="dldmswjd322@naver.com"
+                    android:textColor="@color/black"
                     android:textSize="8pt"
-                    android:textColor="@color/black"/>
+                    android:layout_marginBottom="5sp"/>
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:fontFamily="@font/elicedigitalbaseum_regular"
                     android:text="김채은"
+                    android:textColor="@color/black"
                     android:textSize="9pt"
-                    android:textStyle="bold"
-                    android:textColor="@color/black"/>
+                    android:textStyle="bold" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/elicedigitalbaseum_regular"
                     android:text="rlacodms3447@naver.com"
-                    android:textSize="8pt"
-                    android:textColor="@color/black"/>
+                    android:layout_marginBottom="5sp"
+                    android:textColor="@color/black"
+                    android:textSize="8pt" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="9dp"
                     android:fontFamily="@font/elicedigitalbaseum_regular"
                     android:text="조유진"
+                    android:textColor="@color/black"
                     android:textSize="10pt"
-                    android:textStyle="bold"
-                    android:textColor="@color/black"/>
+                    android:textStyle="bold" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/elicedigitalbaseum_regular"
-                    android:text="topjoy22@nave.com"
-                    android:textSize="8pt"
-                    android:textColor="@color/black"/>
+                    android:text="topjoy22@naver.com"
+                    android:textColor="@color/black"
+                    android:textSize="8pt" />
             </LinearLayout>
         </FrameLayout>
     </LinearLayout>
