@@ -7,5 +7,5 @@
     android:background="@drawable/home_btn_background"
     android:layout_marginRight="10dp"
     android:textColor="@color/black"
-    android:textSize="10dp"
+    android:textSize="15sp"
      />
