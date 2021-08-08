@@ -4,11 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".KeywordSettingActivity"
-    android:background="#FFFFFF">
+    android:background="#FFFFFF"
+    tools:context=".KeywordSettingActivity">
 
 
-        <!--키워드 설정 페이지 title-->
+    <!--키워드 설정 페이지 title-->
     <ImageButton
         android:id="@+id/keyword_setting_back_btn"
         android:layout_width="45dp"
@@ -21,9 +21,9 @@
         android:scaleType="fitCenter"
         android:src="@drawable/back_btn"
         app:layout_constrainedWidth="true"
-        app:layout_constraintRight_toLeftOf="@id/keyword_setting_title"
         app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/keyword_setting_title"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -39,8 +39,8 @@
         android:textSize="30dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/keyword_setting_back_btn"
-        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintLeft_toRightOf="@+id/keyword_setting_back_btn"
+        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="@+id/keyword_setting_back_btn"
         app:layout_constraintVertical_bias="0.437" />
 
@@ -61,216 +61,222 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/keyword_setting_title" />
 
-    <!--키워드 검색하기-->
-    <TextView
-        android:id="@+id/keyword_searching_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="25dp"
-        android:layout_marginLeft="25dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
-        android:text="키워드 검색하기"
-        android:textColor="@color/black"
-        android:textSize="15dp"
-        app:layout_constraintBottom_toTopOf="@+id/keyword_searching"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/line1" />
 
-
-    <EditText
-        android:id="@+id/keyword_searching"
+    <ScrollView
+        android:id="@+id/scroll"
         android:layout_width="0dp"
-        android:layout_height="35dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="5dp"
-        android:layout_marginRight="5dp"
-        android:background="@drawable/keyword_search"
-        android:hint="찾고싶은 키워드를 입력하세요"
-        android:inputType="text"
-        android:paddingLeft="13dp"
-        android:paddingRight="13dp"
-        android:textColor="#000000"
-        android:textColorHint="@color/black"
-        android:textSize="10dp"
-        app:layout_constraintEnd_toStartOf="@+id/keyword_searching_btn"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toLeftOf="@id/keyword_searching_btn"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/keyword_searching_title" />
-
-    <Button
-        android:id="@+id/keyword_searching_btn"
-        android:layout_width="70dp"
-        android:layout_height="35dp"
-        android:layout_marginLeft="5dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginRight="20dp"
-        android:background="@drawable/click_btn"
-        android:text="검색"
-        android:textColor="@color/white"
-        android:textSize="11dp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintLeft_toRightOf="@id/keyword_searching"
-        app:layout_constraintTop_toTopOf="@id/keyword_searching" />
-
-
-    <!--나의 키워드 목록-->
-    <TextView
-        android:id="@+id/my_keyword_list_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="25dp"
-        android:layout_marginLeft="25dp"
-        android:layout_marginTop="21dp"
+        android:layout_height="0dp"
         android:layout_marginBottom="8dp"
-        android:text="나의 키워드 목록"
-        android:textColor="@color/black"
-        android:textSize="15dp"
-        app:layout_constraintBottom_toTopOf="@+id/my_keyword_list"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/keyword_searching" />
-
-
-    <!--나의 키워드 목록-->
-    <GridView
-        android:id="@+id/my_keyword_list"
-        android:layout_width="350dp"
-        android:layout_height="180dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="21dp"
-        android:horizontalSpacing="5dp"
-        android:numColumns="3"
-        android:verticalSpacing="10dp"
-        app:layout_constraintBottom_toTopOf="@+id/keyword_adding_title"
-        app:layout_constraintEnd_toEndOf="@id/keyword_searching_btn"
-        app:layout_constraintStart_toStartOf="@id/keyword_searching"
-        app:layout_constraintTop_toBottomOf="@+id/my_keyword_list_title"
-        tools:ignore="MissingConstraints" />
-
-    <!--키워드 추가하기-->
-    <TextView
-        android:id="@+id/keyword_adding_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="25dp"
-        android:layout_marginLeft="25dp"
-        android:layout_marginTop="21dp"
-        android:layout_marginBottom="9dp"
-        android:text="키워드 추가하기"
-        android:textColor="@color/black"
-        android:textSize="15dp"
-        app:layout_constraintBottom_toTopOf="@+id/keyword_adding"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/my_keyword_list" />
-
-    <EditText
-        android:id="@+id/keyword_adding"
-        android:layout_width="0dp"
-        android:layout_height="35dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="5dp"
-        android:layout_marginRight="5dp"
-        android:background="@drawable/keyword_search"
-        android:hint="찾고싶은 키워드를 입력하세요"
-        android:inputType="text"
-        android:paddingLeft="13dp"
-        android:paddingRight="13dp"
-        android:textColor="#000000"
-        android:textColorHint="@color/black"
-        android:textSize="10dp"
-        app:layout_constraintEnd_toStartOf="@id/keyword_adding_btn"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toLeftOf="@id/keyword_searching_btn"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/keyword_adding_title" />
-
-    <Button
-        android:id="@+id/keyword_adding_btn"
-        android:layout_width="70dp"
-        android:layout_height="35dp"
-        android:layout_marginLeft="5dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginRight="20dp"
-        android:background="@drawable/click_btn"
-        android:text="검색"
-        android:textColor="@color/white"
-        android:textSize="10dp"
-        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintLeft_toRightOf="@id/keyword_adding"
-        app:layout_constraintTop_toTopOf="@id/keyword_adding" />
-
-    <!--키워드 삭제하기-->
-    <TextView
-        android:id="@+id/keyword_delete_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="25dp"
-        android:layout_marginLeft="25dp"
-        android:layout_marginTop="21dp"
-        android:layout_marginBottom="8dp"
-        android:text="키워드 삭제하기"
-        android:textColor="@color/black"
-        android:textSize="15dp"
-        app:layout_constraintBottom_toTopOf="@+id/keyword_delete"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/keyword_adding" />
-
-    <EditText
-        android:id="@+id/keyword_delete"
-        android:layout_width="0dp"
-        android:layout_height="35dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="5dp"
-        android:layout_marginRight="5dp"
-        android:background="@drawable/keyword_search"
-        android:hint="찾고싶은 키워드를 입력하세요"
-        android:inputType="text"
-        android:paddingLeft="13dp"
-        android:paddingRight="13dp"
-        android:textColor="#000000"
-        android:textColorHint="@color/black"
-        android:textSize="10dp"
-        app:layout_constraintEnd_toStartOf="@id/keyword_delete_btn"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toLeftOf="@id/keyword_searching_btn"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/keyword_delete_title" />
+        app:layout_constraintTop_toBottomOf="@id/line1">
 
-    <Button
-        android:id="@+id/keyword_delete_btn"
-        android:layout_width="70dp"
-        android:layout_height="35dp"
-        android:layout_marginLeft="5dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginRight="20dp"
-        android:background="@drawable/click_btn"
-        android:text="검색"
-        android:textColor="@color/white"
-        android:textSize="10dp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintLeft_toRightOf="@id/keyword_delete"
-        app:layout_constraintTop_toTopOf="@id/keyword_delete" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
+            <!--키워드 검색하기-->
+            <TextView
+                android:id="@+id/keyword_searching_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:text="키워드 검색하기"
+                android:textColor="@color/black"
+                android:textSize="15dp"
+                app:layout_constraintBottom_toTopOf="@+id/keyword_searching"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/keyword_searching"
+                android:layout_width="0dp"
+                android:layout_height="35dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginRight="5dp"
+                android:background="@drawable/keyword_search"
+                android:hint="찾고싶은 키워드를 입력하세요"
+                android:inputType="text"
+                android:paddingLeft="13dp"
+                android:paddingRight="13dp"
+                android:textColor="#000000"
+                android:textColorHint="@color/black"
+                android:textSize="10dp"
+                app:layout_constraintEnd_toStartOf="@+id/keyword_searching_btn"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@id/keyword_searching_btn"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/keyword_searching_title" />
+
+            <Button
+                android:id="@+id/keyword_searching_btn"
+                android:layout_width="70dp"
+                android:layout_height="35dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/click_btn"
+                android:text="검색"
+                android:textColor="@color/white"
+                android:textSize="11dp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintLeft_toRightOf="@id/keyword_searching"
+                app:layout_constraintTop_toTopOf="@id/keyword_searching" />
+            <!--나의 키워드 목록-->
+            <TextView
+                android:id="@+id/my_keyword_list_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="20dp"
+                android:text="나의 키워드 목록"
+                android:textColor="@color/black"
+                android:textSize="15dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/keyword_searching" />
+            <!--나의 키워드 목록-->
+            <GridView
+                android:id="@+id/my_keyword_list"
+                android:layout_width="0dp"
+                android:layout_height="200dp"
+                android:layout_marginStart="25dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="25dp"
+                android:layout_marginRight="25dp"
+                android:horizontalSpacing="5dp"
+                android:numColumns="3"
+                android:verticalSpacing="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/my_keyword_list_title"
+                tools:ignore="MissingConstraints" />
+            <!--키워드 추가하기-->
+            <TextView
+                android:id="@+id/keyword_adding_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="21dp"
+                android:text="키워드 추가하기"
+                android:textColor="@color/black"
+                android:textSize="15dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/my_keyword_list" />
+
+            <EditText
+                android:id="@+id/keyword_adding"
+                android:layout_width="0dp"
+                android:layout_height="35dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginRight="5dp"
+                android:background="@drawable/keyword_search"
+                android:hint="찾고싶은 키워드를 입력하세요"
+                android:inputType="text"
+                android:paddingLeft="13dp"
+                android:paddingRight="13dp"
+                android:textColor="#000000"
+                android:textColorHint="@color/black"
+                android:textSize="10dp"
+                app:layout_constraintEnd_toStartOf="@id/keyword_adding_btn"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@id/keyword_adding_btn"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/keyword_adding_title" />
+
+            <Button
+                android:id="@+id/keyword_adding_btn"
+                android:layout_width="70dp"
+                android:layout_height="35dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/click_btn"
+                android:text="검색"
+                android:textColor="@color/white"
+                android:textSize="10dp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintLeft_toRightOf="@id/keyword_adding"
+                app:layout_constraintTop_toTopOf="@id/keyword_adding" />
+            <!--키워드 삭제하기-->
+            <TextView
+                android:id="@+id/keyword_delete_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="21dp"
+                android:text="키워드 삭제하기"
+                android:textColor="@color/black"
+                android:textSize="15dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/keyword_adding" />
+
+            <EditText
+                android:id="@+id/keyword_delete"
+                android:layout_width="0dp"
+                android:layout_height="35dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginRight="5dp"
+                android:background="@drawable/keyword_search"
+                android:hint="찾고싶은 키워드를 입력하세요"
+                android:inputType="text"
+                android:paddingLeft="13dp"
+                android:paddingRight="13dp"
+                android:textColor="#000000"
+                android:textColorHint="@color/black"
+                android:textSize="10dp"
+                app:layout_constraintBottom_toTopOf="@id/bottomNavigationView"
+                app:layout_constraintEnd_toStartOf="@id/keyword_delete_btn"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@id/keyword_delete_btn"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/keyword_delete_title"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <Button
+                android:id="@+id/keyword_delete_btn"
+                android:layout_width="70dp"
+                android:layout_height="35dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/click_btn"
+                android:text="검색"
+                android:textColor="@color/white"
+                android:textSize="10dp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintLeft_toRightOf="@id/keyword_delete"
+                app:layout_constraintTop_toTopOf="@id/keyword_delete" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigationView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        app:layout_constraintBottom_toBottomOf="parent"
         android:background="#FFFFFF"
         app:itemIconTint="#000000"
         app:itemTextColor="#000000"
         app:labelVisibilityMode="labeled"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:menu="@menu/bottom_navigation_bar" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

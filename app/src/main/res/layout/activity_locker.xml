@@ -188,7 +188,7 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/announcement_title"
         app:layout_constraintBottom_toTopOf="@id/bottomNavigationView"
-        tools:ignore="MissingConstraints"></ListView>
+        tools:ignore="MissingConstraints"/>
 
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
