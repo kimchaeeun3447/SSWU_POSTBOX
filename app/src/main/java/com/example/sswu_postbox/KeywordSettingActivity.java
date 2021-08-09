@@ -70,6 +70,7 @@ public class KeywordSettingActivity extends AppCompatActivity {
         }
         return super.dispatchTouchEvent(ev);
     }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
