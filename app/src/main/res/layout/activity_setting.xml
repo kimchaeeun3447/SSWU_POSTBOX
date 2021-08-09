@@ -177,6 +177,7 @@
             android:fontFamily="@font/elicedigitalbaseum_regular"
             android:gravity="left"
             android:text="로그아웃"
+            android:onClick="btn_logout"
             android:textColor="@color/black" />
 
         <View

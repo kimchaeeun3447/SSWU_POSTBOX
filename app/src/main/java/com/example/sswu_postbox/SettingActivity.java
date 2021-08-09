@@ -1,5 +1,6 @@
 package com.example.sswu_postbox;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -11,6 +12,7 @@ import android.widget.Switch;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -40,6 +42,25 @@ public class SettingActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "알림 비활성화", Toast.LENGTH_SHORT).show();
             }
         }
+    }
+
+//    로그아웃 클릭 시 팝업창
+    public void btn_logout(View v) {
+        new AlertDialog.Builder(this)
+                .setTitle("로그아웃").setMessage("로그아웃 하시겠습니까?")
+                .setPositiveButton("로그아웃", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int whichButton) {
+                        Intent i = new Intent(SettingActivity.this, MainActivity.class);
+                        i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                        startActivity(i);
+                    }
+                })
+                .setNegativeButton("취소", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int whichButton) {
+
+                    }
+                })
+                .show();
     }
 
     @Override
