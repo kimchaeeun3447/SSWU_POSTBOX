@@ -28,7 +28,7 @@
         <activity android:name=".CheckKeywordPostActivity" />
         <activity
             android:name=".KeywordSettingActivity"
-            android:windowSoftInputMode="adjustResize" />
+            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".SignUpActivity"
             android:windowSoftInputMode="adjustResize" />
