@@ -36,10 +36,10 @@ public class SettingActivity extends AppCompatActivity {
     class noticeSwitchListener implements CompoundButton.OnCheckedChangeListener {
         public void onCheckedChanged (CompoundButton buttonView, boolean isChecked) {
             if (isChecked) {
-                Toast.makeText(getApplicationContext(), "알림 활성화", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "알림이 활성화되었습니다.", Toast.LENGTH_SHORT).show();
             }
             else {
-                Toast.makeText(getApplicationContext(), "알림 비활성화", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "알림이 비활성화되었습니다.", Toast.LENGTH_SHORT).show();
             }
         }
     }
