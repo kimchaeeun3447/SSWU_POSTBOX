@@ -2,6 +2,7 @@ package com.example.sswu_postbox;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -22,6 +23,8 @@ import org.jetbrains.annotations.NotNull;
 public class SettingActivity extends AppCompatActivity {
 
     private BottomNavigationView bottomNavigationView;
+    Switch notice;
+    String shared = "file";
 
     public void goQuestion(View view) {
         Intent intent = new Intent(getApplicationContext(), QuestionActivity.class);
@@ -35,11 +38,21 @@ public class SettingActivity extends AppCompatActivity {
 
     class noticeSwitchListener implements CompoundButton.OnCheckedChangeListener {
         public void onCheckedChanged (CompoundButton buttonView, boolean isChecked) {
+            // 알림 설정 여부를 저장할 저장소
+            SharedPreferences sharedPreferences = getSharedPreferences(shared, 0);
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+
             if (isChecked) {
                 Toast.makeText(getApplicationContext(), "알림이 활성화되었습니다.", Toast.LENGTH_SHORT).show();
+//                bool 키값을 가진 SharedPreferences에다가 true(알림 활성화)를 저장
+                editor.putBoolean("bool", true);
+                editor.commit();
             }
             else {
                 Toast.makeText(getApplicationContext(), "알림이 비활성화되었습니다.", Toast.LENGTH_SHORT).show();
+//                bool 키값을 가진 SharedPreferences에다가 false(알림 비활성화)를 저장
+                editor.putBoolean("bool", false);
+                editor.commit();
             }
         }
     }
@@ -67,6 +80,15 @@ public class SettingActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setting);
+
+        Switch notice = findViewById(R.id.notice);
+
+        SharedPreferences sharedPreferences = getSharedPreferences(shared, 0);
+//        key값이 bool인 SharedPreferences 저장소에서 데이터를 가져온다
+        boolean value = sharedPreferences.getBoolean("bool", true);
+//        Switch의 checked에 value 값 대입
+        notice.setChecked(value);
+
 
         ImageButton locker_back_btn = findViewById(R.id.locker_back_btn);
         locker_back_btn.setOnClickListener(new View.OnClickListener() {
