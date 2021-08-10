@@ -1,5 +1,7 @@
 package com.example.sswu_postbox;
 
+import android.app.Activity;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -40,9 +42,21 @@ public class SettingActivity extends AppCompatActivity {
     String TAG = SettingActivity.class.getSimpleName();
     TextView username, major;
 
+    public static Context CONTEXT;
+
     private BottomNavigationView bottomNavigationView;
     Switch notice;
     String shared = "file";
+
+    //  설정 창 새로고침
+    public void reload() {
+        Intent intent = getIntent();
+        overridePendingTransition(0, 0);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+        finish();
+        overridePendingTransition(0, 0);
+        startActivity(intent);
+    }
 
     public void goQuestion(View view) {
         Intent intent = new Intent(getApplicationContext(), QuestionActivity.class);
@@ -75,7 +89,7 @@ public class SettingActivity extends AppCompatActivity {
         }
     }
 
-//  로그아웃 클릭 시 팝업창
+    //  로그아웃 클릭 시 팝업창
     public void btn_logout(View v) {
         new AlertDialog.Builder(this)
                 .setTitle("로그아웃").setMessage("로그아웃 하시겠습니까?")
@@ -88,7 +102,6 @@ public class SettingActivity extends AppCompatActivity {
                 })
                 .setNegativeButton("취소", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int whichButton) {
-
                     }
                 })
                 .show();
@@ -98,6 +111,8 @@ public class SettingActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setting);
+
+        CONTEXT = this;
 
         Switch notice = findViewById(R.id.notice);
 

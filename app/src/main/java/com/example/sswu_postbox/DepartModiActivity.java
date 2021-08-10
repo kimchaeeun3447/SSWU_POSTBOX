@@ -2,6 +2,9 @@ package com.example.sswu_postbox;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -9,6 +12,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -37,7 +41,6 @@ public class DepartModiActivity extends AppCompatActivity {
     String selectedMajor;
 
     TextView current_major;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,6 +66,8 @@ public class DepartModiActivity extends AppCompatActivity {
             public void onClick(View v) {
                 modify();
                 get_current_major();
+//               설정 창 새로고침
+                ((SettingActivity)SettingActivity.CONTEXT).reload();
                 finish();
             }
         });
@@ -108,7 +113,7 @@ public class DepartModiActivity extends AppCompatActivity {
         queue.add(request);
     }
 
-//  학과 수정
+    //  학과 수정
     void modify() {
         selectedMajor = after_major.getSelectedItem().toString();
 
