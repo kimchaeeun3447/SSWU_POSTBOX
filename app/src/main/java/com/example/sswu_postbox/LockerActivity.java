@@ -26,6 +26,7 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -271,8 +272,52 @@ public class LockerActivity extends AppCompatActivity {
             }
         };
 
+        String search_url = "http://3.37.68.242:8000/stored/notice/?search=" + keyword;
+
+        JsonArrayRequest request1 = new JsonArrayRequest(Request.Method.GET,
+                search_url,
+                null,
+                new Response.Listener<JSONArray>() {
+                    @Override
+                    public void onResponse(JSONArray response) {
+                        post_title.clear();
+                        post_date.clear();
+                        post_url.clear();
+                        post_saved.clear();
+
+                        for (int i = 0; i < response.length(); i++) {
+                            try {
+                                JSONObject notice = response.getJSONObject(i).getJSONObject("notice");
+                                post_title.add(notice.getString("title"));
+                                post_date.add(notice.getString("date"));
+                                post_url.add(notice.getString("url"));
+
+                                JSONObject user_notice = response.getJSONObject(i);
+                                post_saved.add(user_notice.getBoolean("store"));
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                        myListAdapter.notifyDataSetChanged();
+                    }
+
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        error.printStackTrace();
+                        Log.d(TAG, "notice user list error");
+                    }
+                }) {
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                return give_token(token);
+            }
+        };
+
         RequestQueue queue = Volley.newRequestQueue(this);
         queue.add(request);
+        queue.add(request1);
     }
 
     Map<String, String> give_token(String token) {
