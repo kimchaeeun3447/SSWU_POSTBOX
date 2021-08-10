@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -47,7 +48,7 @@ public class DepartModiActivity extends AppCompatActivity {
 
         get_current_major();
 
-//        뒤로 가기 버튼
+//      뒤로 가기 버튼
         ImageButton modi_back_btn = findViewById(R.id.modi_back_btn);
         modi_back_btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,12 +57,13 @@ public class DepartModiActivity extends AppCompatActivity {
             }
         });
 
-//        수정 버튼 클릭 시
+//      수정 버튼 클릭 시
         modi_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 modify();
                 get_current_major();
+                finish();
             }
         });
     }
@@ -106,7 +108,7 @@ public class DepartModiActivity extends AppCompatActivity {
         queue.add(request);
     }
 
-//    학과 수정
+//  학과 수정
     void modify() {
         selectedMajor = after_major.getSelectedItem().toString();
 
