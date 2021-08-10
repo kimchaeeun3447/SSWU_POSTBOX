@@ -75,7 +75,7 @@ public class SettingActivity extends AppCompatActivity {
         }
     }
 
-//    로그아웃 클릭 시 팝업창
+//  로그아웃 클릭 시 팝업창
     public void btn_logout(View v) {
         new AlertDialog.Builder(this)
                 .setTitle("로그아웃").setMessage("로그아웃 하시겠습니까?")
@@ -102,9 +102,9 @@ public class SettingActivity extends AppCompatActivity {
         Switch notice = findViewById(R.id.notice);
 
         SharedPreferences sharedPreferences = getSharedPreferences(shared, 0);
-//        key값이 bool인 SharedPreferences 저장소에서 데이터를 가져온다
+//      key값이 bool인 SharedPreferences 저장소에서 데이터를 가져온다
         boolean value = sharedPreferences.getBoolean("bool", true);
-//        Switch의 checked에 value 값 대입
+//      Switch의 checked에 value 값 대입
         notice.setChecked(value);
 
         get_user_info();
