@@ -91,7 +91,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
 
-            <EditText
+            <com.example.sswu_postbox.ClearEditText
                 android:id="@+id/ghg"
                 android:layout_width="0dp"
                 android:layout_height="35dp"

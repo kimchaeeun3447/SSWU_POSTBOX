@@ -93,7 +93,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <EditText
+            <com.example.sswu_postbox.ClearEditText
                 android:id="@+id/keyword_searching"
                 android:layout_width="0dp"
                 android:layout_height="35dp"
@@ -178,7 +178,7 @@
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/my_keyword_list" />
 
-            <EditText
+            <com.example.sswu_postbox.ClearEditText
                 android:id="@+id/keyword_adding"
                 android:layout_width="0dp"
                 android:layout_height="35dp"
@@ -232,7 +232,7 @@
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/keyword_adding" />
 
-            <EditText
+            <com.example.sswu_postbox.ClearEditText
                 android:id="@+id/keyword_delete"
                 android:layout_width="0dp"
                 android:layout_height="35dp"
