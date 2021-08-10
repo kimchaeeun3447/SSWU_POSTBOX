@@ -10,9 +10,12 @@ import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -37,6 +40,9 @@ import java.util.Map;
 
 public class LockerActivity extends AppCompatActivity {
     String TAG = LockerActivity.class.getSimpleName();
+
+    EditText search_text;
+    Button search_btn;
 
     GridView my_keyword_list;
     MyGridAdapter gridAdapter;
@@ -90,6 +96,14 @@ public class LockerActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 finish();
+            }
+        });
+
+        search_btn = findViewById(R.id.locker_search_btn);
+        search_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                keyword_search();
             }
         });
 
@@ -195,6 +209,60 @@ public class LockerActivity extends AppCompatActivity {
                     public void onErrorResponse(VolleyError error) {
                         error.printStackTrace();
                         Log.d(TAG, "notice user list error");
+                    }
+                }) {
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                return give_token(token);
+            }
+        };
+
+        RequestQueue queue = Volley.newRequestQueue(this);
+        queue.add(request);
+    }
+
+    void keyword_search() {
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        String token = sharedPreferences.getString("access_token", "null");
+
+        search_text = findViewById(R.id.ghg);
+
+        String keyword = search_text.getText().toString();
+        String url = "http://3.37.68.242:8000/detail/keywords/?search=" + keyword;
+
+        JsonArrayRequest request = new JsonArrayRequest(Request.Method.GET,
+                url,
+                null,
+                new Response.Listener<JSONArray>() {
+                    @Override
+                    public void onResponse(JSONArray response) {
+                        if (response.length() == 0) {
+                            Toast toast = Toast.makeText(getApplicationContext(), "찾으시는 검색 결과가 없습니다.", Toast.LENGTH_LONG);
+                            toast.show();
+                        }
+                        ArrayList<String> keyword_list = new ArrayList<>();
+
+                        for(int i = 0; i < response.length(); i++) {
+                            try {
+                                keyword_list.add(response.getJSONObject(i).getString("keyword"));
+
+                                Log.d(TAG, keyword_list.toString());
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+                        }
+
+                        gridAdapter.user_keyword_list = keyword_list;
+                        gridAdapter.notifyDataSetChanged();
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Toast toast = Toast.makeText(getApplicationContext(), "키워드 검색에 실패했습니다.\n잠시 후 다시 시도해주세요.", Toast.LENGTH_LONG);
+                        toast.show();
+
+                        error.printStackTrace();
                     }
                 }) {
             @Override

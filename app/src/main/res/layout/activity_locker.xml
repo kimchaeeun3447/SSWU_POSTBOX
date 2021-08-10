@@ -108,14 +108,14 @@
                 android:textColor="#000000"
                 android:textColorHint="@color/black"
                 android:textSize="10dp"
-                app:layout_constraintEnd_toStartOf="@+id/jhjhj"
+                app:layout_constraintEnd_toStartOf="@+id/locker_search_btn"
                 app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toLeftOf="@id/jhjhj"
+                app:layout_constraintRight_toLeftOf="@id/locker_search_btn"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/locker_keyword_searching_title" />
 
             <Button
-                android:id="@+id/jhjhj"
+                android:id="@+id/locker_search_btn"
                 android:layout_width="70dp"
                 android:layout_height="35dp"
                 android:layout_marginLeft="5dp"
