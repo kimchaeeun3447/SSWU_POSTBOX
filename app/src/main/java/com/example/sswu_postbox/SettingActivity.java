@@ -4,23 +4,41 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.ImageButton;
 import android.widget.Switch;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.Volley;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import org.jetbrains.annotations.NotNull;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class SettingActivity extends AppCompatActivity {
+    String TAG = SettingActivity.class.getSimpleName();
+    TextView username, major;
 
     private BottomNavigationView bottomNavigationView;
     Switch notice;
@@ -89,6 +107,8 @@ public class SettingActivity extends AppCompatActivity {
 //        Switch의 checked에 value 값 대입
         notice.setChecked(value);
 
+        get_user_info();
+
 
         ImageButton locker_back_btn = findViewById(R.id.locker_back_btn);
         locker_back_btn.setOnClickListener(new View.OnClickListener() {
@@ -136,6 +156,55 @@ public class SettingActivity extends AppCompatActivity {
                 return true;
             }
         });
+    }
+
+    void get_user_info() {
+        username = findViewById(R.id.userName);
+        major = findViewById(R.id.department);
+
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        String token = sharedPreferences.getString("access_token", "null");
+
+        String url = "http://3.37.68.242:8000/detail/user/";
+
+        JsonArrayRequest request = new JsonArrayRequest(Request.Method.GET,
+                url,
+                null,
+                new Response.Listener<JSONArray>() {
+                    @Override
+                    public void onResponse(JSONArray response) {
+                        try {
+                            JSONObject userInfo = response.getJSONObject(0);
+
+                            username.setText(userInfo.getString("user"));
+                            major.setText(userInfo.getString("user_major"));
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        error.printStackTrace();
+                        Log.d(TAG, "user major call fail");
+                    }
+                }) {
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                return give_token(token);
+            }
+        };
+
+        RequestQueue queue = Volley.newRequestQueue(this);
+        queue.add(request);
+    }
+
+    Map<String, String> give_token(String token) {
+        HashMap<String, String> headers = new HashMap<>();
+        headers.put("Authorization", "Bearer " + token);
+
+        return headers;
     }
 
 
