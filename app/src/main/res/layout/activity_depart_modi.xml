@@ -9,18 +9,17 @@
     <!--알림창  페이지 title-->
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="100dp"
         android:orientation="horizontal"
-        android:paddingTop="10dp"
+        android:paddingTop="40dp"
         tools:ignore="MissingConstraints">
 
 
         <ImageButton
             android:id="@+id/modi_back_btn"
             android:layout_width="45dp"
-            android:layout_height="24dp"
+            android:layout_height="30dp"
             android:layout_marginLeft="10dp"
-            android:layout_marginTop="8dp"
             android:background="@android:color/transparent"
             android:gravity="start"
             android:scaleType="fitCenter"
@@ -47,6 +46,16 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
+        <View
+            android:id="@+id/line1"
+            android:layout_width= "360dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="80dp"
+            android:layout_gravity="center_horizontal"
+            android:background="#707070"
+            tools:ignore="MissingConstraints" />
+
         <ImageView
             android:id="@+id/login_background_image"
             android:layout_width="match_parent"
