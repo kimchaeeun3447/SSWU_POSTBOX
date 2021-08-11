@@ -30,6 +30,7 @@
             android:layout_height="250dp"
             android:background="#C7CAF7"
             android:text="" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -37,13 +38,14 @@
                 android:id="@+id/imageView"
                 android:layout_width="160dp"
                 android:layout_height="170dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="15dp"
                 android:src="@drawable/home_hat" />
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="50dp"
+                android:layout_marginTop="70dp"
+                android:layout_marginLeft="5dp"
                 android:orientation="vertical">
 
                 <TextView
@@ -53,7 +55,7 @@
                     android:fontFamily="@font/elicedigitalbaseum_bold"
                     android:text="새로운 공지사항"
                     android:textColor="#000"
-                    android:textSize="12pt"
+                    android:textSize="13pt"
                     android:textStyle="bold" />
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -68,13 +70,13 @@
                         android:fontFamily="@font/elicedigitalbaseum_bold"
                         android:text="00"
                         android:textColor="@color/crystal_blue"
-                        android:textSize="12pt"
+                        android:textSize="15pt"
                         android:textStyle="bold" />
                     <TextView
                         android:id="@+id/gun"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="12pt"
+                        android:textSize="13pt"
                         android:textColor="#000"
                         android:textStyle="bold"
                         android:fontFamily="@font/elicedigitalbaseum_bold"
@@ -116,11 +118,11 @@
                     android:id="@+id/my_keyword_list_plus_btn"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
+                    android:layout_marginLeft="225dp"
                     android:background="@android:color/transparent"
-                    android:layout_marginLeft="277dp"
                     android:text="+"
                     android:textColor="#3B4CF6"
-                    android:textSize="18dp" />
+                    android:textSize="18dp"  />
             </LinearLayout>
             <!--Recyclerview-->
             <androidx.recyclerview.widget.RecyclerView
@@ -136,7 +138,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="300sp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="280dp"
             android:orientation="vertical">
 
@@ -158,16 +160,11 @@
                     android:textColor="#000"
                     android:textSize="20sp" />
 
-                <View
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    android:layout_weight="1" />
-
                 <Button
                     android:id="@+id/check_keyword_post_btn"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
-                    android:layout_marginRight="6dp"
+                    android:layout_marginLeft="210dp"
                     android:background="@android:color/transparent"
                     android:text="+"
                     android:textColor="#3B4CF6"
@@ -192,7 +189,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="630sp"
+            android:layout_marginTop="610sp"
             android:orientation="vertical">
 
             <TextView
@@ -252,15 +249,11 @@
                     android:scaleType="fitCenter"
                     android:src="@drawable/homeicon" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_weight="0.2" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="410dp"
-                android:layout_height="30dp"
+                android:layout_height="40dp"
                 android:layout_gravity="center_horizontal"
                 android:orientation="horizontal">
 
