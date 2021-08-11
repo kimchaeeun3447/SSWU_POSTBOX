@@ -70,7 +70,7 @@
             android:orientation="horizontal">
 
             <LinearLayout
-                android:layout_width="280dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
@@ -111,10 +111,15 @@
                     android:textSize="18dp" />
             </LinearLayout>
 
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
             <ImageButton
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-
+                android:layout_marginRight="24dp"
                 android:adjustViewBounds="true"
                 android:background="@android:color/transparent"
                 android:onClick="goDepartment"
@@ -123,7 +128,7 @@
         </LinearLayout>
 
         <View
-            android:layout_width="370dp"
+            android:layout_width="310dp"
             android:layout_height="1dp"
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
@@ -155,7 +160,7 @@
             android:id="@+id/notice"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:layout_marginLeft="20dp"
+            android:layout_marginLeft="23dp"
             android:layout_marginRight="20dp"
             android:background="#00ff0000"
             android:fontFamily="@font/elicedigitalbaseum_regular"
