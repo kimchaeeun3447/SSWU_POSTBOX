@@ -143,7 +143,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="43dp"
-                android:layout_marginTop="-10dp"
+                android:layout_marginTop="-15dp"
                 android:orientation="horizontal">
 
                 <TextView
@@ -192,12 +192,12 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="600sp"
+            android:layout_marginTop="630sp"
             android:orientation="vertical">
 
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="40dp"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="18sp"
                 android:layout_marginLeft="18sp"
                 android:fontFamily="@font/elicedigitalbaseum_bold"
