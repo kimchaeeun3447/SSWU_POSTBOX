@@ -48,7 +48,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="30dp"
-            android:layout_marginTop="130sp"
+            android:layout_marginTop="115sp"
             android:text="SIGN UP"
             android:textColor="#2B2DEF"
             android:textSize="40dp"
@@ -58,8 +58,10 @@
             android:id="@+id/signup_id_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
+            android:layout_marginStart="50dp"
+            android:layout_marginLeft="50dp"
             android:layout_marginTop="10sp"
+            android:fontFamily="@font/elicedigitalbaseum_regular"
             android:text="ID"
             android:textColor="@color/black" />
 
@@ -70,6 +72,7 @@
             android:layout_gravity="center"
             android:background="@drawable/edittext_background"
             android:ems="10"
+            android:fontFamily="@font/elicedigitalbaseum_regular"
             android:hint="아이디를 입력하세요"
             android:inputType="textPersonName"
             android:paddingLeft="5sp"
@@ -81,8 +84,10 @@
             android:id="@+id/signup_pwd_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
+            android:layout_marginStart="50dp"
+            android:layout_marginLeft="50dp"
             android:layout_marginTop="10dp"
+            android:fontFamily="@font/elicedigitalbaseum_regular"
             android:text="PASSWORD"
             android:textColor="@color/black" />
 
@@ -93,6 +98,7 @@
             android:layout_gravity="center"
             android:background="@drawable/edittext_background"
             android:ems="10"
+            android:fontFamily="@font/elicedigitalbaseum_regular"
             android:hint="8글자 이상을 입력하세요"
             android:inputType="textPassword"
             android:paddingLeft="5sp"
@@ -104,8 +110,10 @@
             android:id="@+id/signup_pwd2_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
+            android:layout_marginStart="50dp"
+            android:layout_marginLeft="50dp"
             android:layout_marginTop="10dp"
+            android:fontFamily="@font/elicedigitalbaseum_regular"
             android:text="PASSWORD CHECK"
             android:textColor="@color/black" />
 
@@ -116,6 +124,7 @@
             android:layout_gravity="center"
             android:background="@drawable/edittext_background"
             android:ems="10"
+            android:fontFamily="@font/elicedigitalbaseum_regular"
             android:hint="비밀번호를 다시 입력하세요"
             android:inputType="textPassword"
             android:paddingLeft="5sp"
@@ -127,8 +136,10 @@
             android:id="@+id/signup_major_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
+            android:layout_marginStart="50dp"
+            android:layout_marginLeft="50dp"
             android:layout_marginTop="10dp"
+            android:fontFamily="@font/elicedigitalbaseum_regular"
             android:text="MAJOR"
             android:textColor="@color/black" />
 
@@ -166,7 +177,9 @@
               android:layout_width="wrap_content"
               android:layout_height="wrap_content"
               android:layout_gravity="center"
-              android:layout_marginLeft="30dp"
+              android:layout_marginStart="50dp"
+              android:layout_marginLeft="50dp"
+              android:fontFamily="@font/elicedigitalbaseum_regular"
               android:text="개인정보 수집 동의"
               android:textColor="@color/black"
               android:textSize="15dp" />

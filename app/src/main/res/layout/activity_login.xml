@@ -49,7 +49,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="30dp"
-                    android:layout_marginTop="180sp"
+                    android:layout_marginTop="165sp"
                     android:text="SIGN IN"
                     android:textColor="#2B2DEF"
                     android:textSize="40dp"
@@ -59,10 +59,13 @@
                     android:id="@+id/login_id_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="30dp"
+                    android:layout_marginStart="50sp"
+                    android:layout_marginLeft="50sp"
                     android:layout_marginTop="10sp"
+                    android:fontFamily="@font/elicedigitalbaseum_regular"
                     android:text="ID"
-                    android:textColor="@color/black" />
+                    android:textColor="@color/black"
+                    android:textSize="15sp" />
 
                 <EditText
                     android:id="@+id/login_id_edit"
@@ -80,10 +83,13 @@
                     android:id="@+id/login_pwd_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="30dp"
+                    android:layout_marginStart="50sp"
+                    android:layout_marginLeft="50sp"
                     android:layout_marginTop="10dp"
+                    android:fontFamily="@font/elicedigitalbaseum_regular"
                     android:text="PASSWORD"
-                    android:textColor="@color/black" />
+                    android:textColor="@color/black"
+                    android:textSize="15sp" />
 
                 <EditText
                     android:id="@+id/login_pwd_edit"
