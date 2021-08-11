@@ -54,6 +54,7 @@ public class KeywordSettingActivity extends AppCompatActivity {
 
     private BottomNavigationView bottomNavigationView;
 
+//    키워드 이외의 곳을 클릭하면 키보드가 내려가도록
     @Override
     public boolean dispatchTouchEvent(MotionEvent ev) {
         View focusView = getCurrentFocus();
