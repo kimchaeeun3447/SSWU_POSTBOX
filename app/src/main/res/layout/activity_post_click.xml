@@ -97,7 +97,7 @@
             android:contentDescription="@string/save_btn"
             android:gravity="right"
             android:scaleType="fitCenter"
-            android:src="@drawable/save_btn" />
+            android:src="@drawable/suryong_icon" />
 
         <ImageButton
             android:id="@+id/webview_share_btn"

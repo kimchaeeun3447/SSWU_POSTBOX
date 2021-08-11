@@ -39,7 +39,7 @@
                 android:layout_height="170dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginLeft="10dp"
-                android:src="@drawable/main_suryong_hat" />
+                android:src="@drawable/home_hat" />
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
