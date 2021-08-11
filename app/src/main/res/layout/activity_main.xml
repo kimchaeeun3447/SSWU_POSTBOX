@@ -41,7 +41,7 @@
         android:layout_gravity="center"
         android:scaleType="fitCenter"
 
-        android:src="@drawable/main_logo"
+        android:src="@drawable/main_suryong"
         android:visibility="visible" />
 
     <TextView

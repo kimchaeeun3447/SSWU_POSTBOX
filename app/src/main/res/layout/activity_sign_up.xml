@@ -210,7 +210,7 @@
             android:layout_height="45dp"
             android:layout_gravity="center"
             android:layout_marginTop="20dp"
-            android:src="@drawable/login_logo" />
+            android:src="@drawable/suryong_icon" />
 
       </LinearLayout>
 
