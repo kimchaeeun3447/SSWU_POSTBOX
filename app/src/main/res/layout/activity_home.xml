@@ -136,7 +136,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="200sp"
+            android:layout_height="300sp"
             android:layout_marginTop="280dp"
             android:orientation="vertical">
 
@@ -176,7 +176,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="200sp"
+                android:layout_height="300sp"
                 android:orientation="horizontal">
 
                 <ListView
@@ -192,7 +192,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="500sp"
+            android:layout_marginTop="600sp"
             android:orientation="vertical">
 
             <TextView

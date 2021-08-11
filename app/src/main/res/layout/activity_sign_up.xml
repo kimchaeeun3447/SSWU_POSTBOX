@@ -48,7 +48,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="30dp"
-            android:layout_marginTop="115sp"
+            android:layout_marginTop="80sp"
             android:text="SIGN UP"
             android:textColor="#2B2DEF"
             android:textSize="40dp"
