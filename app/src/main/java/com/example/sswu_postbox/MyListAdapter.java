@@ -68,7 +68,7 @@ public class MyListAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
-        View view = layoutInflater.inflate(R.layout.post_listview_layout, null);
+        View view = layoutInflater.inflate(R.layout.post_listview_layout2, null);
 
 
         TextView contents_postTitle = view.findViewById(R.id.contents_postTitle);
@@ -123,7 +123,7 @@ public class MyListAdapter extends BaseAdapter {
         });
 
 
-        // 공유 버튼
+        /* 공유 버튼
         post_share_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -137,7 +137,7 @@ public class MyListAdapter extends BaseAdapter {
                 context.startActivity(Sharing);
             }
         });
-
+    */
 
         return view;
     }
