@@ -48,7 +48,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="30dp"
-            android:layout_marginTop="80sp"
+            android:fontFamily="@font/elicedigitalbaseum_bold"
+            android:layout_marginTop="90sp"
             android:text="SIGN UP"
             android:textColor="#2B2DEF"
             android:textSize="40dp"
@@ -58,11 +59,11 @@
             android:id="@+id/signup_id_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="50dp"
-            android:layout_marginLeft="50dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginLeft="40dp"
             android:layout_marginTop="10sp"
-            android:fontFamily="@font/elicedigitalbaseum_regular"
-            android:text="ID"
+            android:fontFamily="@font/elicedigitalbaseum_bold"
+            android:text="아이디"
             android:textColor="@color/black" />
 
         <EditText
@@ -70,6 +71,7 @@
             android:layout_width="320sp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:layout_marginTop="3dp"
             android:background="@drawable/edittext_background"
             android:ems="10"
             android:fontFamily="@font/elicedigitalbaseum_regular"
@@ -84,11 +86,11 @@
             android:id="@+id/signup_pwd_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="50dp"
-            android:layout_marginLeft="50dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginLeft="40dp"
             android:layout_marginTop="10dp"
-            android:fontFamily="@font/elicedigitalbaseum_regular"
-            android:text="PASSWORD"
+            android:fontFamily="@font/elicedigitalbaseum_bold"
+            android:text="비밀번호"
             android:textColor="@color/black" />
 
         <EditText
@@ -100,6 +102,7 @@
             android:ems="10"
             android:fontFamily="@font/elicedigitalbaseum_regular"
             android:hint="8글자 이상을 입력하세요"
+            android:layout_marginTop="3dp"
             android:inputType="textPassword"
             android:paddingLeft="5sp"
             android:textColor="#000000"
@@ -110,11 +113,11 @@
             android:id="@+id/signup_pwd2_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="50dp"
-            android:layout_marginLeft="50dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginLeft="40dp"
             android:layout_marginTop="10dp"
-            android:fontFamily="@font/elicedigitalbaseum_regular"
-            android:text="PASSWORD CHECK"
+            android:fontFamily="@font/elicedigitalbaseum_bold"
+            android:text="비밀번호 확인"
             android:textColor="@color/black" />
 
         <EditText
@@ -128,6 +131,7 @@
             android:hint="비밀번호를 다시 입력하세요"
             android:inputType="textPassword"
             android:paddingLeft="5sp"
+            android:layout_marginTop="3dp"
             android:textColor="#000000"
             android:textColorHint="#808080"
             android:textSize="15dp" />
@@ -136,11 +140,11 @@
             android:id="@+id/signup_major_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="50dp"
-            android:layout_marginLeft="50dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginLeft="40dp"
             android:layout_marginTop="10dp"
-            android:fontFamily="@font/elicedigitalbaseum_regular"
-            android:text="MAJOR"
+            android:fontFamily="@font/elicedigitalbaseum_bold"
+            android:text="전공"
             android:textColor="@color/black" />
 
         <Spinner
@@ -150,47 +154,10 @@
             android:layout_gravity="center"
             android:background="@drawable/spinner_background"
             android:entries="@array/spinner_entries"
+            android:layout_marginTop="3dp"
             android:spinnerMode="dropdown" />
 
-        <!--
-      <EditText
-          android:id="@+id/signup_major_edit"
-          android:layout_width="350dp"
-          android:layout_height="wrap_content"
-          android:layout_gravity="center"
-          android:background="@drawable/edittext_background"
-          android:ems="10"
-          android:inputType="textPersonName"
-          android:hint="전공을 입력하세요"
-          android:textColorHint="#808080"
-          android:textSize="15dp"
-          android:textColor="#000000"/> -->
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:orientation="horizontal">
-
-          <TextView
-              android:id="@+id/info_agree_text"
-              android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:layout_gravity="center"
-              android:layout_marginStart="50dp"
-              android:layout_marginLeft="50dp"
-              android:fontFamily="@font/elicedigitalbaseum_regular"
-              android:text="개인정보 수집 동의"
-              android:textColor="@color/black"
-              android:textSize="15dp" />
-
-          <CheckBox
-              android:id="@+id/info_agree_checkBox"
-              android:layout_width="32dp"
-              android:layout_height="match_parent"
-              android:gravity="center" />
-
-        </LinearLayout>
 
 
         <Button
@@ -198,10 +165,11 @@
             android:layout_width="320sp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="25dp"
             android:background="#3B4CF6"
             android:elevation="10dp"
             android:text="SIGN UP"
+            android:fontFamily="@font/elicedigitalbaseum_bold"
             android:textSize="15dp"
             app:backgroundTint="#3B4CF6" />
 

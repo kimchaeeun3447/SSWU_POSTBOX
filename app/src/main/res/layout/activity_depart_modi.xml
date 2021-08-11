@@ -73,32 +73,33 @@
                 android:id="@+id/id1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
+                android:layout_marginLeft="50dp"
                 android:layout_marginTop="180dp"
                 android:fontFamily="@font/elicedigitalbaseum_bold"
                 android:text="현재 학과"
                 android:textColor="@color/black" />
 
+
             <TextView
                 android:id="@+id/before_major"
-                android:layout_width="350dp"
-                android:layout_height="50dp"
+                android:layout_width="320sp"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:background="@drawable/edittext_background"
                 android:ems="10"
                 android:enabled="false"
                 android:fontFamily="@font/elicedigitalbaseum_regular"
-                android:paddingLeft="10dp"
-                android:text="00 과"
                 android:gravity="center_vertical"
+                android:paddingLeft="10dp"
+                android:layout_marginTop="5dp"
+                android:text="00 과"
                 android:textColor="#000000" />
-
 
             <TextView
                 android:id="@+id/id2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
+                android:layout_marginLeft="50dp"
                 android:layout_marginTop="20dp"
                 android:fontFamily="@font/elicedigitalbaseum_bold"
                 android:text="변경할 학과"
@@ -106,16 +107,17 @@
 
             <Spinner
                 android:id="@+id/after_major"
-                android:layout_width="350dp"
+                android:layout_width="320sp"
                 android:layout_height="50dp"
                 android:layout_gravity="center"
                 android:background="@drawable/spinner_background"
                 android:entries="@array/spinner_entries"
+                android:layout_marginTop="5dp"
                 android:spinnerMode="dropdown" />
 
             <Button
                 android:id="@+id/modi_button"
-                android:layout_width="350dp"
+                android:layout_width="320sp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="30dp"
