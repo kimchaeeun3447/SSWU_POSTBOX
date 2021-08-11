@@ -128,7 +128,7 @@
         </LinearLayout>
 
         <View
-            android:layout_width="310dp"
+            android:layout_width="368dp"
             android:layout_height="1dp"
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
@@ -151,9 +151,11 @@
             tools:ignore="OnClick" />
 
         <View
-            android:layout_width="match_parent"
+            android:layout_width="368dp"
             android:layout_height="1dp"
             android:layout_gravity="center"
+            android:layout_marginLeft="23dp"
+            android:layout_marginRight="23dp"
             android:background="#3E707070" />
 
         <Switch
@@ -171,9 +173,11 @@
             android:thumbTint="@color/crystal_blue" />
 
         <View
-            android:layout_width="match_parent"
+            android:layout_width="368dp"
             android:layout_height="1dp"
             android:layout_gravity="center"
+            android:layout_marginLeft="23dp"
+            android:layout_marginRight="23dp"
             android:background="#3E707070" />
 
         <Button
@@ -190,9 +194,11 @@
             android:textColor="@color/black" />
 
         <View
-            android:layout_width="match_parent"
+            android:layout_width="368dp"
             android:layout_height="1dp"
             android:layout_gravity="center"
+            android:layout_marginLeft="23dp"
+            android:layout_marginRight="23dp"
             android:background="#3E707070" />
 
         <Button
