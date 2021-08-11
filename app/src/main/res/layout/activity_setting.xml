@@ -233,7 +233,7 @@
             android:layout_gravity="center"
             android:layout_marginTop="20dp"
             android:contentDescription="@string/small_suryong"
-            android:src="@drawable/small_suryoung_logo"></ImageView>
+            android:src="@drawable/suryong_icon"></ImageView>
 
     </LinearLayout>
 
