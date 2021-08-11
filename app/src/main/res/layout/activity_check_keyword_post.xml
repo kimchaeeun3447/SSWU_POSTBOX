@@ -108,7 +108,7 @@
     <GridView
         android:id="@+id/my_keyword_list2"
         android:layout_width="0dp"
-        android:layout_height="180dp"
+        android:layout_height="150sp"
         android:layout_marginStart="25dp"
         android:layout_marginLeft="25dp"
         android:layout_marginTop="8dp"
@@ -122,20 +122,80 @@
         app:layout_constraintTop_toBottomOf="@id/my_keyword_list_title2"
         tools:ignore="MissingConstraints" />
 
+    <!--공지사항 검색-->
+    <TextView
+        android:id="@+id/post_searching_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="10sp"
+        android:layout_marginBottom="8dp"
+        android:fontFamily="@font/elicedigitalbaseum_bold"
+        android:text="공지사항 검색하기"
+        android:textColor="@color/black"
+        android:textSize="15dp"
+        app:backgroundTint="@color/crystal_blue"
+        app:layout_constraintBottom_toTopOf="@+id/post_searching"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/my_keyword_list2" />
+
+    <com.example.sswu_postbox.ClearEditText
+        android:id="@+id/post_searching"
+        android:layout_width="0dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginRight="5dp"
+        android:background="@drawable/keyword_search"
+        android:hint="찾고싶은 공지사항을 입력하세요"
+        android:inputType="text"
+        android:paddingLeft="13dp"
+        android:paddingRight="13dp"
+        android:textColor="#000000"
+        android:textColorHint="@color/black"
+        android:textSize="10dp"
+        app:layout_constraintEnd_toStartOf="@+id/post_searching_btn"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/post_searching_btn"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/post_searching_title" />
+
+    <Button
+        android:id="@+id/post_searching_btn"
+        android:layout_width="70dp"
+        android:layout_height="35dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/click_btn"
+        android:fontFamily="@font/elicedigitalbaseum_regular"
+        android:text="검색"
+        android:textColor="@color/white"
+        android:textSize="11dp"
+        android:textStyle="bold"
+        app:backgroundTint="@color/crystal_blue"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/post_searching"
+        app:layout_constraintTop_toTopOf="@id/post_searching" />
+
+
     <!--공지사항-->
     <TextView
         android:id="@+id/announcement_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="25dp"
-        android:layout_marginLeft="25dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginStart="25sp"
+        android:layout_marginLeft="25sp"
+        android:layout_marginTop="10sp"
         android:fontFamily="@font/elicedigitalbaseum_bold"
         android:text="공지사항"
         android:textColor="@color/black"
         android:textSize="15dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/my_keyword_list2"
+        app:layout_constraintTop_toBottomOf="@id/post_searching"
         tools:layout_constraintLeft_toLeftOf="parent" />
 
     <ListView
@@ -143,7 +203,7 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="8dp"
-        android:dividerHeight="5dp"
+        android:dividerHeight="7dp"
         android:divider="#ffffff"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
