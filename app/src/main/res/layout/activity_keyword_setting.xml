@@ -128,7 +128,7 @@
                 android:fontFamily="@font/elicedigitalbaseum_regular"
                 android:text="검색"
                 android:textColor="@color/white"
-                android:textSize="11dp"
+                android:textSize="10dp"
                 android:textStyle="bold"
                 app:backgroundTint="@color/crystal_blue"
                 app:layout_constraintEnd_toEndOf="parent"
