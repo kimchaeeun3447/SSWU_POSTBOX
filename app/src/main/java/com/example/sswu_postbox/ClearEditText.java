@@ -45,7 +45,7 @@ public class ClearEditText extends AppCompatEditText
     }
     @Override public void onFocusChange(final View view, final boolean hasFocus) {
         if (hasFocus) {
-            setClearIconVisible(getText().length() > 0);
+            setClearIconVisible(getText().length() >= 0);
         } else {
             setClearIconVisible(false);
         } if (onFocusChangeListener != null) {
@@ -68,7 +68,7 @@ public class ClearEditText extends AppCompatEditText
     }
     @Override public final void onTextChanged(final CharSequence s, final int start, final int before, final int count) {
         if (isFocused()) {
-            setClearIconVisible(s.length() > 0);
+            setClearIconVisible(s.length() >= 0);
         }
     }
     @Override public void beforeTextChanged(CharSequence s, int start, int count, int after) {
