@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.ImageButton;
 import android.widget.ListView;
@@ -39,6 +40,9 @@ import java.util.Map;
 
 public class CheckKeywordPostActivity extends AppCompatActivity {
     String TAG = CheckKeywordPostActivity.class.getSimpleName();
+
+    EditText notice_search_text;
+    Button notice_search_btn;
 
     GridView my_keyword_list;
     MyGridAdapter gridAdapter;
@@ -113,6 +117,13 @@ public class CheckKeywordPostActivity extends AppCompatActivity {
             }
         });
 
+        notice_search_btn = findViewById(R.id.post_searching_btn);
+        notice_search_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                notice_search();
+            }
+        });
 
 
         bottomNavigationView = findViewById(R.id.bottomNavigationView);
@@ -270,6 +281,65 @@ public class CheckKeywordPostActivity extends AppCompatActivity {
                     public void onErrorResponse(VolleyError error) {
                         error.printStackTrace();
                         Log.d(TAG, "공지사항 첫 페이지 로딩 실패");
+                    }
+                }) {
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                return give_token(token);
+            }
+        };
+
+        RequestQueue queue = Volley.newRequestQueue(this);
+        queue.add(request);
+    }
+
+    void notice_search() {
+        notice_search_text = findViewById(R.id.post_searching);
+        String keyword = notice_search_text.getText().toString();
+
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        String token = sharedPreferences.getString("access_token", "null");
+
+        String search_url = "http://3.37.68.242:8000/userNotice/?search=" + keyword;
+
+        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET,
+                search_url,
+                null,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        post_title.clear();
+                        post_date.clear();
+                        post_url.clear();
+                        post_saved.clear();
+
+                        try {
+                            JSONArray results = response.getJSONArray("results");
+
+                            for (int i = 0; i < results.length(); i++) {
+                                try {
+                                    JSONObject notice = results.getJSONObject(i).getJSONObject("notice");
+                                    post_title.add(notice.getString("title"));
+                                    post_date.add(notice.getString("date"));
+                                    post_url.add(notice.getString("url"));
+
+                                    JSONObject user_notice = results.getJSONObject(i);
+                                    post_saved.add(user_notice.getBoolean("store"));
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+                                }
+                            }
+                            myListAdapter.notifyDataSetChanged();
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        error.printStackTrace();
+                        Log.d(TAG, "user notice search fail");
                     }
                 }) {
             @Override
