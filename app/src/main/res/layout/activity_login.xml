@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/login_background_picture"
+    android:background="@drawable/login_background_bottom"
     tools:context=".LoginActivity">
 
 
@@ -65,7 +65,7 @@
                     android:fontFamily="@font/elicedigitalbaseum_regular"
                     android:text="ID"
                     android:textColor="@color/black"
-                    android:textSize="15sp"/>
+                    android:textSize="15sp" />
 
                 <EditText
                     android:id="@+id/login_id_edit"
@@ -85,11 +85,11 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="50sp"
                     android:layout_marginLeft="50sp"
-                    android:fontFamily="@font/elicedigitalbaseum_regular"
                     android:layout_marginTop="10dp"
+                    android:fontFamily="@font/elicedigitalbaseum_regular"
                     android:text="PASSWORD"
                     android:textColor="@color/black"
-                    android:textSize="15sp"/>
+                    android:textSize="15sp" />
 
                 <EditText
                     android:id="@+id/login_pwd_edit"
