@@ -20,7 +20,7 @@
         android:layout_marginRight="10dp"
         android:fontFamily="@font/elicedigitalbaseum_bold"
         android:textColor="@color/black"
-        android:textSize="15sp"
+        android:textSize="10pt"
         android:textStyle="bold"
         app:layout_constraintRight_toLeftOf="@id/activity_post_click_close_btn"
         app:layout_constraintStart_toStartOf="parent"
@@ -92,22 +92,23 @@
             android:id="@+id/webview_save_btn"
             android:layout_width="30dp"
             android:layout_height="32dp"
-            android:layout_marginTop="3dp"
-            android:background="@android:color/transparent"
+            android:background="@drawable/save_btn_click_unclink"
             android:contentDescription="@string/save_btn"
             android:gravity="right"
             android:scaleType="fitCenter"
-            android:src="@drawable/suryong_icon" />
+            />
 
         <ImageButton
             android:id="@+id/webview_share_btn"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
-            android:background="@android:color/transparent"
+            android:layout_width="28dp"
+            android:layout_height="20dp"
+            android:scaleType="center"
+            android:background="@drawable/mail_icon"
             android:contentDescription="@string/share_btn"
             android:gravity="end"
-            android:scaleType="fitCenter"
-            android:src="@drawable/share_btn" />
+            android:layout_marginLeft="3dp"
+            android:layout_gravity="center"
+            />
 
     </LinearLayout>
 

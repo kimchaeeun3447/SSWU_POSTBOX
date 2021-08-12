@@ -96,6 +96,7 @@ public class MyListAdapter extends BaseAdapter {
                 intent.putExtra("webView_title", titleText);
                 intent.putExtra("webView_date", dateText);
                 intent.putExtra("url", url);
+                intent.putExtra("store_state", post_saved.get(position));
                 context.startActivity(intent);
             }
         });
