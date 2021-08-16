@@ -5,28 +5,28 @@
 
     <item
         android:id="@+id/all_posts_btn"
-        android:icon="@drawable/notification_btn"
+        android:icon="@drawable/noti_btn_big"
         app:showAsAction="always"
         android:enabled="true"
         android:title="" />
 
     <item
         android:id="@+id/locker_btn"
-        android:icon="@drawable/locker_btn"
+        android:icon="@drawable/store_btn_big"
         app:showAsAction="always"
         android:enabled="true"
         android:title="" />
 
     <item
         android:id="@+id/home_btn"
-        android:icon="@drawable/home_btn"
+        android:icon="@drawable/home_bottom"
         app:showAsAction="always"
         android:enabled="true"
         android:title="" />
 
     <item
         android:id="@+id/setting_btn"
-        android:icon="@drawable/setting_btn"
+        android:icon="@drawable/setting_btn_big"
         app:showAsAction="always"
         android:enabled="true"
         android:title="" />
