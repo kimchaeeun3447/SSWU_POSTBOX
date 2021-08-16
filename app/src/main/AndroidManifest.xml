@@ -6,9 +6,9 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:icon="@mipmap/ic_launcher_postbox_2"
+        android:label="수룡이의 우편함"
+        android:roundIcon="@mipmap/ic_launcher_postbox_2_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SSWU_POSTBOX"
         android:usesCleartextTraffic="true"
