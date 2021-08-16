@@ -226,6 +226,11 @@ public class KeywordSettingActivity extends AppCompatActivity {
 
         keyword_del_text = findViewById(R.id.keyword_delete);
 
+        if (!gridAdapter.user_keyword_list.contains(keyword_del_text.getText().toString())) {
+            Toast.makeText(getApplicationContext(), "존재하지 않는 키워드입니다.", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
         String url = "http://3.37.68.242:8000/detail/keywords/?keyword=" + keyword_del_text.getText().toString();
 
         StringRequest stringRequest = new StringRequest(Request.Method.DELETE,
