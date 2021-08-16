@@ -20,14 +20,16 @@
         android:gravity="center"
         android:text="수 정 이 를  위 한  학 교  홈 페 이 지  알 림"
         android:textColor="#000000"
+        android:layout_marginTop="30dp"
         android:textSize="9pt" />
 
     <ImageView
         android:id="@+id/mailbox"
         android:layout_width="300dp"
-        android:layout_height="wrap_content"
+        android:layout_height="100dp"
+        android:scaleType="fitXY"
         android:layout_gravity="center"
-        android:src="@drawable/mailbox" />
+        android:src="@drawable/main_wordlogo" />
 
     <TextView
         android:layout_width="match_parent"
