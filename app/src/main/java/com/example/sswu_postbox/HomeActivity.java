@@ -46,9 +46,6 @@ public class HomeActivity extends AppCompatActivity {
 
     TextView unread_count;
 
-    ArrayList<String> major = new ArrayList<String>() {};
-
-
     String user_major, user_major2, user_major3;
     String user_major_url;
 
@@ -270,6 +267,7 @@ public class HomeActivity extends AppCompatActivity {
     };
 
     void notice_list_post() {
+        // 유저별 공지사항 업데이트(앱에 들어올때마다 업데이트)
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         String token = sharedPreferences.getString("access_token", "null");
 
@@ -303,6 +301,7 @@ public class HomeActivity extends AppCompatActivity {
 
 
     void notice_list() {
+        // 유저별 공지사항 response 의 첫 페이지 가져오기
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         String token = sharedPreferences.getString("access_token", "null");
 
@@ -352,9 +351,11 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     void notice_list_add(int count) {
+        // 유저별 공지사항 response 의 두번째 페이지 이후  (공지사항 더보기)
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         String token = sharedPreferences.getString("access_token", "null");
 
+        // 한 페이지당 100개의 Object 가 response 에 담겨져 옴
         if (count <= (total_count / 100) + 1) {
             String url = "http://3.37.68.242:8000/userNotice/?page=" + count;
 
@@ -405,6 +406,7 @@ public class HomeActivity extends AppCompatActivity {
 
 
     public void user_major() {
+        // 현재 로그인한 사용자의 전공 가져오기
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         String token = sharedPreferences.getString("access_token", "null");
 
@@ -458,6 +460,7 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     void unread_count() {
+        // 읽지 않은 공지사항의 개수 가져오기
         unread_count = findViewById(R.id.unread_count);
 
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());

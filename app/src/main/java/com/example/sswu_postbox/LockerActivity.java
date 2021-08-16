@@ -143,6 +143,7 @@ public class LockerActivity extends AppCompatActivity {
     }
 
     void keyword_list() {
+        // 현재 로그인한 사용자의 키워드 목록 가져오기
         String TAG = KeywordSettingActivity.class.getSimpleName();
 
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
@@ -184,6 +185,7 @@ public class LockerActivity extends AppCompatActivity {
     }
 
     void notice_list() {
+        // 보관된 공지사항 목록 가져오기
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         String token = sharedPreferences.getString("access_token", "null");
 
@@ -230,6 +232,7 @@ public class LockerActivity extends AppCompatActivity {
     }
 
     void keyword_search() {
+        // 키워드 검색하기
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         String token = sharedPreferences.getString("access_token", "null");
 
@@ -279,6 +282,7 @@ public class LockerActivity extends AppCompatActivity {
             }
         };
 
+        // 검색한 키워드에 따라 해당 키워드가 제목이 들어간 공지사항도 함께 검색
         String search_url = "http://3.37.68.242:8000/stored/notice/?search=" + keyword;
 
         JsonArrayRequest request1 = new JsonArrayRequest(Request.Method.GET,

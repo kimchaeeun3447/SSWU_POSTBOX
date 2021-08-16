@@ -17,6 +17,7 @@ import com.google.firebase.messaging.RemoteMessage;
 import org.jetbrains.annotations.NotNull;
 
 public class MyFirebaseMessagingService extends FirebaseMessagingService {
+    // FCM notification 을 사용하기 위한 class
     String TAG = MyFirebaseMessagingService.class.getSimpleName();
 
     @Override
@@ -39,6 +40,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         int uniId = (int) System.currentTimeMillis() / 7;
         NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
 
+        // channel 구분할 필요가 없어 하나로 통일
         String channelId = "my_channel";
         CharSequence channelName = "my channel";
         int importance = NotificationManager.IMPORTANCE_DEFAULT;
@@ -51,6 +53,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         Intent intent = new Intent(this, LoginActivity.class);
         PendingIntent pendingIntent = PendingIntent.getActivity(this, uniId, intent, PendingIntent.FLAG_ONE_SHOT);
 
+        // 상단바 알림의 모양 결정
         NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(this, channelId)
                 .setContentTitle(remoteMessage.getData().get("title"))
                 .setContentText(remoteMessage.getData().get("body"))

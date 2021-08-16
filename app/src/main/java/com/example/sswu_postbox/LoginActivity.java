@@ -114,6 +114,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     void login() {
+        // 로그인하고 jwt token 받아서 저장하기
         String url = "http://3.37.68.242:8000/login/";
 
         id = findViewById(R.id.login_id_edit);

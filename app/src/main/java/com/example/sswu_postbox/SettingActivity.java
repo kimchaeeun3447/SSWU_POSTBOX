@@ -43,8 +43,6 @@ public class SettingActivity extends AppCompatActivity {
     public static Context CONTEXT;
 
     private BottomNavigationView bottomNavigationView;
-    Switch notice;
-    String shared = "file";
 
     //  설정 창 새로고침
     public void reload() {
@@ -145,6 +143,7 @@ public class SettingActivity extends AppCompatActivity {
     }
 
     void get_user_info() {
+        // 현재 로그인한 사용자의 전공, 아이디 가져오기
         username = findViewById(R.id.userName);
         major = findViewById(R.id.department);
 

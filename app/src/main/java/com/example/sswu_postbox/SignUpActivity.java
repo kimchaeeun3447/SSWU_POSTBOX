@@ -37,8 +37,6 @@ public class SignUpActivity extends AppCompatActivity {
     Button sign_up;
 
     Spinner major;
-    SpinnerAdapter spinnerAdapter;
-    ArrayList<String> spinnerList = new ArrayList<>();
     String selectedMajor;
 
     @Override
@@ -102,6 +100,7 @@ public class SignUpActivity extends AppCompatActivity {
     }
 
     void sign_up() {
+        // 회원가입
         String url = "http://3.37.68.242:8000/users/";
 
         id = findViewById(R.id.signup_id_edit);

@@ -182,6 +182,7 @@ public class CheckKeywordPostActivity extends AppCompatActivity {
     }
 
     void keyword_list() {
+        // 유저별 키워드 목록 가져오기
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         String token = sharedPreferences.getString("access_token", "null");
 
@@ -221,9 +222,11 @@ public class CheckKeywordPostActivity extends AppCompatActivity {
     }
 
     void notice_list_add(int count) {
+        // 유저별 공지사항 response 의 두번째 페이지 이후 가져오기 (공지사항 더보기)
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         String token = sharedPreferences.getString("access_token", "null");
 
+        // 한 페이지당 100개의 Object 가 response 에 담겨져 옴
         if (count <= (total_count / 100) + 1) {
             String url = "http://3.37.68.242:8000/userNotice/?page=" + count;
 
@@ -273,6 +276,7 @@ public class CheckKeywordPostActivity extends AppCompatActivity {
     }
 
     void notice_list() {
+        // 유저별 공지사항 response 의 첫 페이지 가져오기
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         String token = sharedPreferences.getString("access_token", "null");
 
@@ -322,6 +326,7 @@ public class CheckKeywordPostActivity extends AppCompatActivity {
     }
 
     void notice_search() {
+        // 공지사항 제목으로 검색
         notice_search_text = findViewById(R.id.post_searching);
         String keyword = notice_search_text.getText().toString();
 
@@ -381,6 +386,7 @@ public class CheckKeywordPostActivity extends AppCompatActivity {
     }
 
     Map<String, String> give_token(String token) {
+        // Request Header 에 token 을 주기 위한 함수
         HashMap<String, String> headers = new HashMap<>();
         headers.put("Authorization", "Bearer " + token);
 

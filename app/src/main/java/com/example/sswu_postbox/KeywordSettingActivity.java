@@ -145,6 +145,7 @@ public class KeywordSettingActivity extends AppCompatActivity {
     }
 
     void keyword_add() {
+        // 키워드 추가하기
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         String token = sharedPreferences.getString("access_token", "null");
 
@@ -219,6 +220,7 @@ public class KeywordSettingActivity extends AppCompatActivity {
     }
 
     void keyword_del() {
+        // 키워드 삭제하기
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         String token = sharedPreferences.getString("access_token", "null");
 
@@ -241,6 +243,7 @@ public class KeywordSettingActivity extends AppCompatActivity {
                             String encoding_keyword = URLEncoder.encode(keyword_del_text.getText().toString(), "UTF-8");
                             Log.d(TAG, "keyword " + encoding_keyword);
 
+                            // 더 이상 해당 주제를 구독할 필요가 없으므로 구독 해제
                             FirebaseMessaging.getInstance().unsubscribeFromTopic(encoding_keyword)
                                     .addOnCompleteListener( task -> {
                                         if (task.isComplete()) Log.d(TAG, "구독 해제 성공");
@@ -273,6 +276,7 @@ public class KeywordSettingActivity extends AppCompatActivity {
     }
 
     void keyword_list() {
+        // 로그인한 사용자의 키워드 목록 가져오기
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         String token = sharedPreferences.getString("access_token", "null");
 
@@ -312,6 +316,7 @@ public class KeywordSettingActivity extends AppCompatActivity {
     }
 
     void keyword_search() {
+        // 키워드 검색하기
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         String token = sharedPreferences.getString("access_token", "null");
 
@@ -373,6 +378,7 @@ public class KeywordSettingActivity extends AppCompatActivity {
     }
 
     void notice_del() {
+        // 키워드 삭제 시 해당 키워드가 제목에 들어간 유저 별 공지사항도 함께 삭제
         keyword_del_text = findViewById(R.id.keyword_delete);
 
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());

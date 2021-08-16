@@ -74,6 +74,7 @@ public class DepartModiActivity extends AppCompatActivity {
     }
 
     void get_current_major() {
+        // 현재 주전공 가져오기
         current_major = findViewById(R.id.before_major);
 
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
@@ -113,8 +114,9 @@ public class DepartModiActivity extends AppCompatActivity {
         queue.add(request);
     }
 
-    //  학과 수정
+
     void modify() {
+        // 학과 수정
         selectedMajor = after_major.getSelectedItem().toString();
 
         HashMap<String, String> major_json = new HashMap<>();
@@ -154,6 +156,7 @@ public class DepartModiActivity extends AppCompatActivity {
     }
 
     Map<String, String> give_token(String token) {
+        // Request Header 에 token 을 주기 위한 함수
         HashMap<String, String> headers = new HashMap<>();
         headers.put("Authorization", "Bearer " + token);
 

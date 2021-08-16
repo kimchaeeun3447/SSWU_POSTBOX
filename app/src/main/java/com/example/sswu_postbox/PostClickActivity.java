@@ -22,12 +22,9 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 
-import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.HashMap;
@@ -53,8 +50,6 @@ public class PostClickActivity extends AppCompatActivity {
         String dateText = intent.getStringExtra("webView_date");
         Boolean store_state = intent.getBooleanExtra("store_state", false);
         String url = intent.getStringExtra("url");
-
-        //TextView webView_keyword = findViewById(R.id.webview_keyword);
 
         webView_title = findViewById(R.id.webview_title);
         webView_title.setText(titleText);
@@ -112,6 +107,7 @@ public class PostClickActivity extends AppCompatActivity {
     }
 
     void store_modify(String title, boolean state) {
+        // 보관, 보관 취소
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         String token = sharedPreferences.getString("access_token", "null");
 

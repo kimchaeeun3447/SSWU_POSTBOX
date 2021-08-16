@@ -144,6 +144,7 @@ public class MyListAdapter extends BaseAdapter {
     }
 
     void store_modify(String title, boolean state) {
+        // 보관, 보관 취소
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context.getApplicationContext());
         String token = sharedPreferences.getString("access_token", "null");
 
@@ -183,6 +184,7 @@ public class MyListAdapter extends BaseAdapter {
     }
 
     void read_modify(String title) {
+        // 읽음 상태 수정 (클릭 이벤트 시 읽음으로 취급)
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context.getApplicationContext());
         String token = sharedPreferences.getString("access_token", "null");
 
@@ -218,45 +220,6 @@ public class MyListAdapter extends BaseAdapter {
         RequestQueue queue = Volley.newRequestQueue(context.getApplicationContext());
         queue.add(request);
     }
-
-//    void store_state_get(String title) {
-//        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context.getApplicationContext());
-//        String token = sharedPreferences.getString("access_token", "null");
-//
-//        String url = "http://3.37.68.242:8000/userNotice/?search=" + title;
-//
-//        JsonArrayRequest request = new JsonArrayRequest(Request.Method.GET,
-//                url,
-//                null,
-//                new Response.Listener<JSONArray>() {
-//                    @Override
-//                    public void onResponse(JSONArray response) {
-//                        try {
-//                            JSONObject user_notice = response.getJSONObject(0);
-//                            boolean state = user_notice.getBoolean("store");
-//                            save_post.setSelected(state);
-//
-//                            Log.d(TAG, "보관 상태 불러오기 성공" + title + " " + state);
-//                        } catch (JSONException e) {
-//                            e.printStackTrace();
-//                        }
-//                    }
-//                },
-//                new Response.ErrorListener() {
-//                    @Override
-//                    public void onErrorResponse(VolleyError error) {
-//
-//                    }
-//                }) {
-//            @Override
-//            public Map<String, String> getHeaders() throws AuthFailureError {
-//                return give_token(token);
-//            }
-//        };
-//
-//        RequestQueue queue = Volley.newRequestQueue(context.getApplicationContext());
-//        queue.add(request);
-//    }
 
     Map<String, String> give_token(String token) {
         HashMap<String, String> headers = new HashMap<>();
