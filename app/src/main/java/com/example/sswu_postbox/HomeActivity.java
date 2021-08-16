@@ -3,9 +3,11 @@ package com.example.sswu_postbox;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.util.Log;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -15,6 +17,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -168,19 +171,30 @@ public class HomeActivity extends AppCompatActivity {
 
 
         bottomNavigationView = findViewById(R.id.bottomNavigationView);
+
+        Menu menu = bottomNavigationView.getMenu();
+        bottomNavigationView.setSelectedItemId(R.id.home_btn);
+
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public boolean onNavigationItemSelected(@NonNull @NotNull MenuItem menuItem) {
 
                 switch (menuItem.getItemId()){
 
                     case R.id.all_posts_btn:
+
                         setFrag(0);
                         break;
                     case R.id.locker_btn:
                         setFrag(1);
                         break;
                     case R.id.home_btn:
+                        menuItem.setIcon(R.drawable.home_btn_big_click);
+
+                        menu.findItem(R.id.all_posts_btn).setIcon(R.drawable.noti_btn);
+                        menu.findItem(R.id.locker_btn).setIcon(R.drawable.store_btn);
+                        menu.findItem(R.id.setting_btn).setIcon(R.drawable.setting_btn);
                         setFrag(2);
                         break;
                     case R.id.setting_btn:

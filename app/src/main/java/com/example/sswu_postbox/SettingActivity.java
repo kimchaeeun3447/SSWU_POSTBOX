@@ -1,6 +1,5 @@
 package com.example.sswu_postbox;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -8,14 +7,13 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.util.Log;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.CompoundButton;
 import android.widget.ImageButton;
 import android.widget.Switch;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
@@ -115,6 +113,8 @@ public class SettingActivity extends AppCompatActivity {
         });
 
         bottomNavigationView = findViewById(R.id.bottomNavigationView);
+        Menu menu = bottomNavigationView.getMenu();
+        bottomNavigationView.setSelectedItemId(R.id.setting_btn);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull @NotNull MenuItem menuItem) {
@@ -131,6 +131,10 @@ public class SettingActivity extends AppCompatActivity {
                         setFrag(2);
                         break;
                     case R.id.setting_btn:
+                        menuItem.setIcon(R.drawable.store_btn_big_click);
+                        menu.findItem(R.id.home_btn).setIcon(R.drawable.home_btn_bttom);
+                        menu.findItem(R.id.all_posts_btn).setIcon(R.drawable. noti_btn);
+                        menu.findItem(R.id.locker_btn).setIcon(R.drawable.store_btn);
                         setFrag(3);
                         break;
                 }

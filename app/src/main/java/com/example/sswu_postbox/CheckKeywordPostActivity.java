@@ -6,6 +6,7 @@ import android.graphics.Rect;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.util.Log;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
@@ -64,6 +65,7 @@ public class CheckKeywordPostActivity extends AppCompatActivity {
     int total_count = 0;
 
     private BottomNavigationView bottomNavigationView;
+
     private FragmentManager fm;
     private FragmentTransaction ft;
 
@@ -146,6 +148,9 @@ public class CheckKeywordPostActivity extends AppCompatActivity {
 
 
         bottomNavigationView = findViewById(R.id.bottomNavigationView);
+        Menu menu = bottomNavigationView.getMenu();
+        bottomNavigationView.setSelectedItemId(R.id.all_posts_btn);
+
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull @NotNull MenuItem menuItem) {
@@ -153,6 +158,10 @@ public class CheckKeywordPostActivity extends AppCompatActivity {
                 switch (menuItem.getItemId()){
 
                     case R.id.all_posts_btn:
+                        menuItem.setIcon(R.drawable.noti_btn_big_click);
+                        menu.findItem(R.id.home_btn).setIcon(R.drawable.home_btn_bttom);
+                        menu.findItem(R.id.locker_btn).setIcon(R.drawable.store_btn);
+                        menu.findItem(R.id.setting_btn).setIcon(R.drawable.setting_btn);
                         setFrag(0);
                         break;
                     case R.id.locker_btn:

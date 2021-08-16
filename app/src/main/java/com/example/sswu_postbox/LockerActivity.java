@@ -6,6 +6,7 @@ import android.graphics.Rect;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.util.Log;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
@@ -26,7 +27,6 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
-import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -110,6 +110,9 @@ public class LockerActivity extends AppCompatActivity {
 
 
         bottomNavigationView = findViewById(R.id.bottomNavigationView);
+        Menu menu = bottomNavigationView.getMenu();
+        bottomNavigationView.setSelectedItemId(R.id.locker_btn);
+
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull @NotNull MenuItem menuItem) {
@@ -120,6 +123,10 @@ public class LockerActivity extends AppCompatActivity {
                         setFrag(0);
                         break;
                     case R.id.locker_btn:
+                        menuItem.setIcon(R.drawable.store_btn_big_click);
+                        menu.findItem(R.id.home_btn).setIcon(R.drawable.home_btn_bttom);
+                        menu.findItem(R.id.all_posts_btn).setIcon(R.drawable. noti_btn);
+                        menu.findItem(R.id.setting_btn).setIcon(R.drawable.setting_btn_click);
                         setFrag(1);
                         break;
                     case R.id.home_btn:
