@@ -29,7 +29,8 @@
             android:windowSoftInputMode="adjustPan"/>
         <activity
             android:name=".KeywordSettingActivity"
-            android:windowSoftInputMode="adjustPan" />
+            android:windowSoftInputMode="adjustPan"
+            />
         <activity
             android:name=".CheckKeywordPostActivity"
             android:windowSoftInputMode="adjustPan" />
